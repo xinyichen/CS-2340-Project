@@ -1,0 +1,6 @@
+apply plugin: 'java'
+
+dependencies {
+   compile files('resources.jar')
+   compile fileTree(dir: 'lib', include: '*.jar')
+}
