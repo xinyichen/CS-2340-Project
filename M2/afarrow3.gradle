@@ -7,7 +7,8 @@ version = '1.0'
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'afarrow3 Build File', 'Implementation-Version': version
+        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version , 'Main-Class' : 'edu.gatech.oad.antlab.pkg1.AntLabMain' ,
+         'Class-Path' : '../../lib/resources.jar'
     }
 }
 
@@ -16,5 +17,7 @@ repositories {
 }
 
 dependencies {
-	testCompile group: 'junit', name: 'junit', version: '4.+'
+	compile files('lib/resources.jar')
+    compile fileTree(dir: 'libs', include: '*.jar')
+	//testCompile group: 'junit', name: 'junit', version: '4.+'
 }
