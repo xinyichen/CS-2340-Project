@@ -33,7 +33,7 @@ public class Person5 {
 	  //Person 5 put your implementation here
 	 	if(input == null)
 	  		return null;
-		if(input.length<=2)
+		if(input.length()<=2)
 			return input;
 		else
 			return input.substring(2) + input.substring(0,2);
