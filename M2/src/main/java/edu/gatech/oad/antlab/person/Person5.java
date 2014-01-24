@@ -31,12 +31,12 @@ public class Person5 {
 	 */
 	private String calc(String input) {
 	  //Person 5 put your implementation here
-	 	if(input.isEmpty())
+	 	if(input == null)
 	  		return null;
 		if(input.length<=2)
 			return input;
 		else
-			input.substring(2) + s.substring(0,2);
+			return input.substring(2) + input.substring(0,2);
 	  
 	}
 	
