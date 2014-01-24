@@ -1,3 +1,2 @@
-Faye Yining Zhang
-902915719 
-
+Name: Faye Yining Zhang
+GT ID: 902915719
