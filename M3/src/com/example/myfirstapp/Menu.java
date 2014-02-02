@@ -1,4 +1,4 @@
-package com.team38.M3;
+package com.example.myfirstapp;
 
 import android.app.ListActivity;
 import android.content.Intent;

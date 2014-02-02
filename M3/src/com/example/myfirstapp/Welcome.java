@@ -1,6 +1,4 @@
-package com.team38.M3;
-
-import com.example.myfirstapp.R;
+package com.example.myfirstapp;
 
 import android.app.Activity;
 import android.content.Intent;
