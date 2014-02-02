@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.team38.M3.Starting"
+            android:name="com.example.myfirstapp.Starting"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         </activity>
         
         <activity
-            android:name="com.team38.M3.MainActivity"
+            android:name="com.example.myfirstapp.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.myfirstapp.MAINACTIVITY" />
@@ -34,7 +34,7 @@
         </activity>
         
 		<activity
-            android:name="com.team38.M3.Welcome"
+            android:name="com.example.myfirstapp.Welcome"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.myfirstapp.WELCOME" />
@@ -43,7 +43,7 @@
         </activity>
         
         <activity
-            android:name="com.team38.M3.Menu"
+            android:name="com.example.myfirstapp.Menu"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.myfirstapp.MENU" />
@@ -53,9 +53,9 @@
         </activity>
 
 	<activity
-        android:name="com.team38.M3.DisplayMessageActivity"
+        android:name="com.example.myfirstapp.DisplayMessageActivity"
         android:label="@string/title_activity_display_message"
-        android:parentActivityName="com.team38.M3.MainActivity" >
+        android:parentActivityName="com.example.myfirstapp.MainActivity" >
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.myfirstapp.MainActivity" />
