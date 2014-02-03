@@ -14,6 +14,7 @@
     <string name="team_name"> ( ͡° ͜ʖ ͡° ) </string>
     <string name="button_createAccount">Don\'t have an account? Click here!</string>
     <string name="button_goToLogin">Already have an account? Click here!</string>
+    <string name="login_success">Success</string>
     <color name="blue">#00FFFF</color>
     
     

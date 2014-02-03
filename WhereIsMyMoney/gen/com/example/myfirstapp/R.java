@@ -30,11 +30,13 @@ public final class R {
         public static final int luffy=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0004;
-        public static final int bCreateNewAccount=0x7f0a0003;
-        public static final int bLogin=0x7f0a0002;
-        public static final int edit_password=0x7f0a0001;
-        public static final int edit_userID=0x7f0a0000;
+        public static final int action_settings=0x7f0a0006;
+        public static final int bCreateNewAccount=0x7f0a0005;
+        public static final int bLogin=0x7f0a0004;
+        public static final int edit_password=0x7f0a0003;
+        public static final int edit_userID=0x7f0a0002;
+        public static final int textView1=0x7f0a0001;
+        public static final int textView2=0x7f0a0000;
     }
     public static final class layout {
         public static final int activity_display_message=0x7f030000;
@@ -59,6 +61,7 @@ public final class R {
         public static final int edit_message=0x7f060002;
         public static final int edit_password=0x7f060008;
         public static final int edit_userID=0x7f060007;
+        public static final int login_success=0x7f06000d;
         public static final int team_name=0x7f06000a;
         public static final int title_activity_display_message=0x7f060006;
         public static final int title_activity_main=0x7f060005;

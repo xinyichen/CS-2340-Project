@@ -1,5 +1,7 @@
 package com.example.whereismymoney;
 
+import com.example.myfirstapp.R;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,24 +17,24 @@ public class DisplayMessageActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		// Receive the intent info
-		Intent intent = getIntent();
-		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-	
-		// Create the text view
-	    TextView textView = new TextView(this);
-	    textView.setTextSize(40);
-	    textView.setText(message);
-
-	    // Set the text view as the activity layout
-	    setContentView(textView);
-
-	// Make sure we're running on Honeycomb or higher to use ActionBar APIs
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-        // Show the Up button in the action bar.
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+		setContentView(R.layout.activity_display_message);
+//		// Receive the intent info
+//		Intent intent = getIntent();
+//		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+//	
+//		// Create the text view
+//	    TextView textView = new TextView(this);
+//	    textView.setTextSize(40);
+//	    textView.setText(message);
+//
+//	    // Set the text view as the activity layout
+//	    setContentView(textView);
+//
+//	// Make sure we're running on Honeycomb or higher to use ActionBar APIs
+//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+//        // Show the Up button in the action bar.
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
+//    }
 }
 
 @Override

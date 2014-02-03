@@ -3,6 +3,7 @@ package com.example.whereismymoney;
 import com.example.myfirstapp.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 public class MainActivity extends Activity {
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 	
+	private PasswordManager passwordManager;
 	Button login;
 	Bundle a;
 	
@@ -29,13 +31,25 @@ public class MainActivity extends Activity {
 		a = savedInstanceState;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		passwordManager = new PasswordManager(this);
 		login = (Button) findViewById(R.id.bLogin);
 		
 		login.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
-				sendMessage(arg0);
+			    EditText userId = (EditText) findViewById(R.id.edit_userID);
+			    EditText password = (EditText) findViewById(R.id.edit_password);
+			    if (passwordManager.isLoginValid(userId.getText().toString(), password.getText().toString())) {
+			        sendMessage(arg0); // TODO: make proper intent here
+			    }
+			    else {
+			        // ToCheck: I just hacked MainActivity.this as the context, is it appropriate?
+			        AlertDialog loginFailAlert = new AlertDialog.Builder(MainActivity.this).create();
+			        loginFailAlert.setTitle("Login Failed");
+			        loginFailAlert.setMessage("Incorrect User Name or Password");
+			        loginFailAlert.show();
+			    }
 			}
 		});
 		//viewPager
@@ -51,9 +65,9 @@ public class MainActivity extends Activity {
 	
 	public void sendMessage(View view) {
 		Intent intent = new Intent(this, DisplayMessageActivity.class);
-		EditText editText = (EditText) findViewById(R.id.edit_userID);
-		String message = editText.getText().toString();
-		intent.putExtra(EXTRA_MESSAGE, message);
+//		EditText editText = (EditText) findViewById(R.id.edit_userID);
+//		String message = editText.getText().toString();
+//		intent.putExtra(EXTRA_MESSAGE, message);
 		startActivity(intent);
 	}
 
