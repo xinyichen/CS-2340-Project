@@ -27,7 +27,7 @@ public class Starting extends Activity {
 					e.printStackTrace();
 				}
 				finally{
-					Intent openMain = new Intent("com.example.myfirstapp.MENU");
+					Intent openMain = new Intent("com.example.myfirstapp.WELCOME");
 					startActivity(openMain);
 				}
 			}
