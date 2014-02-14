@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 			    EditText userId = (EditText) findViewById(R.id.edit_userID);
 			    EditText password = (EditText) findViewById(R.id.edit_password);
-			    if (passwordManager.isLoginValid(userId.getText().toString(), password.getText().toString())) {
+			    if (passwordManager.login(userId.getText().toString(), password.getText().toString())) {
 			        sendMessage(arg0); // TODO: make proper intent here
 			    }
 			    else {

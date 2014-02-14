@@ -1,7 +1,13 @@
 package com.example.whereismymoney;
 
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 public class PasswordManager {
     private Context myContext;
@@ -20,9 +26,20 @@ public class PasswordManager {
         }
     }
     
-    public boolean isLoginValid(String userName, String password) {
-        return (passwordPool.contains(userName) && passwordPool.getString(userName, "defValue").equals(password));
-    }
+    public boolean login(String username, String password){
+		Document doc = null;
+		try {
+			doc = Jsoup.connect("http://192.185.4.36/~zli342/login.php").data("username", username).data("password", password).timeout(15*1000).get();
+			String loginResult = (doc.text());
+			if (loginResult.equals("Found")) {
+				return true;
+		}
+		} 
+		catch (IOException e) {
+		Log.i("fail",e.toString());
+		}
+		return false;
+		}
     
     public void setPassword(String userName, String newPassword) {
         editor.remove(userName);
