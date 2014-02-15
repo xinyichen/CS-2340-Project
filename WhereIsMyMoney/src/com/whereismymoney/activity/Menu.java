@@ -1,4 +1,4 @@
-package com.example.whereismymoney;
+package com.whereismymoney.activity;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -24,7 +24,7 @@ public class Menu extends ListActivity {
 		super.onListItemClick(l, v, position, id);
 		String selected = classes[position];
 		try {
-			Class ourClass = Class.forName("com.example.whereismymoney." + selected);
+			Class ourClass = Class.forName("com.whereismymoney.activity." + selected);
 			Intent intent = new Intent(Menu.this,ourClass);
 			startActivity(intent);
 		} catch (ClassNotFoundException e) {
