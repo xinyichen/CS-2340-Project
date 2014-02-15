@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myfirstapp"
+    package="com.whereismymoney"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.whereismymoney.Starting"
+            android:name="com.whereismymoney.activity.Starting"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,7 @@
         </activity>
         
         <activity
-            android:name="com.example.whereismymoney.MainActivity"
+            android:name="com.whereismymoney.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.myfirstapp.MAINACTIVITY" />
@@ -35,7 +35,7 @@
         </activity>
         
 		<activity
-            android:name="com.example.whereismymoney.Welcome"
+            android:name="com.whereismymoney.activity.Welcome"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.myfirstapp.WELCOME" />
@@ -44,7 +44,7 @@
         </activity>
         
         <activity
-            android:name="com.example.whereismymoney.Menu"
+            android:name="com.whereismymoney.activity.Menu"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.myfirstapp.MENU" />
@@ -54,7 +54,7 @@
         </activity>
         
         <activity
-            android:name="com.example.whereismymoney.Register"
+            android:name="com.whereismymoney.activity.Register"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.myfirstapp.REGISTER" />
@@ -63,7 +63,7 @@
         </activity>
         
         <activity
-            android:name="com.example.whereismymoney.ConfirmRegistration"
+            android:name="com.whereismymoney.activity.ConfirmRegistration"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.example.myfirstapp.CONFIRMREGISTRATION" />
@@ -72,9 +72,9 @@
         </activity>
 
 	<activity
-        android:name="com.example.whereismymoney.DisplayMessageActivity"
+        android:name="com.whereismymoney.activity.DisplayMessageActivity"
         android:label="@string/title_activity_display_message"
-        android:parentActivityName="com.example.whereismymoney.MainActivity" >
+        android:parentActivityName="com.whereismymoney.activity.MainActivity" >
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.myfirstapp.MainActivity" />

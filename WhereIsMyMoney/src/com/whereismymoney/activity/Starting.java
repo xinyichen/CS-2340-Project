@@ -1,6 +1,6 @@
-package com.example.whereismymoney;
+package com.whereismymoney.activity;
 
-import com.example.myfirstapp.R;
+import com.whereismymoney.R;
 
 import android.app.Activity;
 import android.content.Intent;
