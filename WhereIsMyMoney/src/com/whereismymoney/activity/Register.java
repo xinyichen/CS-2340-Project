@@ -81,7 +81,7 @@ public class Register extends Activity {
 		cancel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent goToWelcome = new Intent("com.example.myfirstapp.WELCOME");
+				Intent goToWelcome = new Intent("android.intent.action.WELCOME");
 				startActivity(goToWelcome);
 			}
 		});

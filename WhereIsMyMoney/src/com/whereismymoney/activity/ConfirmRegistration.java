@@ -45,7 +45,7 @@ public class ConfirmRegistration extends Activity {
 		
 		@Override
 		public void onClick(View arg0) {
-			Intent goToLogin = new Intent("com.example.myfirstapp.MAINACTIVITY");
+			Intent goToLogin = new Intent("android.intent.action.LOGIN");
 			startActivity(goToLogin);
 		}
 	});
@@ -55,7 +55,7 @@ public class ConfirmRegistration extends Activity {
 		
 		@Override
 		public void onClick(View v) {
-			Intent goToRegister = new Intent("com.example.myfirstapp.REGISTER");
+			Intent goToRegister = new Intent("android.intent.action.REGISTER");
 			startActivity(goToRegister);
 		}
 	});
