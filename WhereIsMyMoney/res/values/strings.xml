@@ -12,7 +12,7 @@
     <string name="edit_password">Enter password</string>
     <string name="description_image_welcome">this is an welcome image</string>
     <string name="team_name"> ( ͡° ͜ʖ ͡° ) </string>
-    <string name="button_createAccount">Want to create another account? Click here!</string>
+    <string name="button_createAccount">Want to create a new account? Click here!</string>
     <string name="button_goToLogin">Already have an account? Click here!</string>
     <string name="login_success">Success</string>
     <color name="blue">#00FFFF</color>
