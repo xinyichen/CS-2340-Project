@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends Activity {
@@ -35,8 +37,32 @@ public class DisplayMessageActivity extends Activity {
 //        // Show the Up button in the action bar.
 //        getActionBar().setDisplayHomeAsUpEnabled(true);
 //    }
-}
 
+
+	Button login = (Button) findViewById(R.id.button_goToLoginFromConfirmRegistration);
+	Button createNewAccount = (Button) findViewById(R.id.bCreateNewAccount);
+	login.setOnClickListener(new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View arg0) {
+			Intent goToLogin = new Intent("com.example.myfirstapp.MAINACTIVITY");
+			startActivity(goToLogin);
+		}
+	});
+	
+	
+	createNewAccount.setOnClickListener(new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			Intent goToRegister = new Intent("com.example.myfirstapp.REGISTER");
+			startActivity(goToRegister);
+		}
+	});
+		
+	}
+	
+	
 @Override
 public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
