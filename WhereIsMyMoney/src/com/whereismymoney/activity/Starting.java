@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
-// first activity of the program, which shows a starting picture and plays a starting sound
+/**
+ * first activity of the program, which shows a starting picture and plays a starting sound
+ */
 public class Starting extends Activity {
 	MediaPlayer startingSong;
 	

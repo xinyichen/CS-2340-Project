@@ -70,8 +70,11 @@
 
 	<activity
         android:name="com.whereismymoney.activity.DisplayMessageActivity"
-        android:label="@string/title_activity_display_message"
-        android:parentActivityName="com.whereismymoney.activity.Login" >
+        android:label="@string/title_activity_display_message" >
+        <intent-filter>
+                <action android:name="android.intent.action.LOGINSUCCESS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
     </activity>
     </application>
 
