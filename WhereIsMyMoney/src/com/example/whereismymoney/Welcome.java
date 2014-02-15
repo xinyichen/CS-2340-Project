@@ -45,8 +45,8 @@ public class Welcome extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
+				Intent goToRegister = new Intent("com.example.myfirstapp.REGISTER");
+				startActivity(goToRegister);
 			}
 		});
 			

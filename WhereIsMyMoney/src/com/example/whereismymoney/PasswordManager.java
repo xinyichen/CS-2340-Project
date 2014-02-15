@@ -1,32 +1,61 @@
 package com.example.whereismymoney;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import android.util.Log;
+
+/**
+ * This class handles everything associated with logins
+ * and user registration.
+ */
 
 public class PasswordManager {
-    private Context myContext;
-    private SharedPreferences passwordPool;
-    private SharedPreferences.Editor editor;
+	
     
-    public PasswordManager(Context context) {
-        myContext = context;
-        passwordPool = myContext.getSharedPreferences("passwordPool", 0);
-        editor = passwordPool.edit();
-        
-        // initialize admin entry
-        if (!passwordPool.contains("admin")) {
-            editor.putString("admin", "pass123");
-            editor.commit();
-        }
-    }
+    /**
+     * Checks to see if the login is valid.
+     * @param userName 
+     * @param password
+     * @return Returns true if the login is valid, false otherwise.
+     */
+    public boolean login(String username, String password){
+		Document doc = null;
+		try {
+			doc = Jsoup.connect("http://192.185.4.36/~zli342/login.php").data("username", username).data("password", password).timeout(15*1000).get();
+			String loginResult = (doc.text());
+			if (loginResult.equals("Found")) {
+				return true;
+			}
+		} 
+		catch (IOException e) {
+			Log.i("fail",e.toString());
+		}
+		return false;
+	}
     
-    public boolean isLoginValid(String userName, String password) {
-        return (passwordPool.contains(userName) && passwordPool.getString(userName, "defValue").equals(password));
-    }
+    /**
+     * Creates a new user
+     * @param username
+     * @param password
+     * @param email
+     * @return True if the user was created, false otherwise
+     */
     
-    public void setPassword(String userName, String newPassword) {
-        editor.remove(userName);
-        editor.putString(userName, newPassword);
-        editor.commit();
-    }
+    public boolean register(String username, String password, String email){
+		Document doc = null;
+		try {
+			doc = Jsoup.connect("http://192.185.4.36/~zli342/register.php").data("username", username).data("password", password).data("email",email).timeout(15*1000).get();
+			String loginResult = (doc.text());
+			if (loginResult.equals("registered")) {
+				return true;
+			}
+		} 
+		catch(IOException e) {
+			Log.i("fail",e.toString());
+		}
+		return false;
+	}
 }

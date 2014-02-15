@@ -30,19 +30,30 @@ public final class R {
         public static final int luffy=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0006;
-        public static final int bCreateNewAccount=0x7f0a0005;
-        public static final int bLogin=0x7f0a0004;
-        public static final int edit_password=0x7f0a0003;
-        public static final int edit_userID=0x7f0a0002;
-        public static final int textView1=0x7f0a0001;
-        public static final int textView2=0x7f0a0000;
+        public static final int action_settings=0x7f0a000f;
+        public static final int bCreateNewAccount=0x7f0a000e;
+        public static final int bLogin=0x7f0a0005;
+        public static final int button_confirm_register=0x7f0a000c;
+        public static final int button_goToLoginFromConfirmRegistration=0x7f0a0001;
+        public static final int button_reject_registration=0x7f0a000d;
+        public static final int edit_password=0x7f0a0004;
+        public static final int edit_registration_email=0x7f0a0008;
+        public static final int edit_registration_first_name=0x7f0a0006;
+        public static final int edit_registration_last_name=0x7f0a0007;
+        public static final int edit_registration_password=0x7f0a000a;
+        public static final int edit_registration_password_confirm=0x7f0a000b;
+        public static final int edit_registration_username=0x7f0a0009;
+        public static final int edit_userID=0x7f0a0003;
+        public static final int textView1=0x7f0a0000;
+        public static final int textView2=0x7f0a0002;
     }
     public static final class layout {
-        public static final int activity_display_message=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_welcome=0x7f030002;
-        public static final int starting=0x7f030003;
+        public static final int activity_confirm_registration=0x7f030000;
+        public static final int activity_display_message=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_register=0x7f030003;
+        public static final int activity_welcome=0x7f030004;
+        public static final int starting=0x7f030005;
     }
     public static final class menu {
         public static final int display_message=0x7f090000;
@@ -54,17 +65,28 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060004;
         public static final int app_name=0x7f060000;
+        public static final int button_confirm_register=0x7f06000f;
         public static final int button_createAccount=0x7f06000b;
         public static final int button_goToLogin=0x7f06000c;
+        public static final int button_goToLoginFromConfirmRegistration=0x7f060016;
         public static final int button_login=0x7f060003;
+        public static final int button_reject_registration=0x7f060014;
         public static final int description_image_welcome=0x7f060009;
         public static final int edit_message=0x7f060002;
         public static final int edit_password=0x7f060008;
+        public static final int edit_registration_email=0x7f060018;
+        public static final int edit_registration_first_name=0x7f060010;
+        public static final int edit_registration_last_name=0x7f060011;
+        public static final int edit_registration_password=0x7f060013;
+        public static final int edit_registration_password_confirm=0x7f060017;
+        public static final int edit_registration_username=0x7f060012;
         public static final int edit_userID=0x7f060007;
         public static final int login_success=0x7f06000d;
+        public static final int register_instructions=0x7f06000e;
         public static final int team_name=0x7f06000a;
         public static final int title_activity_display_message=0x7f060006;
         public static final int title_activity_main=0x7f060005;
+        public static final int title_register_congrats=0x7f060015;
         public static final int title_welcome=0x7f060001;
     }
     public static final class style {
