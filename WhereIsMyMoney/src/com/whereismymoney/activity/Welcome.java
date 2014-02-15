@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+// welcome page. user can choose to login or register from here
 public class Welcome extends Activity {
 	Button login, register;	
 
@@ -18,6 +19,7 @@ public class Welcome extends Activity {
 	    login = (Button) findViewById(R.id.bLogin);
 	    register = (Button) findViewById(R.id.bRegister);
 
+	    // jump to login page on click
 	    login.setOnClickListener(new View.OnClickListener() {
 	        @Override
 	        public void onClick(View arg0) {
@@ -26,6 +28,7 @@ public class Welcome extends Activity {
 	        }
 	    });
 
+	    // jump to register page on click
 	    register.setOnClickListener(new View.OnClickListener() {	
 	        @Override
 	        public void onClick(View v) {
