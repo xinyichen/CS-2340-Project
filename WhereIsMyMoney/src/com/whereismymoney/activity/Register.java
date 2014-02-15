@@ -71,8 +71,8 @@ public class Register extends Activity {
 			    else {
 			        // ToCheck: I just hacked MainActivity.this as the context, is it appropriate?
 			        AlertDialog loginFailAlert = new AlertDialog.Builder(Register.this).create();
-			        loginFailAlert.setTitle("Login Failed");
-			        loginFailAlert.setMessage("Incorrect User Name or Password");
+			        loginFailAlert.setTitle("Registration Failed");
+			        loginFailAlert.setMessage("Username Already Exists");
 			        loginFailAlert.show();
 			    }
 			}
