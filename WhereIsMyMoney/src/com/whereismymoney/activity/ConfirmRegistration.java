@@ -22,7 +22,7 @@ public class ConfirmRegistration extends Activity {
 		setContentView(R.layout.activity_confirm_registration);
 //		// Receive the intent info
 //		Intent intent = getIntent();
-//		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+//		String message = intent.getStringExtra(Login.EXTRA_MESSAGE);
 //	
 //		// Create the text view
 //	    TextView textView = new TextView(this);

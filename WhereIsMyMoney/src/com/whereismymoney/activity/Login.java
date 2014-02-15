@@ -16,7 +16,7 @@ import android.widget.EditText;
  * This class handles the login page.
  */
 
-public class MainActivity extends Activity {
+public class Login extends Activity {
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 	
 	private PasswordManager passwordManager;
@@ -49,8 +49,8 @@ public class MainActivity extends Activity {
 			        sendMessage(arg0); // TODO: make proper intent here
 			    }
 			    else {
-			        // ToCheck: I just hacked MainActivity.this as the context, is it appropriate?
-			        AlertDialog loginFailAlert = new AlertDialog.Builder(MainActivity.this).create();
+			        // ToCheck: I just hacked Login.this as the context, is it appropriate?
+			        AlertDialog loginFailAlert = new AlertDialog.Builder(Login.this).create();
 			        loginFailAlert.setTitle("Login Failed");
 			        loginFailAlert.setMessage("Incorrect User Name or Password");
 			        loginFailAlert.show();

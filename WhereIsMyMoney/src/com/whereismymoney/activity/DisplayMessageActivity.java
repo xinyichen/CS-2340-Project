@@ -22,7 +22,7 @@ public class DisplayMessageActivity extends Activity {
 		setContentView(R.layout.activity_display_message);
 //		// Receive the intent info
 //		Intent intent = getIntent();
-//		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+//		String message = intent.getStringExtra(Login.EXTRA_MESSAGE);
 //	
 //		// Create the text view
 //	    TextView textView = new TextView(this);
@@ -42,7 +42,7 @@ public class DisplayMessageActivity extends Activity {
 		//but I got confirm registration working so this is no long necessary
 /*
 	Button login = (Button) findViewById(R.id.button_goToLoginFromConfirmRegistration);
-	Button createNewAccount = (Button) findViewById(R.id.bCreateNewAccount);
+	Button register = (Button) findViewById(R.id.bCreateNewAccount);
 	login.setOnClickListener(new View.OnClickListener() {
 		
 		@Override
@@ -53,7 +53,7 @@ public class DisplayMessageActivity extends Activity {
 	});
 	
 	
-	createNewAccount.setOnClickListener(new View.OnClickListener() {
+	register.setOnClickListener(new View.OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {

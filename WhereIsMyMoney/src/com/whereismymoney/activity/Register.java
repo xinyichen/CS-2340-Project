@@ -69,7 +69,7 @@ public class Register extends Activity {
 			        sendMessage(arg0); // TODO: make proper intent here
 			    }
 			    else {
-			        // ToCheck: I just hacked MainActivity.this as the context, is it appropriate?
+			        // ToCheck: I just hacked Login.this as the context, is it appropriate?
 			        AlertDialog loginFailAlert = new AlertDialog.Builder(Register.this).create();
 			        loginFailAlert.setTitle("Registration Failed");
 			        loginFailAlert.setMessage("Username Already Exists");

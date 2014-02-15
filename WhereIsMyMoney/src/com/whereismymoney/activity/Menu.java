@@ -7,9 +7,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+// this menu class is not used for now, but it is kept because we might utilize it later
 public class Menu extends ListActivity {
 
-	String[] classes = {"Welcome","MainActivity","example3","example4","example5","example6"};
+	String[] classes = {"Welcome","Login","example3","example4","example5","example6"};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
