@@ -7,17 +7,20 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
+// first activity of the program, which shows a starting picture and plays a starting sound
 public class Starting extends Activity {
-
-	MediaPlayer ourSong;
+	MediaPlayer startingSong;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.starting);
-		ourSong =MediaPlayer.create(Starting.this, R.raw.startingsound);
-		ourSong.start();
+		setContentView(R.layout.activity_starting);
+		
+		// play the starting song
+		startingSong = MediaPlayer.create(Starting.this, R.raw.startingsound);
+		startingSong.start();
+		
+		// displaying the starting picture for 4000 ms
 		Thread timer = new Thread(){
 			public void run(){
 				try{
@@ -35,12 +38,11 @@ public class Starting extends Activity {
 		timer.start();
 	}
 
+	// release the MediaPlayer resources on pause
 	@Override
 	protected void onPause() {
-		// TODO Auto-generated method stub
 		super.onPause();
-		ourSong.release();
+		startingSong.release();
 		finish();
 	}
-
 }
