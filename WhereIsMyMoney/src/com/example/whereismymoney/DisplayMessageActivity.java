@@ -38,7 +38,9 @@ public class DisplayMessageActivity extends Activity {
 //        getActionBar().setDisplayHomeAsUpEnabled(true);
 //    }
 
-
+		//this was being used as a confirmation of the registration screen
+		//but I got confirm registration working so this is no long necessary
+/*
 	Button login = (Button) findViewById(R.id.button_goToLoginFromConfirmRegistration);
 	Button createNewAccount = (Button) findViewById(R.id.bCreateNewAccount);
 	login.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +60,7 @@ public class DisplayMessageActivity extends Activity {
 			Intent goToRegister = new Intent("com.example.myfirstapp.REGISTER");
 			startActivity(goToRegister);
 		}
-	});
+	});*/
 		
 	}
 	

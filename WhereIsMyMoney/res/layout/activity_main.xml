@@ -43,7 +43,8 @@
         android:id="@+id/edit_password"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_password" >
+        android:hint="@string/edit_password"
+        android:inputType="textPassword" >
 
         <requestFocus />
     </EditText>

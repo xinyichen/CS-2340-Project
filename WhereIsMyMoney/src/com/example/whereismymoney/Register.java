@@ -76,13 +76,21 @@ public class Register extends Activity {
 			    }
 			}
 		});
+		
+		cancel.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent goToWelcome = new Intent("com.example.myfirstapp.WELCOME");
+				startActivity(goToWelcome);
+			}
+		});
 		//viewPager
 		//Log.d(TAG,"activity creating");
 	}
 
 	
 	public void sendMessage(View view) {
-		Intent intent = new Intent(this, DisplayMessageActivity.class);
+		Intent intent = new Intent(this, ConfirmRegistration.class);
 //		EditText editText = (EditText) findViewById(R.id.edit_userID);
 //		String message = editText.getText().toString();
 //		intent.putExtra(EXTRA_MESSAGE, message);

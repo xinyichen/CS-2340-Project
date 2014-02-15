@@ -30,11 +30,12 @@ public final class R {
         public static final int luffy=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a000f;
-        public static final int bCreateNewAccount=0x7f0a0003;
+        public static final int action_settings=0x7f0a0010;
+        public static final int bCreateNewAccount=0x7f0a000f;
         public static final int bLogin=0x7f0a0006;
         public static final int button_confirm_register=0x7f0a000d;
         public static final int button_goToLoginFromConfirmRegistration=0x7f0a0001;
+        public static final int button_goToRegisterFromConfirmRegistration=0x7f0a0002;
         public static final int button_reject_registration=0x7f0a000e;
         public static final int edit_password=0x7f0a0005;
         public static final int edit_registration_email=0x7f0a0009;
@@ -45,7 +46,7 @@ public final class R {
         public static final int edit_registration_username=0x7f0a000a;
         public static final int edit_userID=0x7f0a0004;
         public static final int textView1=0x7f0a0000;
-        public static final int textView2=0x7f0a0002;
+        public static final int textView2=0x7f0a0003;
     }
     public static final class layout {
         public static final int activity_confirm_registration=0x7f030000;
@@ -71,6 +72,7 @@ public final class R {
         public static final int button_goToLogin=0x7f06000c;
         public static final int button_goToLoginFromConfirmRegistration=0x7f060017;
         public static final int button_login=0x7f060003;
+        public static final int button_register_another=0x7f06001a;
         public static final int button_reject_registration=0x7f060015;
         public static final int description_image_welcome=0x7f060009;
         public static final int edit_message=0x7f060002;
