@@ -11,6 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * This class handles the login page.
+ */
+
 public class MainActivity extends Activity {
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 	
@@ -31,7 +35,7 @@ public class MainActivity extends Activity {
 		a = savedInstanceState;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		passwordManager = new PasswordManager(this);
+		passwordManager = new PasswordManager();
 		login = (Button) findViewById(R.id.bLogin);
 		
 		login.setOnClickListener(new View.OnClickListener() {

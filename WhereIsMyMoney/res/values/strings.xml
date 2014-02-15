@@ -16,6 +16,17 @@
     <string name="button_goToLogin">Already have an account? Click here!</string>
     <string name="login_success">Success</string>
     <color name="blue">#00FFFF</color>
+    <string name="register_instructions">Fill out the boxes and confirm to register:</string>
+    <string name="button_confirm_register">Confirm</string>
+    <string name="edit_registration_first_name"></string>
+    <string name="edit_registration_last_name"></string>
+    <string name="edit_registration_username"></string>
+    <string name="edit_registration_password"></string>
+    <string name="button_reject_registration">Wait, go back!</string>
+    <string name="title_register_congrats">Thank you for registering! Click below to log into your new account.</string>
+    <string name="button_goToLoginFromConfirmRegistration">Click here</string>
+    <string name="edit_registration_password_confirm"/>
+    <string name="edit_registration_email"/>
     
     
 </resources>

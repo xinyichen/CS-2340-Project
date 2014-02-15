@@ -52,6 +52,24 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name="com.example.whereismymoney.Register"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.myfirstapp.REGISTER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.example.whereismymoney.ConfirmRegistration"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.myfirstapp.CONFIRMREGISTRATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
 	<activity
         android:name="com.example.whereismymoney.DisplayMessageActivity"
