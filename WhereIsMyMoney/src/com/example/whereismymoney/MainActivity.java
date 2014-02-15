@@ -1,7 +1,6 @@
-package com.whereismymoney.activity;
+package com.example.whereismymoney;
 
-import com.whereismymoney.R;
-import com.whereismymoney.model.PasswordManager;
+import com.example.myfirstapp.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;

@@ -1,6 +1,6 @@
-package com.whereismymoney.activity;
+package com.example.whereismymoney;
 
-import com.whereismymoney.R;
+import com.example.myfirstapp.R;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

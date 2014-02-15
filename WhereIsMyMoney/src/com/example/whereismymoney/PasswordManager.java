@@ -1,4 +1,4 @@
-package com.whereismymoney.model;
+package com.example.whereismymoney;
 
 import java.io.IOException;
 
