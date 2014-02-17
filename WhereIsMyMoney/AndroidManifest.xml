@@ -69,10 +69,19 @@
         </activity>
 
 	<activity
-        android:name="com.whereismymoney.activity.DisplayMessageActivity"
+        android:name="com.whereismymoney.activity.AccountRoot"
         android:label="@string/title_activity_display_message" >
         <intent-filter>
-                <action android:name="android.intent.action.LOGINSUCCESS" />
+                <action android:name="android.intent.action.ACCOUNTROOT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+    </activity>
+    
+	<activity
+        android:name="com.whereismymoney.activity.CreateAccount"
+        android:label="@string/title_activity_display_message" >
+        <intent-filter>
+                <action android:name="android.intent.action.CREATEACCOUNT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
     </activity>

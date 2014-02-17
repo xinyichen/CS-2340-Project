@@ -14,10 +14,8 @@
     <string name="team_name"> ( ͡° ͜ʖ ͡° ) </string>
     <string name="button_createAccount">Want to create a new account? Click here!</string>
     <string name="button_goToLogin">Already have an account? Click here!</string>
-    <string name="login_success">Success</string>
     <color name="blue">#00FFFF</color>
     <string name="register_instructions">Fill out the boxes and confirm to register:</string>
-    <string name="button_confirm_register">Confirm</string>
     <string name="edit_registration_first_name"></string>
     <string name="edit_registration_last_name"></string>
     <string name="edit_registration_username"></string>
@@ -29,6 +27,19 @@
     <string name="edit_registration_password_confirm"/>
     <string name="edit_registration_email"/>
     <string name="button_register_another">Want to create another account? Click here!</string>
+    <string name="button_new_account">Want to create a new account? Click here!</string>
+    <string name="text_view_account">Press menu to select from an existing account</string>
+    <string name="text_new_account_instruction">Fill out all boxes and confirm your account creation</string>
+    <string name="text_account_full_name">Account full name</string>
+    <string name="edit_account_full_name"></string>
+    <string name="text_account_display_name">Account display name</string>
+    <string name="edit_account_display_name"></string>
+    <string name="text_account_balance">Account balance</string>
+    <string name="edit_account_balance"></string>
+    <string name="text_account_interest_rate">Account interest rate</string>
+    <string name="edit_account_interest_rate"></string>
+    <string name="button_confirm">Confirm</string>
+    <string name="button_reject_account_creation">I will do it later</string>
     
     
 </resources>

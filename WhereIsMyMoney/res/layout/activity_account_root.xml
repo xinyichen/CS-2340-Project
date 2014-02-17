@@ -6,22 +6,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".DisplayMessageActivity" >
+    tools:context=".AccountRoot" >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/text_view_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_welcome" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp"
-        android:text="@string/login_success"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_marginTop="57dp"
+        android:text="@string/text_view_account"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <Button
+        android:id="@+id/bNewAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text_view_account"
+        android:layout_below="@+id/text_view_account"
+        android:layout_marginTop="23dp"
+        android:text="@string/button_new_account" />
+    
 </RelativeLayout>

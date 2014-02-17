@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    
+	<TextView
+        android:id="@+id/textView1"
+        android:layout_width="301dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_new_account_instruction"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:hint="@string/text_account_full_name"
+        android:id="@+id/edit_account_full_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:text="@string/edit_account_full_name" >
+
+        <requestFocus />
+
+    </EditText>
+
+    <EditText
+        android:hint="@string/text_account_display_name"
+        android:id="@+id/edit_account_display_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:text="@string/edit_account_display_name" />
+
+    <EditText
+        android:id="@+id/edit_account_balance"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="@string/text_account_balance"
+        android:inputType="numberDecimal"
+        android:text="@string/edit_account_balance" />
+
+     <EditText
+        android:id="@+id/edit_account_interest_rate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="@string/text_account_interest_rate"
+        android:inputType="numberDecimal"
+        android:text="@string/edit_account_interest_rate" />
+
+    <Button
+        android:id="@+id/button_confirm_account_creation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_confirm" />
+
+    <Button
+        android:id="@+id/button_reject_account_creation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_reject_account_creation" />
+</LinearLayout>

@@ -33,8 +33,8 @@ public class Login extends Activity {
 			    EditText userId = (EditText) findViewById(R.id.edit_userID);
 			    EditText password = (EditText) findViewById(R.id.edit_password);
 			    if (passwordManager.login(userId.getText().toString(), password.getText().toString())) {
-			        Intent goToLogin = new Intent("android.intent.action.LOGINSUCCESS");
-	                startActivity(goToLogin);
+			        Intent goToAccountList = new Intent("android.intent.action.ACCOUNTROOT");
+	                startActivity(goToAccountList);
 			    }
 			    else {
 			        AlertDialog loginFailAlert = new AlertDialog.Builder(Login.this).create();
