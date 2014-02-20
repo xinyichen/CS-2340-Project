@@ -39,7 +39,6 @@
     <string name="text_account_interest_rate">Account interest rate</string>
     <string name="edit_account_interest_rate"></string>
     <string name="button_confirm">Confirm</string>
-    <string name="button_reject_account_creation">I will do it later</string>
-    
+    <string name="button_reject_account_creation">I will do it later</string>    
     
 </resources>

@@ -38,8 +38,8 @@ public class CreateAccount extends Activity {
                 
                 accountManager.createAccount(fullNameStr, displayNameStr, accBalance, accIntRate);
                 
-                Intent goToRoot = new Intent("android.intent.action.ACCOUNTROOT");
-                startActivity(goToRoot);
+                Intent goToAccountInfo = new Intent("android.intent.action.ACCOUNTINFO");
+                startActivity(goToAccountInfo);
             }
         });
         
@@ -47,8 +47,8 @@ public class CreateAccount extends Activity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent goToRoot = new Intent("android.intent.action.ACCOUNTROOT");
-                startActivity(goToRoot);
+                Intent goToAccountInfo = new Intent("android.intent.action.ACCOUNTINFO");
+                startActivity(goToAccountInfo);
             }
         });
     }

@@ -13,19 +13,19 @@ public class Account {
         myInterestRate = interestRate;
     }
         
-    public String getMyFullName() {
+    public String getFullName() {
         return myFullName;
     }
 
-    public String getMyDisplayName() {
+    public String getDisplayName() {
         return myDisplayName;
     }
 
-    public double getMyBalance() {
+    public double getBalance() {
         return myBalance;
     }
 
-    public double getMyInterestRate() {
+    public double getInterestRate() {
         return myInterestRate;
     }
 }

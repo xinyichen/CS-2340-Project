@@ -69,10 +69,10 @@
         </activity>
 
 	<activity
-        android:name="com.whereismymoney.activity.AccountRoot"
+        android:name="com.whereismymoney.activity.AccountInfo"
         android:label="@string/title_activity_display_message" >
         <intent-filter>
-                <action android:name="android.intent.action.ACCOUNTROOT" />
+                <action android:name="android.intent.action.ACCOUNTINFO" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
     </activity>
