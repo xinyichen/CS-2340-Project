@@ -37,7 +37,6 @@ public class Register extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
 		passwordManager = new PasswordManager();
-		passwordManager = new PasswordManager();
 		Button register = (Button) findViewById(R.id.button_confirm_register);
 		Button cancel = (Button) findViewById(R.id.button_reject_registration);
 		
