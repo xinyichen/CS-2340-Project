@@ -2,6 +2,7 @@ package com.whereismymoney.activity;
 
 import com.whereismymoney.R;
 import com.whereismymoney.model.AccountManager;
+import com.whereismymoney.model.CurrentUser;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -36,7 +37,7 @@ public class CreateAccount extends Activity {
                 Double accBalance = Double.parseDouble(balance.getText().toString());
                 Double accIntRate = Double.parseDouble(interestRate.getText().toString());
                 
-                accountManager.createAccount(fullNameStr, displayNameStr, accBalance, accIntRate);
+                accountManager.createAccount(CurrentUser.getCurrentUser().getUserName(), displayNameStr, fullNameStr, accBalance, accIntRate);
                 
                 Intent goToAccountInfo = new Intent("android.intent.action.ACCOUNTINFO");
                 startActivity(goToAccountInfo);

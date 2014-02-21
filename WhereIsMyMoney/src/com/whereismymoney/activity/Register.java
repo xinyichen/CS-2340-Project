@@ -44,6 +44,8 @@ public class Register extends Activity {
 			
 			@Override
 			public void onClick(View arg0) {
+				EditText firstName = (EditText) findViewById(R.id.edit_registration_first_name);
+			    EditText lastName = (EditText) findViewById(R.id.edit_registration_last_name);
 				EditText email = (EditText) findViewById(R.id.edit_registration_email);
 			    EditText username = (EditText) findViewById(R.id.edit_registration_username);
 			    EditText password = (EditText) findViewById(R.id.edit_registration_password);
@@ -64,7 +66,9 @@ public class Register extends Activity {
 			        registerFailAlert.setTitle("Registration Failed");
 			        registerFailAlert.setMessage("Your email is in an incorrect format");
 			        registerFailAlert.show();
-			    } else if (passwordManager.register(username.getText().toString(), password.getText().toString(),email.getText().toString())) {
+			    } 
+			    
+			    else if (passwordManager.register(username.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), password.getText().toString(), email.getText().toString())) {
 			        sendMessage(arg0); // TODO: make proper intent here
 			    }
 			    else {

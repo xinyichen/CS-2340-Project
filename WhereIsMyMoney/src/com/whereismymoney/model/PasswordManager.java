@@ -24,7 +24,10 @@ public class PasswordManager {
     public boolean login(String username, String password){
 		Document doc = null;
 		try {
-			doc = Jsoup.connect("http://192.185.4.36/~zli342/login.php").data("username", username).data("password", password).timeout(15*1000).get();
+			doc = Jsoup.connect("http://192.185.4.36/~zli342/login.php")
+					.data("username", username)
+					.data("password", password)
+					.timeout(15*1000).get();
 			String loginResult = (doc.text());
 			if (loginResult.equals("Found")) {
 			    CurrentUser.getCurrentUser().setUserName(username);
