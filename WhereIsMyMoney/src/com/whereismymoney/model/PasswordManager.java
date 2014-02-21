@@ -45,10 +45,16 @@ public class PasswordManager {
      * @return True if the user was created, false otherwise
      */
     
-    public boolean register(String username, String password, String email){
+    public boolean register(String username, String first_name, String last_name, String password, String email){
 		Document doc = null;
 		try {
-			doc = Jsoup.connect("http://192.185.4.36/~zli342/register.php").data("username", username).data("password", password).data("email",email).timeout(15*1000).get();
+			doc = Jsoup.connect("http://192.185.4.36/~zli342/register.php")
+					.data("username", username)
+					.data("first_name", first_name)
+					.data("last_name", last_name)
+					.data("password", password)
+					.data("email",email)
+					.timeout(15*1000).get();
 			String loginResult = (doc.text());
 			if (loginResult.equals("registered")) {
 				return true;
