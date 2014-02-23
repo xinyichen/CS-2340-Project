@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import android.util.Log;
 
@@ -13,17 +15,39 @@ public class AccountManager {
     
     public List<String> getAccountList() {
         ArrayList<String> ret = new ArrayList<String>();
-        ret.add("a");
-        ret.add("b");
-        ret.add("c");
-        ret.add("d");
-        ret.add("e");
-        ret.add("f");
+        try {
+            Document doc = Jsoup.connect("http://192.185.4.36/~zli342/get_account_list.php")
+                    .data("username", CurrentUser.getCurrentUser().getUserName())
+                    .timeout(15*1000).get();
+            Elements nameList = doc.select("display_name");  // select by tag name    
+            for(Element name : nameList) {
+                if(name.hasText() ) {
+                    ret.add(name.text());
+                }
+            }
+        } catch (IOException e) {
+            Log.i("fail",e.toString());
+        }
         return ret;
     }
     
     public Account getAccountInfo(String displayName) {
-        return new Account("trial", displayName, 100.00, 0.05);
+        try {
+            Document doc = Jsoup.connect("http://192.185.4.36/~zli342/get_account_info.php")
+                    .data("username", CurrentUser.getCurrentUser().getUserName())
+                    .data("account_display_name", displayName)
+                    .timeout(15*1000).get();
+            // TODO: set up check
+            String fullName = doc.select("full_name").first().text();  
+            Double balance = Double.parseDouble(doc.select("balance").first().text());
+            Double intRate = Double.parseDouble(doc.select("interest_rate").first().text());
+            
+            return new Account(fullName, displayName, balance, intRate);
+        } catch (IOException e) {
+            Log.i("fail",e.toString());
+            return null;
+        }
+
     }
     
     public boolean createAccount(String username, String account_display_name, String account_full_name, double balance, double interest_rate) {
