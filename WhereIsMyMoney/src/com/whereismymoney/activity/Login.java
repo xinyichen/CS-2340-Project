@@ -17,7 +17,7 @@ import android.widget.EditText;
 
 public class Login extends Activity {	
 	private PasswordManager passwordManager;
-	Button login;
+	Button login, back;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,23 +25,52 @@ public class Login extends Activity {
 		setContentView(R.layout.activity_main);
 		passwordManager = new PasswordManager();
 		login = (Button) findViewById(R.id.bLogin);
+		back = (Button) findViewById(R.id.button_back_from_login);
 		
+		//all the stuff associated with clicking the login button
 		login.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
-			    EditText userId = (EditText) findViewById(R.id.edit_userID);
+			    EditText username = (EditText) findViewById(R.id.edit_userID);
 			    EditText password = (EditText) findViewById(R.id.edit_password);
-			    if (passwordManager.login(userId.getText().toString(), password.getText().toString())) {
-			        Intent goToAccountList = new Intent("android.intent.action.ACCOUNTINFO");
-	                startActivity(goToAccountList);
+			    //checking to see if the password is at least 7 characters and the username is at least one character
+			    if(password.getText().toString().matches(".{7,}") && username.getText().toString().matches(".+")){
+			    	//checks with the server to see if the login info is valid
+			    	if (passwordManager.login(username.getText().toString(), password.getText().toString())) {
+			    		Intent goToAccountList = new Intent("android.intent.action.ACCOUNTINFO");
+			    		startActivity(goToAccountList);
+			    	} else {
+			    		//the server returned false for the login method with those parameters
+			    		AlertDialog loginFailAlert = new AlertDialog.Builder(Login.this).create();
+			    		loginFailAlert.setTitle("Login Failed");
+			    		loginFailAlert.setMessage("Incorrect User Name or Password");
+			    		loginFailAlert.show();
+			    	}
+			    } else {
+			    	//alerting the user that the password is <7 characters
+			    	if(password.getText().toString().matches(".{0,6}")) {
+			    		AlertDialog loginFailAlert = new AlertDialog.Builder(Login.this).create();
+			    		loginFailAlert.setTitle("Login Failed");
+			    		loginFailAlert.setMessage("Your password must be at least 7 characters.");
+			    		loginFailAlert.show();
+			    	} else {
+			    		//alerting the user that they didn't enter a username
+			    		AlertDialog loginFailAlert = new AlertDialog.Builder(Login.this).create();
+			    		loginFailAlert.setTitle("Login Failed");
+			    		loginFailAlert.setMessage("You need to enter a username!");
+			    		loginFailAlert.show();
+			    	}
 			    }
-			    else {
-			        AlertDialog loginFailAlert = new AlertDialog.Builder(Login.this).create();
-			        loginFailAlert.setTitle("Login Failed");
-			        loginFailAlert.setMessage("Incorrect User Name or Password");
-			        loginFailAlert.show();
-			    }
+			}
+		});
+		
+		//Sends them back to the welcome page
+		back.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent goToWelcome = new Intent("android.intent.action.WELCOME");
+				startActivity(goToWelcome);
 			}
 		});
 	}

@@ -13,60 +13,54 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:hint="First Name"
+        android:hint="@string/edit_registration_first_name"
         android:id="@+id/edit_registration_first_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:ems="10"
-        android:text="@string/edit_registration_first_name" >
+        android:ems="10">
 
         <requestFocus />
 
     </EditText>
 
     <EditText
-        android:hint="Last Name"
+        android:hint="@string/edit_registration_last_name"
         android:id="@+id/edit_registration_last_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/edit_registration_last_name" />
+        android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/edit_registration_email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
-        android:hint="Email Address"
-        android:inputType="textEmailAddress"
-        android:text="@string/edit_registration_email" />
+        android:hint="@string/edit_registration_email"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:id="@+id/edit_registration_username"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
-        android:hint="Username"
-        android:text="@string/edit_registration_username" />
+        android:hint="@string/edit_registration_username"/>
 
     <EditText
         android:id="@+id/edit_registration_password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:text="@string/edit_registration_password" />
+        android:hint="@string/edit_registration_password"
+        android:inputType="textPassword"/>
 
     <EditText
-        android:hint="Confirm Password"
+        android:hint="@string/edit_registration_password_confirm"
         android:id="@+id/edit_registration_password_confirm"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
-        android:inputType="textPassword"
-        android:text="@string/edit_registration_password_confirm" />
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/button_confirm_register"

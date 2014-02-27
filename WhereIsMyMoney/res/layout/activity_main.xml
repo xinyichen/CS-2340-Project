@@ -27,17 +27,21 @@
         />
     
     <ImageView
-        android:contentDescription="@string/description_image_welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="126dp"
+        android:layout_height="118dp"
         android:layout_gravity="center"
+        android:contentDescription="@string/description_image_welcome"
         android:src="@drawable/face" />
 
     <EditText
         android:id="@+id/edit_userID"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_userID" />
+        android:hint="@string/edit_userID" >
+
+        <requestFocus />
+
+    </EditText>
 
     <EditText
         android:id="@+id/edit_password"
@@ -45,8 +49,6 @@
         android:layout_height="wrap_content"
         android:hint="@string/edit_password"
         android:inputType="textPassword" >
-
-        <requestFocus />
     </EditText>
 
     <Button
@@ -55,5 +57,12 @@
         android:onClick="sendMessage"
         android:text="@string/button_login"
         android:id="@+id/bLogin" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendMessage"
+        android:text="@string/button_back_from_login"
+        android:id="@+id/button_back_from_login" />
 
 </LinearLayout>

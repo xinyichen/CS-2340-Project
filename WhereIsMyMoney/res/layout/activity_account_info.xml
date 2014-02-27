@@ -51,5 +51,14 @@
         android:layout_below="@+id/text_view_account"
         android:layout_marginTop="41dp"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/button_create_new_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bNewAccount"
+        android:layout_alignLeft="@+id/text_account_interest_rate_display"
+        android:layout_alignRight="@+id/bNewAccount"
+        android:text="@string/button_create_new_transaction" />
     
 </RelativeLayout>

@@ -9,8 +9,9 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- *  welcome page. user can choose to login or register from here
+ *  The welcome page. The user can choose to login or register from here
  */
+
 public class Welcome extends Activity {
 	Button login, register;	
 

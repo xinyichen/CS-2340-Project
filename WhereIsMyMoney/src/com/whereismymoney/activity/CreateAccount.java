@@ -5,12 +5,17 @@ import com.whereismymoney.model.AccountManager;
 import com.whereismymoney.model.CurrentUser;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+/**
+ * This class handles the activity associated with creating a new account
+ */
 
 public class CreateAccount extends Activity {
     private Button confirm, cancel;
@@ -23,6 +28,8 @@ public class CreateAccount extends Activity {
         accountManager = new AccountManager();
         
         confirm = (Button) findViewById(R.id.button_confirm_account_creation);
+        
+        //clicking confirm
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             // todo: check input integrity
@@ -37,13 +44,29 @@ public class CreateAccount extends Activity {
                 Double accBalance = Double.parseDouble(balance.getText().toString());
                 Double accIntRate = Double.parseDouble(interestRate.getText().toString());
                 
-                accountManager.createAccount(CurrentUser.getCurrentUser().getUserName(), displayNameStr, fullNameStr, accBalance, accIntRate);
-                
-                Intent goToAccountInfo = new Intent("android.intent.action.ACCOUNTINFO");
-                startActivity(goToAccountInfo);
+                if(fullNameStr.matches("\\s*")) {
+                	AlertDialog accountFailAlert = new AlertDialog.Builder(CreateAccount.this).create();
+			        accountFailAlert.setTitle("Account Creation Failed");
+			        accountFailAlert.setMessage("You didn't enter a full name for the account!");
+			        accountFailAlert.show();
+                } else if(displayNameStr.matches("\\s*")) {
+                	AlertDialog accountFailAlert = new AlertDialog.Builder(CreateAccount.this).create();
+			        accountFailAlert.setTitle("Account Creation Failed");
+			        accountFailAlert.setMessage("You didn't enter a display name for the account!");
+			        accountFailAlert.show();
+                } else if(accountManager.createAccount(CurrentUser.getCurrentUser().getUserName(), displayNameStr, fullNameStr, accBalance, accIntRate)) {
+                	Intent goToAccountInfo = new Intent("android.intent.action.ACCOUNTINFO");
+                	startActivity(goToAccountInfo);
+                } else {
+                	AlertDialog accountFailAlert = new AlertDialog.Builder(CreateAccount.this).create();
+			        accountFailAlert.setTitle("Account Creation Failed");
+			        accountFailAlert.setMessage("You entered something incorrectly. Please check your entries and try again.");
+			        accountFailAlert.show();
+                }
             }
         });
         
+        //clicking cancel
         cancel = (Button) findViewById(R.id.button_reject_account_creation);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

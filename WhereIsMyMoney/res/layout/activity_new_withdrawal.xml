@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_withdrawal_instructions"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/edit_withdrawal_reason"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="@string/edit_withdrawal_reason"
+        android:inputType="textPersonName|textShortMessage" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/edit_withdrawal_expense_category"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="@string/edit_withdrawal_expense_category" />
+
+    <EditText
+        android:id="@+id/edit_withdrawal_amount"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="@string/edit_withdrawal_amount"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/edit_withdrawal_effective_date"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="@string/edit_withdrawal_effective_date"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/button_withdrawal_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/button_withdrawal_confirm" />
+
+    <Button
+        android:id="@+id/button_withdrawal_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/button_withdrawal_cancel" />
+
+</LinearLayout>

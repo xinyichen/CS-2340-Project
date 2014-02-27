@@ -41,7 +41,6 @@ public class AccountManager {
             String fullName = doc.select("full_name").first().text();  
             Double balance = Double.parseDouble(doc.select("balance").first().text());
             Double intRate = Double.parseDouble(doc.select("interest_rate").first().text());
-            
             return new Account(fullName, displayName, balance, intRate);
         } catch (IOException e) {
             Log.i("fail",e.toString());
@@ -62,6 +61,8 @@ public class AccountManager {
     				.timeout(15*1000).get();
     		String loginResult = (doc.text());
     		if (loginResult.equals("registered")) {
+    			//setting the current account for transaction purposes
+    			CurrentAccount.getCurrentAccount().setAccountName(account_display_name);
     			return true;
     		}
     	} 
