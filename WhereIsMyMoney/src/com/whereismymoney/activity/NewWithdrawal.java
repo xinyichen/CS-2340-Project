@@ -5,6 +5,7 @@ import com.whereismymoney.model.TransactionManager;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -77,14 +78,21 @@ public class NewWithdrawal extends Activity{
 				} else if(effectiveDate.getText().toString().matches("[0-9]{2}\\\\/[0-9]{2}\\\\/[0-9]{4}")) {
 					AlertDialog newWithdrawalFailAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
 			        newWithdrawalFailAlert.setTitle("Withdrawal Failed");
-			        newWithdrawalFailAlert.setMessage("Date is not in the correct format. Correct format is mm/dd/yyyy");
+			        newWithdrawalFailAlert.setMessage("Date is not in the correct format. Correct format is yyyy-mm-dd");
 			        newWithdrawalFailAlert.show();
+			        //success case.
 				} else if(transactionManager.newWithdrawal(reason.getText().toString(), expenseCategory.getText().toString(), Double.parseDouble(amount.getText().toString()), effectiveDate.getText().toString())) {
-					//TODO
-					//newWithdrawal returning true
+					AlertDialog newWithdrawalAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
+			        newWithdrawalAlert.setTitle("Success");
+			        newWithdrawalAlert.setMessage("Withdrawal succeeded");
+			        newWithdrawalAlert.show();
+			        
 				} else {
-					//TODO
-					//newWithdrawal returning false
+					//failure. Due to: 1. low balance. 2. network error. (need to separate the two cases in future)
+					AlertDialog newWithdrawalFailAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
+			        newWithdrawalFailAlert.setTitle("Withdrawal Failed");
+			        newWithdrawalFailAlert.setMessage("Not enough balance");
+			        newWithdrawalFailAlert.show();
 				}
 			}
 		});
