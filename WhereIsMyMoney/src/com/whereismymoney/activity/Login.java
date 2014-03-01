@@ -25,7 +25,7 @@ public class Login extends Activity {
 		setContentView(R.layout.activity_main);
 		passwordManager = new PasswordManager();
 		login = (Button) findViewById(R.id.bLogin);
-		back = (Button) findViewById(R.id.button_back_from_login);
+		//back = (Button) findViewById(R.id.button_back_from_login);
 		
 		//all the stuff associated with clicking the login button
 		login.setOnClickListener(new View.OnClickListener() {
@@ -66,12 +66,12 @@ public class Login extends Activity {
 		});
 		
 		//Sends them back to the welcome page
-		back.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent goToWelcome = new Intent("android.intent.action.WELCOME");
-				startActivity(goToWelcome);
-			}
-		});
+//		back.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				Intent goToWelcome = new Intent("android.intent.action.WELCOME");
+//				startActivity(goToWelcome);
+//			}
+//		});
 	}
 }

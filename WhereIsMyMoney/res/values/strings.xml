@@ -58,6 +58,14 @@
     <string name="edit_withdrawal_amount">Amount</string>
     <string name="button_withdrawal_confirm">Confirm</string>
     <string name="button_withdrawal_cancel">Go back!</string>
-    <string name="edit_withdrawal_effective_date">Effective Date</string>    
+    <string name="edit_withdrawal_effective_date">Effective Date</string>
+    <color name="moe_money_background">#D3C6B6</color>
+    <string name="welcome_text">Where Is YOUR Money?</string>
+    <color name="moe_money_background_invert">#2C3949</color>
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="moe_money">moe_money</string>
+    <string name="create_account">Create Account!</string>
+    <string name="message1">No Account? No Problem!</string>    
     
 </resources>
