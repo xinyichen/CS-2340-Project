@@ -17,14 +17,15 @@ import android.widget.EditText;
 
 public class Login extends Activity {	
 	private PasswordManager passwordManager;
-	Button login, back;
+	Button login, register;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_login);
 		passwordManager = new PasswordManager();
 		login = (Button) findViewById(R.id.bLogin);
+		register = (Button) findViewById(R.id.button_register);
 		//back = (Button) findViewById(R.id.button_back_from_login);
 		
 		//all the stuff associated with clicking the login button
@@ -63,6 +64,15 @@ public class Login extends Activity {
 			    	}
 			    }
 			}
+		});
+		
+		register.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent goToRegister = new Intent("android.intent.action.REGISTER");
+				startActivity(goToRegister);
+				}
 		});
 		
 		//Sends them back to the welcome page

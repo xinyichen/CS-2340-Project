@@ -1,8 +1,6 @@
 package com.whereismymoney.model;
 
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.Date;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

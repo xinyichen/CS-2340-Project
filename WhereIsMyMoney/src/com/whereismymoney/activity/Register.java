@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +37,7 @@ public class Register extends Activity {
 		setContentView(R.layout.activity_register);
 		passwordManager = new PasswordManager();
 		register = (Button) findViewById(R.id.button_confirm_register);
-		cancel = (Button) findViewById(R.id.button_reject_registration);
+		//cancel = (Button) findViewById(R.id.button_reject_registration);
 		
 		//this method handles everything associated with the confirm registration button
 		register.setOnClickListener(new View.OnClickListener() {
@@ -97,13 +96,13 @@ public class Register extends Activity {
 		});
 		
 		//this handles the back button (cancel registration)
-		cancel.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent goToWelcome = new Intent("android.intent.action.WELCOME");
-				startActivity(goToWelcome);
-			}
-		});
+//		cancel.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				Intent goToWelcome = new Intent("android.intent.action.WELCOME");
+//				startActivity(goToWelcome);
+//			}
+//		});
 		//viewPager
 		//Log.d(TAG,"activity creating");
 	}

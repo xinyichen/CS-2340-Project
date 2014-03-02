@@ -18,7 +18,7 @@
            </style>
     
 
-    <style name="edit_text_custom" parent="android:Widget.Holo.Light.EditText">
+    <style name="custom_edit_text_rounded" parent="android:Widget.Holo.Light.EditText">
         <item name="android:background">@drawable/custom_edit_text_rounded</item>
         <item name="android:layout_marginBottom">4dp</item>
         <item name="android:layout_marginTop">4dp</item>
