@@ -2,7 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@color/moe_money_background"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
 
     <TextView
         android:id="@+id/textView1"
@@ -13,8 +18,9 @@
 
     <EditText
         android:id="@+id/edit_withdrawal_reason"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_edit_text_rounded"
         android:ems="10"
         android:hint="@string/edit_withdrawal_reason"
         android:inputType="textPersonName|textShortMessage" >
@@ -24,37 +30,45 @@
 
     <EditText
         android:id="@+id/edit_withdrawal_expense_category"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_edit_text_rounded"
         android:ems="10"
         android:hint="@string/edit_withdrawal_expense_category" />
 
     <EditText
         android:id="@+id/edit_withdrawal_amount"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_edit_text_rounded"
         android:ems="10"
         android:hint="@string/edit_withdrawal_amount"
         android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/edit_withdrawal_effective_date"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_edit_text_rounded"
         android:ems="10"
         android:hint="@string/edit_withdrawal_effective_date"
         android:inputType="date" />
 
     <Button
         android:id="@+id/button_withdrawal_confirm"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_button_breaker_bay"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/button_withdrawal_confirm" />
 
     <Button
         android:id="@+id/button_withdrawal_cancel"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/custom_button_sorbus"
+        android:layout_marginTop="5dp"
         android:text="@string/button_withdrawal_cancel" />
 
 </LinearLayout>
