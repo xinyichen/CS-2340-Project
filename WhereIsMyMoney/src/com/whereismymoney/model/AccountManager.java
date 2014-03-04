@@ -60,7 +60,7 @@ public class AccountManager {
     				.data("interest_rate", Double.toString(interest_rate))
     				.timeout(15*1000).get();
     		String loginResult = (doc.text());
-    		if (loginResult.equals("registered")) {
+    		if (loginResult.equals("account created")) {
     			//setting the current account for transaction purposes
     			CurrentAccount.getCurrentAccount().setAccountName(account_display_name);
     			return true;
