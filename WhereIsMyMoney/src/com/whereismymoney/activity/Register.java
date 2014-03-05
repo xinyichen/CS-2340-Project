@@ -51,31 +51,31 @@ public class Register extends Activity {
 			    EditText password = (EditText) findViewById(R.id.edit_registration_password);
 			    EditText confirmPassword = (EditText) findViewById(R.id.edit_registration_password_confirm);
 			    
-			    String rFailed = "Registration Failed";
-			    String rReason = null;
+			    String failAlert = "Registration Failed";
+			    String failReason = null;
 			    if(!password.getText().toString().equals(confirmPassword.getText().toString())) {
-			    	rReason = "The password fields don't match";
+			    	failReason = "The password fields don't match";
 			    } else if(!password.getText().toString().matches(".{7,}")) {
-			    	rReason = "Your password needs to be at least 7 characters";
+			    	failReason = "Your password needs to be at least 7 characters";
 			    } else if(!email.getText().toString().matches("[a-zA-Z][0-9A-Za-z\\_\\-\\.]*@[a-zA-Z][0-9A-Za-z\\_\\-]*.(com|org|net|edu)")) {
-			    	rReason = "Your email is in an incorrect format";
+			    	failReason = "Your email is in an incorrect format";
 			    } else if(firstName.getText().toString().matches("\\s*")) {
-			    	rReason = "You didn't enter in a first name!";
+			    	failReason = "You didn't enter in a first name!";
 			    } else if(lastName.getText().toString().matches("\\s*")) {
-			    	rReason = "You didn't enter a last name!";
+			    	failReason = "You didn't enter a last name!";
 			    } else if(username.getText().toString().matches("\\s*")) {
-			    	rReason = "You didn't enter a username!";
+			    	failReason = "You didn't enter a username!";
 			    }
 			    else if (passwordManager.register(username.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), password.getText().toString(), email.getText().toString())) {
 			        Intent goToConfirmation = new Intent("android.intent.action.CONFIRMREGISTRATION");
 		    		startActivity(goToConfirmation);
 			    }
 			    else {
-			    	rReason = "Username Already Exists";
+			    	failReason = "Username Already Exists";
 			    }
 			    AlertDialog registerFailAlert = new AlertDialog.Builder(Register.this).create();
-		        registerFailAlert.setTitle(rFailed);
-		        registerFailAlert.setMessage(rReason);
+		        registerFailAlert.setTitle(failAlert);
+		        registerFailAlert.setMessage(failReason);
 		        registerFailAlert.show();
 			}
 		});
