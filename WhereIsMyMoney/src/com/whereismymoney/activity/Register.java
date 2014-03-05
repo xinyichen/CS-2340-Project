@@ -84,7 +84,8 @@ public class Register extends Activity {
 			    }
 			    
 			    else if (passwordManager.register(username.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), password.getText().toString(), email.getText().toString())) {
-			        sendMessage(arg0); // TODO: make proper intent here
+			        Intent goToConfirmation = new Intent("android.intent.action.CONFIRMREGISTRATION");
+		    		startActivity(goToConfirmation);
 			    }
 			    else {
 			        AlertDialog loginFailAlert = new AlertDialog.Builder(Register.this).create();
@@ -94,28 +95,5 @@ public class Register extends Activity {
 			    }
 			}
 		});
-		
-		//this handles the back button (cancel registration)
-//		cancel.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				Intent goToWelcome = new Intent("android.intent.action.WELCOME");
-//				startActivity(goToWelcome);
-//			}
-//		});
-		//viewPager
-		//Log.d(TAG,"activity creating");
-	}
-
-	/**
-	 * This method takes the user to the confirm registration page
-	 * @param view 
-	 */
-	public void sendMessage(View view) {
-		Intent intent = new Intent(this, ConfirmRegistration.class);
-//		EditText editText = (EditText) findViewById(R.id.edit_userID);
-//		String message = editText.getText().toString();
-//		intent.putExtra(EXTRA_MESSAGE, message);
-		startActivity(intent);
 	}
 }
