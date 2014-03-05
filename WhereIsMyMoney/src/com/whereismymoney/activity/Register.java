@@ -51,48 +51,32 @@ public class Register extends Activity {
 			    EditText password = (EditText) findViewById(R.id.edit_registration_password);
 			    EditText confirmPassword = (EditText) findViewById(R.id.edit_registration_password_confirm);
 			    
+			    String rFailed = "Registration Failed";
+			    String rReason = null;
 			    if(!password.getText().toString().equals(confirmPassword.getText().toString())) {
-			    	AlertDialog registerFailAlert = new AlertDialog.Builder(Register.this).create();
-			        registerFailAlert.setTitle("Registration Failed");
-			        registerFailAlert.setMessage("The password fields don't match");
-			        registerFailAlert.show();
+			    	rReason = "The password fields don't match";
 			    } else if(!password.getText().toString().matches(".{7,}")) {
-			    	AlertDialog registerFailAlert = new AlertDialog.Builder(Register.this).create();
-			        registerFailAlert.setTitle("Registration Failed");
-			        registerFailAlert.setMessage("Your password needs to be at least 7 characters");
-			        registerFailAlert.show();
+			    	rReason = "Your password needs to be at least 7 characters";
 			    } else if(!email.getText().toString().matches("[a-zA-Z][0-9A-Za-z\\_\\-\\.]*@[a-zA-Z][0-9A-Za-z\\_\\-]*.(com|org|net|edu)")) {
-			    	AlertDialog registerFailAlert = new AlertDialog.Builder(Register.this).create();
-			        registerFailAlert.setTitle("Registration Failed");
-			        registerFailAlert.setMessage("Your email is in an incorrect format");
-			        registerFailAlert.show();
+			    	rReason = "Your email is in an incorrect format";
 			    } else if(firstName.getText().toString().matches("\\s*")) {
-			    	AlertDialog registerFailAlert = new AlertDialog.Builder(Register.this).create();
-			        registerFailAlert.setTitle("Registration Failed");
-			        registerFailAlert.setMessage("You didn't enter in a first name!");
-			        registerFailAlert.show();
+			    	rReason = "You didn't enter in a first name!";
 			    } else if(lastName.getText().toString().matches("\\s*")) {
-			    	AlertDialog registerFailAlert = new AlertDialog.Builder(Register.this).create();
-			        registerFailAlert.setTitle("Registration Failed");
-			        registerFailAlert.setMessage("You didn't enter in a last name!");
-			        registerFailAlert.show();
+			    	rReason = "You didn't enter a last name!";
 			    } else if(username.getText().toString().matches("\\s*")) {
-			    	AlertDialog registerFailAlert = new AlertDialog.Builder(Register.this).create();
-			        registerFailAlert.setTitle("Registration Failed");
-			        registerFailAlert.setMessage("You didn't enter in a username!");
-			        registerFailAlert.show();
+			    	rReason = "You didn't enter a username!";
 			    }
-			    
 			    else if (passwordManager.register(username.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), password.getText().toString(), email.getText().toString())) {
 			        Intent goToConfirmation = new Intent("android.intent.action.CONFIRMREGISTRATION");
 		    		startActivity(goToConfirmation);
 			    }
 			    else {
-			        AlertDialog loginFailAlert = new AlertDialog.Builder(Register.this).create();
-			        loginFailAlert.setTitle("Registration Failed");
-			        loginFailAlert.setMessage("Username Already Exists");
-			        loginFailAlert.show();
+			    	rReason = "Username Already Exists";
 			    }
+			    AlertDialog registerFailAlert = new AlertDialog.Builder(Register.this).create();
+		        registerFailAlert.setTitle(rFailed);
+		        registerFailAlert.setMessage(rReason);
+		        registerFailAlert.show();
 			}
 		});
 	}
