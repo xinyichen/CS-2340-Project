@@ -43,25 +43,22 @@ public class CreateAccount extends Activity {
                 Double accBalance = Double.parseDouble(balance.getText().toString());
                 Double accIntRate = Double.parseDouble(interestRate.getText().toString());
                 
+                String failAlert = "Account Creation Failed";
+                String failReason = null;
                 if(fullNameStr.matches("\\s*")) {
-                	AlertDialog accountFailAlert = new AlertDialog.Builder(CreateAccount.this).create();
-			        accountFailAlert.setTitle("Account Creation Failed");
-			        accountFailAlert.setMessage("You didn't enter a full name for the account!");
-			        accountFailAlert.show();
+                	failReason = "You didn't enter a full name for the account!";
                 } else if(displayNameStr.matches("\\s*")) {
-                	AlertDialog accountFailAlert = new AlertDialog.Builder(CreateAccount.this).create();
-			        accountFailAlert.setTitle("Account Creation Failed");
-			        accountFailAlert.setMessage("You didn't enter a display name for the account!");
-			        accountFailAlert.show();
+                	failReason = "You didn't enter a display name for the account!";
                 } else if(accountManager.createAccount(CurrentUser.getCurrentUser().getUserName(), displayNameStr, fullNameStr, accBalance, accIntRate)) {
                 	Intent goToAccountInfo = new Intent("android.intent.action.ACCOUNTINFO");
                 	startActivity(goToAccountInfo);
                 } else {
-                	AlertDialog accountFailAlert = new AlertDialog.Builder(CreateAccount.this).create();
-			        accountFailAlert.setTitle("Account Creation Failed");
-			        accountFailAlert.setMessage("You entered something incorrectly. Please check your entries and try again.");
-			        accountFailAlert.show();
+                	failReason = "You entered something incorrectly. Please check your entries and try again.";
                 }
+                AlertDialog accountFailAlert = new AlertDialog.Builder(CreateAccount.this).create();
+		        accountFailAlert.setTitle(failAlert);
+		        accountFailAlert.setMessage(failReason);
+		        accountFailAlert.show();
             }
         });
         
