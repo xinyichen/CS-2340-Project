@@ -19,20 +19,10 @@ public class Register extends Activity {
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 	
 	private PasswordManager passwordManager;
-	Bundle a;
 	Button register, cancel;
 	
-	
-	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-		this.onCreate(a);
-	}
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		a = savedInstanceState;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
 		passwordManager = new PasswordManager();
