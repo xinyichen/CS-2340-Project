@@ -19,8 +19,8 @@ public class Welcome extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_login);
-	    login = (Button) findViewById(R.id.bLogin);
-	    register = (Button) findViewById(R.id.button_register);
+	    login = (Button) findViewById(R.id.button_login_login);
+	    register = (Button) findViewById(R.id.button_login_register);
 
 	    // jump to login page on click
 	    login.setOnClickListener(new View.OnClickListener() {

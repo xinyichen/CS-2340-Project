@@ -26,7 +26,7 @@ public class Register extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
 		passwordManager = new PasswordManager();
-		register = (Button) findViewById(R.id.button_confirm_register);
+		register = (Button) findViewById(R.id.button_register_confirm);
 		//cancel = (Button) findViewById(R.id.button_reject_registration);
 		
 		//this method handles everything associated with the confirm registration button
@@ -34,12 +34,12 @@ public class Register extends Activity {
 			
 			@Override
 			public void onClick(View arg0) {
-				EditText firstName = (EditText) findViewById(R.id.edit_registration_first_name);
-			    EditText lastName = (EditText) findViewById(R.id.edit_registration_last_name);
-				EditText email = (EditText) findViewById(R.id.edit_registration_email);
-			    EditText username = (EditText) findViewById(R.id.edit_registration_username);
-			    EditText password = (EditText) findViewById(R.id.edit_registration_password);
-			    EditText confirmPassword = (EditText) findViewById(R.id.edit_registration_password_confirm);
+				EditText firstName = (EditText) findViewById(R.id.edit_text_register_first_name);
+			    EditText lastName = (EditText) findViewById(R.id.edit_text_register_last_name);
+				EditText email = (EditText) findViewById(R.id.edit_text_register_email_address);
+			    EditText username = (EditText) findViewById(R.id.edit_text_register_username);
+			    EditText password = (EditText) findViewById(R.id.edit_text_register_password);
+			    EditText confirmPassword = (EditText) findViewById(R.id.edit_text_register_confirm_password);
 			    
 			    String failAlert = "Registration Failed";
 			    String failReason = null;

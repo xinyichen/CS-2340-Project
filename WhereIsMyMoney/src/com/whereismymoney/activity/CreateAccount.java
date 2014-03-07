@@ -26,17 +26,17 @@ public class CreateAccount extends Activity {
         setContentView(R.layout.activity_create_account);
         accountManager = new AccountManager();
         
-        confirm = (Button) findViewById(R.id.button_confirm_account_creation);
+        confirm = (Button) findViewById(R.id.button_create_account_confirm);
         
         //clicking confirm
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             // todo: check input integrity
             public void onClick(View arg0) {
-                EditText fullName = (EditText) findViewById(R.id.edit_account_full_name);
-                EditText displayName = (EditText) findViewById(R.id.edit_account_display_name);
-                EditText balance = (EditText) findViewById(R.id.edit_account_balance);
-                EditText interestRate = (EditText) findViewById(R.id.edit_account_interest_rate);
+                EditText fullName = (EditText) findViewById(R.id.edit_text_create_account_full_name);
+                EditText displayName = (EditText) findViewById(R.id.edit_text_create_account_display_name);
+                EditText balance = (EditText) findViewById(R.id.edit_text_create_account_balance);
+                EditText interestRate = (EditText) findViewById(R.id.edit_text_account_interest_rate);
 
                 String fullNameStr = fullName.getText().toString();
                 String displayNameStr = displayName.getText().toString();
@@ -63,7 +63,7 @@ public class CreateAccount extends Activity {
         });
         
         //clicking cancel
-        cancel = (Button) findViewById(R.id.button_reject_account_creation);
+        cancel = (Button) findViewById(R.id.button_create_account_reject);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {

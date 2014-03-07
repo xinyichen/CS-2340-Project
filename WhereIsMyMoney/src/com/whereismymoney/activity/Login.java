@@ -17,24 +17,25 @@ import android.widget.EditText;
 
 public class Login extends Activity {	
 	private PasswordManager passwordManager;
-	Button login, register;
+	Button login, register, forgot_password;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		passwordManager = new PasswordManager();
-		login = (Button) findViewById(R.id.bLogin);
-		register = (Button) findViewById(R.id.button_register);
+		login = (Button) findViewById(R.id.button_login_login);
+		register = (Button) findViewById(R.id.button_login_register);
+		forgot_password = (Button) findViewById(R.id.button_forgot_password);
 		//back = (Button) findViewById(R.id.button_back_from_login);
 		
 		//all the stuff associated with clicking the login button
 		login.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
-			public void onClick(View arg0) {
-			    EditText username = (EditText) findViewById(R.id.edit_userID);
-			    EditText password = (EditText) findViewById(R.id.edit_password);
+			public void onClick(View v) {
+			    EditText username = (EditText) findViewById(R.id.edit_text_login_username);
+			    EditText password = (EditText) findViewById(R.id.edit_text_login_password);
 			    //checking to see if the password is at least 7 characters and the username is at least one character
 			    if(password.getText().toString().matches(".{7,}") && username.getText().toString().matches(".+")){
 			    	//checks with the server to see if the login info is valid
@@ -73,6 +74,15 @@ public class Login extends Activity {
 				Intent goToRegister = new Intent("android.intent.action.REGISTER");
 				startActivity(goToRegister);
 				}
+		});
+		
+		forgot_password.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent goToForgotPassword = new Intent("android.intent.action.FORGOTPASSWORD");
+				startActivity(goToForgotPassword);
+			}
 		});
 		
 		//Sends them back to the welcome page
