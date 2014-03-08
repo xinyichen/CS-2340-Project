@@ -6,16 +6,17 @@ import com.whereismymoney.R;
 import com.whereismymoney.model.Account;
 import com.whereismymoney.model.AccountManager;
 import com.whereismymoney.model.CurrentAccount;
+import com.whereismymoney.model.CurrentUser;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 /**
@@ -27,18 +28,13 @@ import android.widget.TextView;
 public class AccountInfo extends Activity {
     private AccountManager accountManager;
     private Button createAccount, createNewTransaction;
-    private TextView accountName, balance, intRate;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_info);
         
-        accountManager = new AccountManager();
-        accountName = (TextView) findViewById(R.id.text_account_full_name_display);
-        balance = (TextView) findViewById(R.id.text_account_balance_display);
-        intRate = (TextView) findViewById(R.id.text_account_interest_rate_display);
-        
+        accountManager = new AccountManager();        
         createAccount = (Button) findViewById(R.id.bNewAccount);
         createNewTransaction = (Button) findViewById(R.id.button_create_new_transaction);
         
@@ -68,34 +64,30 @@ public class AccountInfo extends Activity {
             }
         });
         
-        
-    }
-    
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);       
-        List<String> menuList = accountManager.getAccountList();
-        
-        //creating the list of accounts they can select from the menu
-        if (menuList != null) {
-            for (int i = 0; i < menuList.size(); i++) {
-                menu.add(0, i, 0, menuList.get(i));
-            }
-        }
-        
-        return true;
-    }
+        // create a table that contains all account information of the current user
+        TableLayout accountTable = (TableLayout)findViewById(R.id.table_account_info);
+        List<Account> acoountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {    
-    	//setting the current account for transaction purposes
-    	CurrentAccount.getCurrentAccount().setAccountName(item.getTitle().toString());
-    	
-        Account currAccount = accountManager.getAccountInfo(item.getTitle().toString());
-        accountName.setText("Account Name: " + currAccount.getFullName());
-        balance.setText("Current Balance: " + currAccount.getBalance());
-        intRate.setText("Interest Rate: " + currAccount.getInterestRate());
-        return true;
+        // TODO: format, alignment, scrollable
+        // for each account, display name, balance and interest rate
+        for (int i = 0; i < acoountList.size(); i++) {
+            Account currAcc = acoountList.get(i);
+            TableRow row= new TableRow(this);
+
+            TextView diaplayName = new TextView(this);
+            diaplayName.setText(currAcc.getDisplayName());
+            row.addView(diaplayName);
+
+            TextView balance = new TextView(this);
+            balance.setText("" + currAcc.getBalance());
+            row.addView(balance);
+
+            TextView intRate = new TextView(this);
+            intRate.setText("" + currAcc.getInterestRate());
+            row.addView(intRate);
+
+            accountTable.addView(row);
+        }
     }
     
     @Override

@@ -11,49 +11,13 @@
 
     <Button
         android:id="@+id/bNewAccount"
+        style="@style/custom_button_sorbus"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/text_view_account"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
-        style="@style/custom_button_sorbus"
-        android:text="@string/button_new_account" />
-
-    <TextView
-        android:id="@+id/text_view_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/text_view_account"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/text_account_interest_rate_display"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/text_account_balance_display"
-        android:layout_below="@+id/text_account_balance_display"
-        android:layout_marginTop="98dp"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/text_account_balance_display"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/text_account_full_name_display"
-        android:layout_below="@+id/text_account_full_name_display"
-        android:layout_marginTop="90dp"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/text_account_full_name_display"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/text_view_account"
-        android:layout_below="@+id/text_view_account"
-        android:layout_marginTop="41dp"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_marginBottom="5dp"
+        android:text="@string/button_new_account" />
 
     <Button
         android:id="@+id/button_create_new_transaction"
@@ -64,5 +28,37 @@
         android:layout_alignLeft="@+id/bNewAccount"
         android:layout_marginBottom="17dp"
         android:text="@string/button_create_new_transaction" />
-    
+
+    <TableLayout
+        android:id="@+id/table_account_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+           		android:gravity="left"
+                android:text="TextView" />
+            
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+           		android:gravity="left"
+                android:text="TextView" />
+             
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dip"
+           		android:gravity="left"
+                android:text="TextView" />
+
+        </TableRow>
+    </TableLayout>
+
 </RelativeLayout>

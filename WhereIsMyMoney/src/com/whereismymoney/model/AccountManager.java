@@ -6,47 +6,39 @@ import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import android.util.Log;
 
 public class AccountManager {
     
-    public List<String> getAccountList() {
-        ArrayList<String> ret = new ArrayList<String>();
-        try {
-            Document doc = Jsoup.connect("http://192.185.4.36/~zli342/get_account_list.php")
-                    .data("username", CurrentUser.getCurrentUser().getUserName())
-                    .timeout(15*1000).get();
-            Elements nameList = doc.select("display_name");  // select by tag name    
-            for(Element name : nameList) {
-                if(name.hasText() ) {
-                    ret.add(name.text());
-                }
-            }
-        } catch (IOException e) {
-            Log.i("fail",e.toString());
-        }
-        return ret;
-    }
-    
-    public Account getAccountInfo(String displayName) {
+    // return a list of all accounts of a given user
+    public List<Account> getAllAccounts(String username) {
+        List<Account> accountList = new ArrayList<Account>();
+        
         try {
             Document doc = Jsoup.connect("http://192.185.4.36/~zli342/get_account_info.php")
-                    .data("username", CurrentUser.getCurrentUser().getUserName())
-                    .data("account_display_name", displayName)
+                    .data("username", username)
                     .timeout(15*1000).get();
             // TODO: set up check
-            String fullName = doc.select("full_name").first().text();  
-            Double balance = Double.parseDouble(doc.select("balance").first().text());
-            Double intRate = Double.parseDouble(doc.select("interest_rate").first().text());
-            return new Account(fullName, displayName, balance, intRate);
+            Elements fullNameList = doc.select("full_name");  
+            Elements displayNameList = doc.select("display_name");  
+            Elements balanceList = doc.select("balance");
+            Elements intRateList = doc.select("interest_rate");
+            
+            // extract and pack the information pertain to the current account
+            for (int i = 0; i < fullNameList.size(); i++) {
+                String fullName = fullNameList.get(i).text();
+                String displayName = displayNameList.get(i).text();
+                Double balance = Double.parseDouble(balanceList.get(i).text());
+                Double intRate = Double.parseDouble(intRateList.get(i).text());
+                accountList.add(new Account(fullName, displayName, balance, intRate));
+            }
+            return accountList;
         } catch (IOException e) {
             Log.i("fail",e.toString());
             return null;
         }
-
     }
     
     public boolean createAccount(String username, String account_display_name, String account_full_name, double balance, double interest_rate) {
