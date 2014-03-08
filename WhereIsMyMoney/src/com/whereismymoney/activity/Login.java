@@ -36,6 +36,8 @@ public class Login extends Activity {
 			public void onClick(View v) {
 			    EditText username = (EditText) findViewById(R.id.edit_text_login_username);
 			    EditText password = (EditText) findViewById(R.id.edit_text_login_password);
+			    String failAlert = "Registration Failed";
+			    String failReason = null;
 			    //checking to see if the password is at least 7 characters and the username is at least one character
 			    if(password.getText().toString().matches(".{7,}") && username.getText().toString().matches(".+")){
 			    	//checks with the server to see if the login info is valid
@@ -44,25 +46,20 @@ public class Login extends Activity {
 			    		startActivity(goToAccountList);
 			    	} else {
 			    		//the server returned false for the login method with those parameters
-			    		AlertDialog loginFailAlert = new AlertDialog.Builder(Login.this).create();
-			    		loginFailAlert.setTitle("Login Failed");
-			    		loginFailAlert.setMessage("Incorrect User Name or Password");
-			    		loginFailAlert.show();
+			    		failReason = "Incorrect User Name or Password";
 			    	}
 			    } else {
 			    	//alerting the user that the password is <7 characters
 			    	if(password.getText().toString().matches(".{0,6}")) {
-			    		AlertDialog loginFailAlert = new AlertDialog.Builder(Login.this).create();
-			    		loginFailAlert.setTitle("Login Failed");
-			    		loginFailAlert.setMessage("Your password must be at least 7 characters.");
-			    		loginFailAlert.show();
+			    		failReason = "Your password must be at least 7 characters";
 			    	} else {
 			    		//alerting the user that they didn't enter a username
-			    		AlertDialog loginFailAlert = new AlertDialog.Builder(Login.this).create();
-			    		loginFailAlert.setTitle("Login Failed");
-			    		loginFailAlert.setMessage("You need to enter a username!");
-			    		loginFailAlert.show();
+			    		failReason = "You need to enter a username!";
 			    	}
+			    	AlertDialog loginFailAlert = new AlertDialog.Builder(Login.this).create();
+			    	loginFailAlert.setTitle(failAlert);
+		    		loginFailAlert.setMessage(failReason);
+		    		loginFailAlert.show();
 			    }
 			}
 		});
