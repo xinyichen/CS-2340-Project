@@ -66,27 +66,12 @@ public class AccountInfo extends Activity {
         
         // create a table that contains all account information of the current user
         TableLayout accountTable = (TableLayout)findViewById(R.id.table_account_info);
-        List<Account> acoountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
+        List<Account> accountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
 
         // TODO: format, alignment, scrollable
         // for each account, display name, balance and interest rate
-        for (int i = 0; i < acoountList.size(); i++) {
-            Account currAcc = acoountList.get(i);
-            TableRow row= new TableRow(this);
-
-            TextView diaplayName = new TextView(this);
-            diaplayName.setText(currAcc.getDisplayName());
-            row.addView(diaplayName);
-
-            TextView balance = new TextView(this);
-            balance.setText("" + currAcc.getBalance());
-            row.addView(balance);
-
-            TextView intRate = new TextView(this);
-            intRate.setText("" + currAcc.getInterestRate());
-            row.addView(intRate);
-
-            accountTable.addView(row);
+        for (Account account : accountList) {
+            account.display(accountTable, this);
         }
     }
     
