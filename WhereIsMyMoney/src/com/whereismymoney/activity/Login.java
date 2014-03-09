@@ -1,6 +1,7 @@
 package com.whereismymoney.activity;
 
 import com.whereismymoney.R;
+import com.whereismymoney.model.IntegrityCheck;
 import com.whereismymoney.model.PasswordManager;
 
 import android.app.Activity;
@@ -39,7 +40,8 @@ public class Login extends Activity {
 			    String failAlert = "Registration Failed";
 			    String failReason = null;
 			    //checking to see if the password is at least 7 characters and the username is at least one character
-			    if(password.getText().toString().matches(".{7,}") && username.getText().toString().matches(".+")){
+			    if(IntegrityCheck.checkPasswordLength(password.getText().toString(), 7)
+			    		&& IntegrityCheck.isInputValid(username.getText().toString())) {
 			    	//checks with the server to see if the login info is valid
 			    	if (passwordManager.login(username.getText().toString(), password.getText().toString())) {
 			    		Intent goToAccountList = new Intent("android.intent.action.ACCOUNTINFO");
@@ -50,7 +52,7 @@ public class Login extends Activity {
 			    	}
 			    } else {
 			    	//alerting the user that the password is <7 characters
-			    	if(password.getText().toString().matches(".{0,6}")) {
+			    	if(!IntegrityCheck.checkPasswordLength(password.getText().toString(), 7)) {
 			    		failReason = "Your password must be at least 7 characters";
 			    	} else {
 			    		//alerting the user that they didn't enter a username
