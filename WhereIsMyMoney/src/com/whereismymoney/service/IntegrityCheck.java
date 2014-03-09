@@ -1,4 +1,4 @@
-package com.whereismymoney.model;
+package com.whereismymoney.service;
 
 public class IntegrityCheck {
 	public static boolean checkPasswordLength(String password, int length) {

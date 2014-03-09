@@ -1,8 +1,8 @@
 package com.whereismymoney.activity;
 
 import com.whereismymoney.R;
-import com.whereismymoney.model.IntegrityCheck;
 import com.whereismymoney.model.PasswordManager;
+import com.whereismymoney.service.IntegrityCheck;
 
 import android.app.Activity;
 import android.app.AlertDialog;
