@@ -2,6 +2,7 @@ package com.whereismymoney.activity;
 
 import com.whereismymoney.R;
 import com.whereismymoney.model.TransactionManager;
+import com.whereismymoney.service.IntegrityCheck;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -47,51 +48,30 @@ public class NewWithdrawal extends Activity{
 				EditText expenseCategory = (EditText) findViewById(R.id.edit_withdrawal_expense_category);
 			    EditText amount = (EditText) findViewById(R.id.edit_withdrawal_amount);
 				EditText effectiveDate = (EditText) findViewById(R.id.edit_withdrawal_effective_date);
-				if(reason.getText().toString().matches("\\s*")) {
-					AlertDialog newWithdrawalFailAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
-			        newWithdrawalFailAlert.setTitle("Withdrawal Failed");
-			        newWithdrawalFailAlert.setMessage("You didn't enter a reason");
-			        newWithdrawalFailAlert.show();
-				} else if(expenseCategory.getText().toString().matches("\\s*")) {
-					AlertDialog newWithdrawalFailAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
-			        newWithdrawalFailAlert.setTitle("Withdrawal Failed");
-			        newWithdrawalFailAlert.setMessage("You didn't enter an expense category");
-			        newWithdrawalFailAlert.show();
-				} else if(amount.getText().toString().matches("\\s*")) {
-					AlertDialog newWithdrawalFailAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
-			        newWithdrawalFailAlert.setTitle("Withdrawal Failed");
-			        newWithdrawalFailAlert.setMessage("You didn't enter an amount");
-			        newWithdrawalFailAlert.show();
-				} else if(effectiveDate.getText().toString().matches("\\s*")) {
-					AlertDialog newWithdrawalFailAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
-			        newWithdrawalFailAlert.setTitle("Withdrawal Failed");
-			        newWithdrawalFailAlert.setMessage("You didn't enter an effective date");
-			        newWithdrawalFailAlert.show();
-				} else if(amount.getText().toString().matches("[0-9]{0,}.[0-9]{2}")) {
-					AlertDialog newWithdrawalFailAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
-			        newWithdrawalFailAlert.setTitle("Withdrawal Failed");
-			        newWithdrawalFailAlert.setMessage("Amount needs to be in the format #...#.##. Ex: 4.25");
-			        newWithdrawalFailAlert.show();
-			        //this regex only checks for a valid format, doesn't make sure it is actually a valid date
-				} else if(effectiveDate.getText().toString().matches("[0-9]{2}\\\\/[0-9]{2}\\\\/[0-9]{4}")) {
-					AlertDialog newWithdrawalFailAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
-			        newWithdrawalFailAlert.setTitle("Withdrawal Failed");
-			        newWithdrawalFailAlert.setMessage("Date is not in the correct format. Correct format is yyyy-mm-dd");
-			        newWithdrawalFailAlert.show();
-			        //success case.
+				
+				String alertMessage = "Withdrawal Failed";
+			    String alertReason = null;
+			    if(!IntegrityCheck.isInputValid(reason.getText().toString())) {
+			    	alertReason = "You didn't enter a reason";
+				} else if(!IntegrityCheck.isInputValid(expenseCategory.getText().toString())) {
+					alertReason = "You didn't enter an expense category";
+				} else if(!IntegrityCheck.isInputValid(amount.getText().toString())) {
+					alertReason = "You didn't enter an amount";
+				} else if(!IntegrityCheck.isInputValid(effectiveDate.getText().toString())) {
+					alertReason = "You didn't enter an effective date";
+				} else if(!IntegrityCheck.amountFormat(amount.getText().toString())) {
+					alertReason = "Amount needs to be in the format #...#.##. Ex: 4.25";
+				} else if(!IntegrityCheck.validDate(effectiveDate.getText().toString())) {
+					alertReason = "Date is not in the correct format. Correct format is yyyy-mm-dd";
 				} else if(transactionManager.newWithdrawal(reason.getText().toString(), expenseCategory.getText().toString(), Double.parseDouble(amount.getText().toString()), effectiveDate.getText().toString())) {
-					AlertDialog newWithdrawalAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
-			        newWithdrawalAlert.setTitle("Success");
-			        newWithdrawalAlert.setMessage("Withdrawal succeeded");
-			        newWithdrawalAlert.show();
-			        
+					alertMessage = "Success";
+					alertReason = "Withdrawal succeeded";
 				} else {
-					//failure. Due to: 1. low balance. 2. network error. (need to separate the two cases in future)
-					AlertDialog newWithdrawalFailAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
-			        newWithdrawalFailAlert.setTitle("Withdrawal Failed");
-			        newWithdrawalFailAlert.setMessage("Not enough balance");
-			        newWithdrawalFailAlert.show();
 				}
+				AlertDialog newWithdrawalAlert = new AlertDialog.Builder(NewWithdrawal.this).create();
+		        newWithdrawalAlert.setTitle(alertMessage);
+		        newWithdrawalAlert.setMessage(alertReason);
+		        newWithdrawalAlert.show();
 			}
 		});
 		

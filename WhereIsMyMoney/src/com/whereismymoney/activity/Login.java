@@ -40,8 +40,7 @@ public class Login extends Activity {
 			    String failAlert = "Registration Failed";
 			    String failReason = null;
 			    //checking to see if the password is at least 7 characters and the username is at least one character
-			    if(IntegrityCheck.checkPasswordLength(password.getText().toString(), 7)
-			    		&& IntegrityCheck.isInputValid(username.getText().toString())) {
+			    if(IntegrityCheck.checkPasswordLength(password.getText().toString(), 7) && IntegrityCheck.isInputValid(username.getText().toString())) {
 			    	//checks with the server to see if the login info is valid
 			    	if (passwordManager.login(username.getText().toString(), password.getText().toString())) {
 			    		Intent goToAccountList = new Intent("android.intent.action.ACCOUNTINFO");

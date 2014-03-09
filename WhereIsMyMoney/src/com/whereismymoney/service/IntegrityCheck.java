@@ -13,4 +13,11 @@ public class IntegrityCheck {
 	public static boolean isInputValid(String input) {
 		return !input.matches("\\s*");
 	}
+	public static boolean validDate(String date) {
+//		return date.matches("[0-9]{2}\\\\/[0-9]{2}\\\\/[0-9]{4}");
+		return date.matches("\\d{4}-\\d{2}-\\d{2}");
+	}
+	public static boolean amountFormat(String amount) {
+		return amount.matches("[0-9]{0,}.[0-9]{2}");
+	}
 }
