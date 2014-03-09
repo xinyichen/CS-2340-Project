@@ -6,8 +6,6 @@ import com.whereismymoney.activity.opengl.GLSurf;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
  

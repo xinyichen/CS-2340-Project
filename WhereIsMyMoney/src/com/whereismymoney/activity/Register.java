@@ -1,6 +1,7 @@
 package com.whereismymoney.activity;
 
 import com.whereismymoney.R;
+import com.whereismymoney.model.IntegrityCheck;
 import com.whereismymoney.model.PasswordManager;
 
 import android.app.Activity;
@@ -43,18 +44,18 @@ public class Register extends Activity {
 			    
 			    String failAlert = "Registration Failed";
 			    String failReason = null;
-			    if(!password.getText().toString().equals(confirmPassword.getText().toString())) {
-			    	failReason = "The password fields don't match";
-			    } else if(!password.getText().toString().matches(".{7,}")) {
-			    	failReason = "Your password needs to be at least 7 characters";
-			    } else if(!email.getText().toString().matches("[a-zA-Z][0-9A-Za-z\\_\\-\\.]*@[a-zA-Z][0-9A-Za-z\\_\\-]*.(com|org|net|edu)")) {
-			    	failReason = "Your email is in an incorrect format";
-			    } else if(firstName.getText().toString().matches("\\s*")) {
+			    if(!IntegrityCheck.isInputValid(firstName.getText().toString())) {
 			    	failReason = "You didn't enter in a first name!";
-			    } else if(lastName.getText().toString().matches("\\s*")) {
+			    } else if(!IntegrityCheck.isInputValid(lastName.getText().toString())) {
 			    	failReason = "You didn't enter a last name!";
-			    } else if(username.getText().toString().matches("\\s*")) {
+			    } else if(!IntegrityCheck.checkEmail(email.getText().toString())) {
+			    	failReason = "Your email is in an incorrect format";
+			    } else if(!IntegrityCheck.isInputValid(username.getText().toString())) {
 			    	failReason = "You didn't enter a username!";
+			    } else if(!IntegrityCheck.checkPasswordLength(password.getText().toString(), 7)) {
+			    	failReason = "Your password needs to be at least 7 characters";
+			    } else  if(!IntegrityCheck.checkMatch(password.getText().toString(), confirmPassword.getText().toString())) {
+			    	failReason = "The password fields don't match";
 			    }
 			    else if (passwordManager.register(username.getText().toString(), firstName.getText().toString(), lastName.getText().toString(), password.getText().toString(), email.getText().toString())) {
 			        Intent goToConfirmation = new Intent("android.intent.action.CONFIRMREGISTRATION");
