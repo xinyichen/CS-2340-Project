@@ -10,21 +10,23 @@ import org.jsoup.select.Elements;
 
 import android.util.Log;
 
-import com.whereismymoney.activity.Pair;
 import com.whereismymoney.activity.Report;
+import com.whereismymoney.activity.Pair;
 import com.whereismymoney.activity.SpendingCategoryReport;
+import com.whereismymoney.service.Date;
 
 public class ReportGenerator {
     
     public Report generateSpendingCategoryReport(String username, Date start, Date end) {
-        Document doc = null;
         try {
             // To Check: does sql get confused about month-date sequence?
-            doc = Jsoup.connect("http://192.185.4.36/~zli342/get_withdraw_summary.php")
+            Document doc = Jsoup.connect("http://192.185.4.36/~zli342/get_withdraw_summary.php")
                     .data("username", username)
-                    .data("start_date", start.toString())
-                    .data("end_date", start.toString())
+                    .data("start_date", start.toStringYMD())
+                    .data("end_date", end.toStringYMD())
                     .timeout(15*1000).get();
+            Log.i("start", start.toString());
+            Log.i("end", end.toString());
             Elements categoryList = doc.select("category");
             Elements amountList = doc.select("subtotal");
             List<Pair<String, Double>> spendings = new ArrayList<Pair<String, Double>>();

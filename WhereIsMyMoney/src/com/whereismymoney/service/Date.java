@@ -1,4 +1,4 @@
-package com.whereismymoney.model;
+package com.whereismymoney.service;
 
 import java.util.Calendar;
 
@@ -10,7 +10,7 @@ public class Date {
     public Date() {
         Calendar today = Calendar.getInstance();
         year = today.get(Calendar.YEAR);
-        month = today.get(Calendar.MONTH);
+        month = today.get(Calendar.MONTH) + 1; // offset the zero-indexed month number
         day = today.get(Calendar.DAY_OF_MONTH);
     }
     
@@ -53,6 +53,11 @@ public class Date {
     
     public String toStringMDY() {
         return month + "/" + day + "/" + year;
+    }
+    
+    // for sql query
+    public String toStringYMD() {
+        return year + "-" + month + "-" + day;
     }
     
     // TODO: define more date format

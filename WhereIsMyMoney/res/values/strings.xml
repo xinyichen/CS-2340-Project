@@ -69,7 +69,7 @@
     <string name="text_view_confirm_registration_title">Congratulations on creating your account!</string>  
     <string name="button_view_report">View Report</string>   
     <string name="button_generate_report">Generate Report</string>
-    <string name="text_view_report_start_date">Start Date:</string>  
-    <string name="text_view_report_end_date">End Date:</string>  
+    <string name="text_view_report_start_date">From:</string>  
+    <string name="text_view_report_end_date">To:</string>  
     
 </resources>

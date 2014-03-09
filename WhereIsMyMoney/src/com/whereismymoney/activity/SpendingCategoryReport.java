@@ -3,7 +3,7 @@ package com.whereismymoney.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.whereismymoney.model.Date;
+import com.whereismymoney.service.Date;
 
 public class SpendingCategoryReport implements Report {
     List<Pair<String, Double>> mySpendings = new ArrayList<Pair<String, Double>>();
