@@ -28,6 +28,15 @@
         android:layout_alignLeft="@+id/bNewAccount"
         android:layout_marginBottom="17dp"
         android:text="@string/button_create_new_transaction" />
+    
+    <Button
+        android:id="@+id/button_view_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_create_new_transaction"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:text="@string/button_view_report" />
 
     <TableLayout
         android:id="@+id/table_account_info"
@@ -37,11 +46,12 @@
         android:layout_alignParentTop="true" >
 
         <TableRow>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="left"
                 android:padding="10dip"
-           		android:gravity="left"
                 android:text="TextView" />
             
              <TextView

@@ -66,6 +66,10 @@
     <string name="button_create_account_confirm">Confirm</string>
     <string name="button_login_register">Register for free</string>
     <string name="text_view_login_text1">No Account? No Problem!</string>
-    <string name="text_view_confirm_registration_title">Congratulations on creating your account!</string>    
+    <string name="text_view_confirm_registration_title">Congratulations on creating your account!</string>  
+    <string name="button_view_report">View Report</string>   
+    <string name="button_generate_report">Generate Report</string>
+    <string name="text_view_report_start_date">Start Date:</string>  
+    <string name="text_view_report_end_date">End Date:</string>  
     
 </resources>

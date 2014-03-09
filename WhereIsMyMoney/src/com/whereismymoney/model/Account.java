@@ -52,4 +52,11 @@ public class Account {
 
         accountTable.addView(row);
     }
+    
+    // ToCheck: format here is good but got somehow destroyed in activity
+    public String toString(int colWidth1, int colWidth2, int colWidth3) {
+        return String.format("%-" + colWidth1 + "s", myDisplayName) +
+                String.format("%-" + colWidth2 + "s", myBalance) + 
+                String.format("%-" + colWidth3 + "s", myInterestRate);
+    }
 }

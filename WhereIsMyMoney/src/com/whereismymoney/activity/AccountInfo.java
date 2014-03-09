@@ -27,7 +27,7 @@ import android.widget.TextView;
 
 public class AccountInfo extends Activity {
     private AccountManager accountManager;
-    private Button createAccount, createNewTransaction;
+    private Button createAccount, createNewTransaction, viewReport;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class AccountInfo extends Activity {
         accountManager = new AccountManager();        
         createAccount = (Button) findViewById(R.id.bNewAccount);
         createNewTransaction = (Button) findViewById(R.id.button_create_new_transaction);
+        viewReport = (Button) findViewById(R.id.button_view_report);
         
         //clicking on create a new account
         createAccount.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +62,15 @@ public class AccountInfo extends Activity {
             		Intent goCreateTransaction = new Intent("android.intent.action.NEWTRANSACTION");
             		startActivity(goCreateTransaction);
             	}
+            }
+        });
+        
+        //clicking to view report
+        viewReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent goViewReport = new Intent("android.intent.action.VIEWREPORT");
+                startActivity(goViewReport);
             }
         });
         
