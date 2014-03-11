@@ -8,14 +8,22 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import android.annotation.SuppressLint;
+import android.os.StrictMode;
 import android.util.Log;
 
 public class AccountManager {
+
+public AccountManager() {
+	StrictMode.ThreadPolicy policy = new
+			StrictMode.ThreadPolicy.Builder()
+			.permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+}
     
     // return a list of all accounts of a given user
     public List<Account> getAllAccounts(String username) {
         List<Account> accountList = new ArrayList<Account>();
-        
         try {
             Document doc = Jsoup.connect("http://192.185.4.36/~zli342/get_account_info.php")
                     .data("username", username)
@@ -63,4 +71,6 @@ public class AccountManager {
     	}
     	return false;
     }
+    
+    
 }
