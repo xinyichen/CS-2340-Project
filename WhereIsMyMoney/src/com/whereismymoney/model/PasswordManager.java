@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import android.os.StrictMode;
 import android.util.Log;
 
 /**
@@ -14,12 +13,7 @@ import android.util.Log;
  */
 
 public class PasswordManager {
-	public PasswordManager() {
-		StrictMode.ThreadPolicy policy = new
-    			StrictMode.ThreadPolicy.Builder()
-    			.permitAll().build();
-    			StrictMode.setThreadPolicy(policy);
-	}
+	
     
     /**
      * Checks to see if the login is valid.
