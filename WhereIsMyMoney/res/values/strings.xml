@@ -71,5 +71,8 @@
     <string name="button_generate_report">Generate Report</string>
     <string name="text_view_report_start_date">From:</string>  
     <string name="text_view_report_end_date">To:</string>  
+    <string name="text_account_table_head_accName">Name</string>  
+    <string name="text_account_table_head_balance">Balance</string>  
+    <string name="text_account_table_head_intRate">Interest Rate</string>  
     
 </resources>
