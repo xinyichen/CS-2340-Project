@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import com.whereismymoney.R;
 import com.whereismymoney.model.CurrentUser;
+import com.whereismymoney.model.Report;
 import com.whereismymoney.service.Date;
 import com.whereismymoney.model.ReportGenerator;
 

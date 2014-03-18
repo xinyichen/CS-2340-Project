@@ -15,6 +15,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -27,7 +29,7 @@ import android.widget.TextView;
 
 public class AccountInfo extends Activity {
     private AccountManager accountManager;
-    private Button createAccount, createNewTransaction, viewReport;
+    private Button createAccount, viewReport;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,6 @@ public class AccountInfo extends Activity {
         
         accountManager = new AccountManager();        
         createAccount = (Button) findViewById(R.id.bNewAccount);
-        createNewTransaction = (Button) findViewById(R.id.button_create_new_transaction);
         viewReport = (Button) findViewById(R.id.button_view_report);
         
         //clicking on create a new account
@@ -45,23 +46,6 @@ public class AccountInfo extends Activity {
             public void onClick(View arg0) {
                 Intent goCreateAccount = new Intent("android.intent.action.CREATEACCOUNT");
                 startActivity(goCreateAccount);
-            }
-        });
-        
-        //clicking on new transaction
-        createNewTransaction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-            	//making sure they have an account to do transactions with
-            	if(CurrentAccount.getCurrentAccount().getAccountName()==null) {
-            		AlertDialog actionFailAlert = new AlertDialog.Builder(AccountInfo.this).create();
-			        actionFailAlert.setTitle("Action Failed");
-			        actionFailAlert.setMessage("You don't have an account selected for this transaction! Either create a new account or select a preexisting account from the menu.");
-			        actionFailAlert.show();
-            	} else {
-            		Intent goCreateTransaction = new Intent("android.intent.action.NEWTRANSACTION");
-            		startActivity(goCreateTransaction);
-            	}
             }
         });
         
@@ -75,13 +59,26 @@ public class AccountInfo extends Activity {
         });
         
         // create a table that contains all account information of the current user
-        TableLayout accountTable = (TableLayout)findViewById(R.id.table_account_info);
+        LinearLayout buttonLayout = (LinearLayout)findViewById(R.id.buttonLayout_account_details);
+        LinearLayout.LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         List<Account> accountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
 
         // TODO: format, alignment, scrollable
         // for each account, display name, balance and interest rate
-        for (Account account : accountList) {
-            account.display(accountTable, this);
+        for (int i = 0; i < Math.min(accountList.size(), 5); i++) {
+            final Account account = accountList.get(i);
+            Button accButton = new Button(this);
+            accButton.setText(account.toString(10, 10, 10));
+            buttonLayout.addView(accButton, lp); 
+            
+            accButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    CurrentAccount.getCurrentAccount().setAccountName(account.getFullName());
+                    Intent goViewAccountDetail = new Intent("android.intent.action.VIEWACCOUNTDETAIL");
+                    startActivity(goViewAccountDetail);
+                }
+            });
         }
     }
     

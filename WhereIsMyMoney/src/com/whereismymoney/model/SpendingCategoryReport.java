@@ -1,9 +1,10 @@
-package com.whereismymoney.activity;
+package com.whereismymoney.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.whereismymoney.service.Date;
+import com.whereismymoney.service.Pair;
 
 public class SpendingCategoryReport implements Report {
     List<Pair<String, Double>> mySpendings = new ArrayList<Pair<String, Double>>();
@@ -18,7 +19,8 @@ public class SpendingCategoryReport implements Report {
     
     @Override
     public String toString() {
-        String report = start.toString() + " - " + end.toString() + "\n";
+        String report = "Spending Category Report\n" + 
+                        start.toString() + " - " + end.toString() + "\n";
         
         if (mySpendings != null) {
             for (Pair<String, Double> spending : mySpendings) {

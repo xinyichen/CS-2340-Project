@@ -1,4 +1,4 @@
-package com.whereismymoney.activity;
+package com.whereismymoney.model;
 
 public interface Report {   
     

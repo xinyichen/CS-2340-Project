@@ -20,55 +20,31 @@
         android:text="@string/button_new_account" />
 
     <Button
-        android:id="@+id/button_create_new_transaction"
-        style="@style/custom_button_breaker_bay"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bNewAccount"
-        android:layout_alignLeft="@+id/bNewAccount"
-        android:layout_marginBottom="17dp"
-        android:text="@string/button_create_new_transaction" />
-    
-    <Button
         android:id="@+id/button_view_report"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button_create_new_transaction"
+        android:layout_above="@+id/bNewAccount"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="24dp"
         android:text="@string/button_view_report" />
 
-    <TableLayout
-        android:id="@+id/table_account_info"
+    <LinearLayout
+        android:id="@+id/buttonLayout_account_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:padding="10dip"
-                android:text="TextView" />
-            
-             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dip"
-           		android:gravity="left"
-                android:text="TextView" />
-             
-             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dip"
-           		android:gravity="left"
-                android:text="TextView" />
-
-        </TableRow>
-    </TableLayout>
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:text="Name   Balance   Interest Rate" />
 
 </RelativeLayout>

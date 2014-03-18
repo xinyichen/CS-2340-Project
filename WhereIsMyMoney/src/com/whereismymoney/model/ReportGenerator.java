@@ -10,10 +10,8 @@ import org.jsoup.select.Elements;
 
 import android.util.Log;
 
-import com.whereismymoney.activity.Report;
-import com.whereismymoney.activity.Pair;
-import com.whereismymoney.activity.SpendingCategoryReport;
 import com.whereismymoney.service.Date;
+import com.whereismymoney.service.Pair;
 
 public class ReportGenerator {
     

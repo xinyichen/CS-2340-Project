@@ -34,25 +34,6 @@ public class Account {
         return myInterestRate;
     }
     
-    // display account display name, current balance and interest rate in a given table layout
-    public void display(TableLayout accountTable, Context context) {
-        TableRow row= new TableRow(context);
-
-        TextView diaplayName = new TextView(context);
-        diaplayName.setText(myDisplayName);
-        row.addView(diaplayName);
-
-        TextView balance = new TextView(context);
-        balance.setText("" + myBalance);
-        row.addView(balance);
-
-        TextView intRate = new TextView(context);
-        intRate.setText("" + myInterestRate);
-        row.addView(intRate);
-
-        accountTable.addView(row);
-    }
-    
     // ToCheck: format here is good but got somehow destroyed in activity
     public String toString(int colWidth1, int colWidth2, int colWidth3) {
         return String.format("%-" + colWidth1 + "s", myDisplayName) +

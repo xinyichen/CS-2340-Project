@@ -1,4 +1,4 @@
-package com.whereismymoney.activity;
+package com.whereismymoney.service;
 
 public class Pair<E, T> {
     private final E myItem1;
