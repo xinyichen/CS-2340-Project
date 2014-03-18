@@ -69,6 +69,9 @@ public class AccountInfo extends Activity {
             TableRow row = new TableRow(this);
             Button accButton = new Button(this);
             accButton.setText(account.toString(10, 10, 10));
+            TableRow.LayoutParams params = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            params.setMargins(0, -8, 0, -10);
+            accButton.setLayoutParams(params);
             row.addView(accButton);
             accountTable.addView(row);
             
