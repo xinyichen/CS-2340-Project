@@ -59,17 +59,18 @@ public class AccountInfo extends Activity {
         });
         
         // create a table that contains all account information of the current user
-        LinearLayout buttonLayout = (LinearLayout)findViewById(R.id.buttonLayout_account_details);
-        LinearLayout.LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        TableLayout accountTable = (TableLayout) findViewById(R.id.tableLayout_account_details);
         List<Account> accountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
 
-        // TODO: format, alignment, scrollable
+        // TODO: format, alignment
         // for each account, display name, balance and interest rate
-        for (int i = 0; i < Math.min(accountList.size(), 5); i++) {
+        for (int i = 0; i < accountList.size(); i++) {
             final Account account = accountList.get(i);
+            TableRow row = new TableRow(this);
             Button accButton = new Button(this);
             accButton.setText(account.toString(10, 10, 10));
-            buttonLayout.addView(accButton, lp); 
+            row.addView(accButton);
+            accountTable.addView(row);
             
             accButton.setOnClickListener(new View.OnClickListener() {
                 @Override

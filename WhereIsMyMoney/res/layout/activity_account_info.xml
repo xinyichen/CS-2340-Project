@@ -25,26 +25,51 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/bNewAccount"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/button_view_report" />
 
-    <LinearLayout
-        android:id="@+id/buttonLayout_account_details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp"
-        android:orientation="vertical" >
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView1"
+    <TableLayout
+        android:id="@+id/tableLayout_account_head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp"
-        android:text="Name   Balance   Interest Rate" />
+        android:layout_alignParentTop="true" >
+
+        <TableRow>
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Name" 
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Balance" 
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="InterestRate"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </TableRow>
+    </TableLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView_account_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_view_report"
+        android:layout_below="@+id/tableLayout_account_head"
+        android:layout_centerHorizontal="true" >
+
+        <TableLayout
+            android:id="@+id/tableLayout_account_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TableLayout>
+    </ScrollView>
 
 </RelativeLayout>
