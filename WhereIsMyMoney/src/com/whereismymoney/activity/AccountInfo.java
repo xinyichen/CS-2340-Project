@@ -6,6 +6,7 @@ import java.util.List;
 import com.whereismymoney.R;
 import com.whereismymoney.model.Account;
 import com.whereismymoney.model.AccountManager;
+import com.whereismymoney.model.CurrentAccount;
 import com.whereismymoney.model.CurrentUser;
 
 import android.app.Activity;
@@ -14,6 +15,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -54,44 +56,34 @@ public class AccountInfo extends Activity {
             }
         });
         
-        // create a table that contains all account information of the current user
-        ListView accountTable = (ListView) findViewById(R.id.listView_account_info_table);
-        List<Account> accountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
+        displayAccountInfo();
+ 
+    }
+    
+    /**
+     * display all account information under the current user in the form of a list
+     * each list item is clickable and on click will lead to the account details page
+     */
+    private void displayAccountInfo() {
+        ListView accInfoList = (ListView) findViewById(R.id.listView_account_info_table);
+        final List<Account> accountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
         List<String> list = new ArrayList<String>();
 
         // for each account, display name, balance and interest rate
         for (int i = 0; i < accountList.size(); i++) {
             Account account = accountList.get(i);
             list.add(account.toString(10,10,10));
-            
-            // add button to the row
-//            accEntry.addView(accButton);
-            
-//            TextView nameTxt = new TextView(this);
-//            nameTxt.setText(account.getDisplayName());
-//            
-//            TextView balanceTxt = new TextView(this);
-//            balanceTxt.setText(""+account.getBalance());
-//            
-//            TextView intRateTxt = new TextView(this);
-//            intRateTxt.setText(""+account.getInterestRate());
-//            
-//            accEntry.addView(nameTxt);
-//            accEntry.addView(balanceTxt);
-//            accEntry.addView(intRateTxt);
-            
-//            accButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View arg0) {
-//                    CurrentAccount.getCurrentAccount().setAccountName(account.getFullName());
-//                    Intent goViewAccountDetail = new Intent("android.intent.action.VIEWACCOUNTDETAIL");
-//                    startActivity(goViewAccountDetail);
-//                }
-//            });
         }
         
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.custom_simple_list_item, list);
-        accountTable.setAdapter(adapter);
+        accInfoList.setAdapter(adapter);
+        accInfoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                CurrentAccount.getCurrentAccount().setAccountName(accountList.get(position).getFullName());
+                Intent goViewAccountDetail = new Intent("android.intent.action.VIEWACCOUNTDETAIL");
+                startActivity(goViewAccountDetail);
+            }
+        });
     }
     
     @Override
