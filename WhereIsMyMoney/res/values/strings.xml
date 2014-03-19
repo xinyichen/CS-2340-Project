@@ -48,8 +48,6 @@
     <string name="button_withdrawal_confirm">Confirm</string>
     <string name="button_withdrawal_cancel">Go back!</string>
     <string name="edit_withdrawal_effective_date">Effective Date</string>
-    <color name="moe_money_background">#D3C6B6</color>
-    <color name="moe_money_background_invert">#2C3949</color>
     <string name="moe_money">moe_money</string>
     <string name="text_forgot_password">Forgot your password?</string>
     <string name="edit_text_email_address">Email Address</string>
