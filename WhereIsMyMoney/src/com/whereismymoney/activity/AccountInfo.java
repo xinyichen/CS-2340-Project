@@ -26,7 +26,7 @@ import android.widget.ListView;
  * to create new transactions or accounts.
  */
 
-public class AccountInfo extends Activity {
+public class AccountInfo extends Activity implements View.OnClickListener {
     private AccountManager accountManager;
     private Button createAccount, viewReport;
     
@@ -38,24 +38,8 @@ public class AccountInfo extends Activity {
         accountManager = new AccountManager();        
         createAccount = (Button) findViewById(R.id.bNewAccount);
         viewReport = (Button) findViewById(R.id.button_view_report);
-        
-        //clicking on create a new account
-        createAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                Intent goCreateAccount = new Intent("android.intent.action.CREATEACCOUNT");
-                startActivity(goCreateAccount);
-            }
-        });
-        
-        //clicking to view report
-        viewReport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                Intent goViewReport = new Intent("android.intent.action.VIEWREPORT");
-                startActivity(goViewReport);
-            }
-        });
+        createAccount.setOnClickListener(this);
+        viewReport.setOnClickListener(this);
         
         displayAccountInfo();
     }
@@ -114,5 +98,23 @@ public class AccountInfo extends Activity {
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
     	builder.setMessage("Are you sure you want to exit?").setPositiveButton("Yes", dialogClickListener)
     	    .setNegativeButton("No", dialogClickListener).show();
+    }
+
+    /**
+     * when a click is detected, determine the clicked entity and perform actions accordingly
+     */
+    @Override
+    public void onClick(View v) {
+        Log.i("click", "clicked");
+        switch(v.getId()) {
+            case R.id.bNewAccount:
+                Intent goCreateAccount = new Intent("android.intent.action.CREATEACCOUNT");
+                startActivity(goCreateAccount);
+                break;
+            case R.id.button_view_report:
+                Intent goViewReport = new Intent("android.intent.action.VIEWREPORT");
+                startActivity(goViewReport);
+                break;
+        }
     }
 }
