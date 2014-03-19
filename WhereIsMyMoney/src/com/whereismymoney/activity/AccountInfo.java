@@ -14,6 +14,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -57,32 +58,37 @@ public class AccountInfo extends Activity {
         });
         
         displayAccountInfo();
- 
     }
     
     /**
      * display all account information under the current user in the form of a list
      * each list item is clickable and on click will lead to the account details page
+     * 
      */
     private void displayAccountInfo() {
         ListView accInfoList = (ListView) findViewById(R.id.listView_account_info_table);
         final List<Account> accountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
-        List<String> list = new ArrayList<String>();
+        List<String> listContent = new ArrayList<String>();
 
         // for each account, display name, balance and interest rate
         for (int i = 0; i < accountList.size(); i++) {
             Account account = accountList.get(i);
-            list.add(account.toString(10,10,10));
+            listContent.add(account.toString(10, 10, 10));
         }
         
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.custom_simple_list_item, list);
+        // populate the account info list
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.custom_simple_list_item, listContent);
         accInfoList.setAdapter(adapter);
+        
+        // when list item is clicked, go to account details page
         accInfoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 CurrentAccount.getCurrentAccount().setAccountName(accountList.get(position).getFullName());
                 Intent goViewAccountDetail = new Intent("android.intent.action.VIEWACCOUNTDETAIL");
                 startActivity(goViewAccountDetail);
             }
+            
         });
     }
     
