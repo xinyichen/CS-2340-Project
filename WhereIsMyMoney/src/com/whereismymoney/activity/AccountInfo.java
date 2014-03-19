@@ -1,11 +1,11 @@
 package com.whereismymoney.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.whereismymoney.R;
 import com.whereismymoney.model.Account;
 import com.whereismymoney.model.AccountManager;
-import com.whereismymoney.model.CurrentAccount;
 import com.whereismymoney.model.CurrentUser;
 
 import android.app.Activity;
@@ -14,13 +14,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-
+import android.widget.ListView;
 /**
  * This class handles the account's information page.
  * It displays information about the account and provides buttons
@@ -59,31 +55,43 @@ public class AccountInfo extends Activity {
         });
         
         // create a table that contains all account information of the current user
-        TableLayout accountTable = (TableLayout) findViewById(R.id.tableLayout_account_details);
+        ListView accountTable = (ListView) findViewById(R.id.listView_account_info_table);
         List<Account> accountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
+        List<String> list = new ArrayList<String>();
 
-        // TODO: format, alignment
         // for each account, display name, balance and interest rate
         for (int i = 0; i < accountList.size(); i++) {
-            final Account account = accountList.get(i);
-            TableRow row = new TableRow(this);
-            Button accButton = new Button(this);
-            accButton.setText(account.toString(10, 10, 10));
-            TableRow.LayoutParams params = new TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            params.setMargins(0, -8, 0, -10);
-            accButton.setLayoutParams(params);
-            row.addView(accButton);
-            accountTable.addView(row);
+            Account account = accountList.get(i);
+            list.add(account.toString(10,10,10));
             
-            accButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    CurrentAccount.getCurrentAccount().setAccountName(account.getFullName());
-                    Intent goViewAccountDetail = new Intent("android.intent.action.VIEWACCOUNTDETAIL");
-                    startActivity(goViewAccountDetail);
-                }
-            });
+            // add button to the row
+//            accEntry.addView(accButton);
+            
+//            TextView nameTxt = new TextView(this);
+//            nameTxt.setText(account.getDisplayName());
+//            
+//            TextView balanceTxt = new TextView(this);
+//            balanceTxt.setText(""+account.getBalance());
+//            
+//            TextView intRateTxt = new TextView(this);
+//            intRateTxt.setText(""+account.getInterestRate());
+//            
+//            accEntry.addView(nameTxt);
+//            accEntry.addView(balanceTxt);
+//            accEntry.addView(intRateTxt);
+            
+//            accButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View arg0) {
+//                    CurrentAccount.getCurrentAccount().setAccountName(account.getFullName());
+//                    Intent goViewAccountDetail = new Intent("android.intent.action.VIEWACCOUNTDETAIL");
+//                    startActivity(goViewAccountDetail);
+//                }
+//            });
         }
+        
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.custom_simple_list_item, list);
+        accountTable.setAdapter(adapter);
     }
     
     @Override
