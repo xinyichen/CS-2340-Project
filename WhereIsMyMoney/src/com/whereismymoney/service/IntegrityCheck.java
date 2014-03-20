@@ -1,5 +1,10 @@
 package com.whereismymoney.service;
 
+/**
+ * for user input integrity check
+ * @author Jesus
+ *
+ */
 public class IntegrityCheck {
 	public static boolean checkPasswordLength(String password, int length) {
 		return password.matches(".{" + length + ",}");

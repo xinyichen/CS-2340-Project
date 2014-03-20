@@ -13,6 +13,11 @@ import android.util.Log;
 import com.whereismymoney.service.Date;
 import com.whereismymoney.service.Pair;
 
+/**
+ * fetch various report from database
+ * @author cxy
+ *
+ */
 public class ReportGenerator {
     
     public Report generateSpendingCategoryReport(String username, Date start, Date end) {

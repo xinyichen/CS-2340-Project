@@ -2,6 +2,12 @@ package com.whereismymoney.service;
 
 import java.util.Calendar;
 
+/**
+ * utility class that holds a date and is able to output date in different
+ * formats
+ * @author cxy
+ *
+ */
 public class Date {
     private int year;
     private int month;

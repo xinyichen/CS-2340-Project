@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 
+/**
+ * UI class to display transaction details associated with the current account
+ * @author cxy
+ *
+ */
 public class AccountDetail extends FragmentActivity implements DatePickerDialog.OnDateSetListener {
     private Button createNewTransaction;
     

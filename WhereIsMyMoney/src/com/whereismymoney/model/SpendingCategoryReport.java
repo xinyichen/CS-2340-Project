@@ -6,10 +6,15 @@ import java.util.List;
 import com.whereismymoney.service.Date;
 import com.whereismymoney.service.Pair;
 
+/**
+ * holds information of one's spending category report over a certain period of time
+ * and is able to output a formatted text report
+ * @author cxy
+ *
+ */
 public class SpendingCategoryReport implements Report {
-    List<Pair<String, Double>> mySpendings = new ArrayList<Pair<String, Double>>();
-    Date start;
-    Date end;
+    private List<Pair<String, Double>> mySpendings = new ArrayList<Pair<String, Double>>();
+    private Date start, end;
     
     public SpendingCategoryReport(List<Pair<String, Double>> spendings, Date startDate, Date endDate) {
         mySpendings = spendings;
@@ -17,6 +22,9 @@ public class SpendingCategoryReport implements Report {
         end = endDate;
     }
     
+    /**
+     * output a formatted spending category report
+     */
     @Override
     public String toString() {
         String report = "Spending Category Report\n" + 

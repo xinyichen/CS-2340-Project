@@ -14,18 +14,22 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+/**
+ * UI class to generate a report for a user-defined period of time
+ * @author cxy
+ *
+ */
 public class ViewReport extends FragmentActivity implements DatePickerDialog.OnDateSetListener {
     
-    Date startDate, endDate;
-    TextView startDateTxt, endDateTxt, reportTxt;
-    Button generateReport;
-    View currentView;
+    private Date startDate, endDate;
+    private TextView startDateTxt, endDateTxt, reportTxt;
+    private Button generateReport;
+    private View currentView;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +96,6 @@ public class ViewReport extends FragmentActivity implements DatePickerDialog.OnD
 
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-        // determine who the datepicker belongs to - looks hacky, maybe fix later
         if (currentView.getId() == startDateTxt.getId()) {
             startDate.setYear(year);
             startDate.setMonth(monthOfYear);
