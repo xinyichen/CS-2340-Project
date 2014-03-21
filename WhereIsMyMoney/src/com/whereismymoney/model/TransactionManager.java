@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import com.whereismymoney.database.DatabaseConnect;
+import com.whereismymoney.service.persistence.DatabaseConnect;
 
 import android.util.Log;
 

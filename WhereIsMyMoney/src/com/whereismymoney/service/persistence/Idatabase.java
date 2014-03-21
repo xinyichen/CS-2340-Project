@@ -1,4 +1,4 @@
-package com.whereismymoney.database;
+package com.whereismymoney.service.persistence;
 
 
 
