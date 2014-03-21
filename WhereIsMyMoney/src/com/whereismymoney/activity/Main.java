@@ -22,11 +22,11 @@ public class Main extends Activity {
 		startingSong = MediaPlayer.create(Main.this, R.raw.startingsound);
 		startingSong.start();
 		
-		// displaying the starting picture for 4000 ms
+		// displaying the starting picture for 3000 ms
 		Thread timer = new Thread(){
 			public void run(){
 				try{
-					sleep(4000);
+					sleep(3000);
 				}
 				catch(InterruptedException e){
 					e.printStackTrace();
