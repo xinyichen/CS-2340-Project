@@ -3,8 +3,7 @@ package com.whereismymoney.model;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.whereismymoney.service.persistence.DatabaseConnect;
+import com.whereismymoney.database.DatabaseConnect;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

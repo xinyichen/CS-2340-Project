@@ -1,4 +1,4 @@
-package com.whereismymoney.service.persistence;
+package com.whereismymoney.database;
 
 import java.io.IOException;
 

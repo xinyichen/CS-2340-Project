@@ -10,9 +10,9 @@ import org.jsoup.select.Elements;
 
 import android.util.Log;
 
+import com.whereismymoney.database.DatabaseConnect;
 import com.whereismymoney.service.Date;
 import com.whereismymoney.service.Pair;
-import com.whereismymoney.service.persistence.DatabaseConnect;
 
 /**
  * fetch various report from database
