@@ -84,20 +84,20 @@ public class AccountInfo extends Activity implements View.OnClickListener {
     	    public void onClick(DialogInterface dialog, int which) {
     	        switch (which){
     	        case DialogInterface.BUTTON_POSITIVE:
-    	            //application quits
-    	        	finish();
+    	        	//no action
     	            break;
 
     	        case DialogInterface.BUTTON_NEGATIVE:
-    	            //no action
+    	        	//application quits
+    	        	finish();
     	            break;
     	        }
     	    }
     	};
 
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	builder.setMessage("Are you sure you want to exit?").setPositiveButton("Yes", dialogClickListener)
-    	    .setNegativeButton("No", dialogClickListener).show();
+    	builder.setMessage("Are you sure you want to exit?").setPositiveButton("No", dialogClickListener)
+    	    .setNegativeButton("Yes", dialogClickListener).show();
     }
 
     /**
