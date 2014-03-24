@@ -48,8 +48,6 @@
     <string name="button_withdrawal_confirm">Confirm</string>
     <string name="button_withdrawal_cancel">Go back!</string>
     <string name="edit_withdrawal_effective_date">Effective Date</string>
-    <color name="moe_money_background">#D3C6B6</color>
-    <color name="moe_money_background_invert">#2C3949</color>
     <string name="moe_money">moe_money</string>
     <string name="text_forgot_password">Forgot your password?</string>
     <string name="edit_text_email_address">Email Address</string>
@@ -66,8 +64,13 @@
     <string name="button_create_account_confirm">Confirm</string>
     <string name="button_login_register">Register for free</string>
     <string name="text_view_login_text1">No Account? No Problem!</string>
-    <string name="text_view_confirm_registration_title">Congratulations on creating your account!</string>
-    <string name="text_view_log_out_title">You have successfully logged out!</string>
-    <string name="button_log_out_home">Go To Start</string>    
+    <string name="text_view_confirm_registration_title">Congratulations on creating your account!</string>  
+    <string name="button_view_report">View Report</string>   
+    <string name="button_generate_report">Generate Report</string>
+    <string name="text_view_report_start_date">From:</string>  
+    <string name="text_view_report_end_date">To:</string>  
+    <string name="text_account_table_head_accName">Name</string>  
+    <string name="text_account_table_head_balance">Balance</string>  
+    <string name="text_account_table_head_intRate">Interest Rate</string>  
     
 </resources>

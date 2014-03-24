@@ -5,6 +5,8 @@ import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import com.whereismymoney.database.DatabaseConnect;
+
 import android.util.Log;
 
 /**
@@ -26,24 +28,12 @@ public class TransactionManager {
 	 */
 	public boolean newWithdrawal(String reason, String expenseCategory, double amount, String effectiveDate) {
 		
-		 	Document doc = null;
-	    	try {
-	    		doc = Jsoup.connect("http://192.185.4.36/~zli342/create_withdrawal.php")
-	    				.data("username", CurrentUser.getCurrentUser().getUserName())
-	    				.data("account_name", CurrentAccount.getCurrentAccount().getAccountName())
-	    				.data("amount", Double.toString(amount))
-	    				.data("reason", reason)
-	    				.data("category", expenseCategory)
-	    				.data("effective_date", effectiveDate)
-	    				.timeout(15*1000).get();
+		Document doc = DatabaseConnect.getDatabaseConnect().newWithdrawal(reason, expenseCategory,  amount,  effectiveDate);
 	    		String Result = doc.select("body").first().text();
 	    		if (Result.equals("success")) {
 	    			return true;
 	    		}
-	    	} 
-	    	catch(IOException e) {
-	    		Log.i("fail",e.toString());
-	    	}
+	    	
 	    	return false;
 	   }
 	
@@ -57,23 +47,11 @@ public class TransactionManager {
 	 * @return
 	 */
 	public boolean newDeposit(String source, double amount, String effectiveDate) {
-		Document doc = null;
-    	try {
-    		doc = Jsoup.connect("http://192.185.4.36/~zli342/create_deposit.php")
-    				.data("username", CurrentUser.getCurrentUser().getUserName())
-    				.data("account_name", CurrentAccount.getCurrentAccount().getAccountName())
-    				.data("amount", Double.toString(amount))
-    				.data("source", source)
-    				.data("effective_date", effectiveDate)
-    				.timeout(15*1000).get();
+		Document doc = DatabaseConnect.getDatabaseConnect().newDeposit( source,  amount,  effectiveDate);
     		String Result = doc.select("body").first().text();
     		if (Result.equals("success")) {
     			return true;
     		}
-    	} 
-    	catch(IOException e) {
-    		Log.i("fail",e.toString());
-    	}
 		return false;
 	}
 }

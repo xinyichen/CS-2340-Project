@@ -20,45 +20,55 @@
         android:text="@string/button_new_account" />
 
     <Button
-        android:id="@+id/button_create_new_transaction"
-        style="@style/custom_button_breaker_bay"
-        android:layout_width="fill_parent"
+        android:id="@+id/button_view_report"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bNewAccount"
-        android:layout_alignLeft="@+id/bNewAccount"
-        android:layout_marginBottom="17dp"
-        android:text="@string/button_create_new_transaction" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:text="@string/button_view_report" />
 
     <TableLayout
-        android:id="@+id/table_account_info"
+        android:id="@+id/tableLayout_account_head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:stretchColumns="*" >
 
         <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dip"
-           		android:gravity="left"
-                android:text="TextView" />
-            
-             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dip"
-           		android:gravity="left"
-                android:text="TextView" />
-             
-             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dip"
-           		android:gravity="left"
-                android:text="TextView" />
 
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/text_account_table_head_accName"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="15sp"
+                android:gravity="left" />
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/text_account_table_head_balance"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="15sp"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/text_account_table_head_intRate"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="15sp"
+                android:gravity="right" />
         </TableRow>
     </TableLayout>
+
+    <ListView
+        android:id="@+id/listView_account_info_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_view_report"
+        android:layout_below="@+id/tableLayout_account_head" >
+
+    </ListView>
 
 </RelativeLayout>

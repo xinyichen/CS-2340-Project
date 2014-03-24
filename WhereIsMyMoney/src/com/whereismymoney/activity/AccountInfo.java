@@ -1,5 +1,6 @@
 package com.whereismymoney.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.whereismymoney.R;
@@ -13,21 +14,21 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-
+import android.widget.ListView;
 /**
  * This class handles the account's information page.
  * It displays information about the account and provides buttons
  * to create new transactions or accounts.
  */
 
-public class AccountInfo extends Activity {
+public class AccountInfo extends Activity implements View.OnClickListener {
     private AccountManager accountManager;
-    private Button createAccount, createNewTransaction;
+    private Button createAccount, viewReport;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,58 +37,43 @@ public class AccountInfo extends Activity {
         
         accountManager = new AccountManager();        
         createAccount = (Button) findViewById(R.id.bNewAccount);
-        createNewTransaction = (Button) findViewById(R.id.button_create_new_transaction);
+        viewReport = (Button) findViewById(R.id.button_view_report);
+        createAccount.setOnClickListener(this);
+        viewReport.setOnClickListener(this);
         
-        //clicking on create a new account
-        createAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                Intent goCreateAccount = new Intent("android.intent.action.CREATEACCOUNT");
-                startActivity(goCreateAccount);
-            }
-        });
-        
-        //clicking on new transaction
-        createNewTransaction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-            	//making sure they have an account to do transactions with
-            	if(CurrentAccount.getCurrentAccount().getAccountName()==null) {
-            		AlertDialog actionFailAlert = new AlertDialog.Builder(AccountInfo.this).create();
-			        actionFailAlert.setTitle("Action Failed");
-			        actionFailAlert.setMessage("You don't have an account selected for this transaction! Either create a new account or select a preexisting account from the menu.");
-			        actionFailAlert.show();
-            	} else {
-            		Intent goCreateTransaction = new Intent("android.intent.action.NEWTRANSACTION");
-            		startActivity(goCreateTransaction);
-            	}
-            }
-        });
-        
-        // create a table that contains all account information of the current user
-        TableLayout accountTable = (TableLayout)findViewById(R.id.table_account_info);
-        List<Account> acoountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
+        displayAccountInfo();
+    }
+    
+    /**
+     * display all account information under the current user in the form of a list
+     * each list item is clickable and on click will lead to the account details page
+     * 
+     */
+    private void displayAccountInfo() {
+        ListView accInfoList = (ListView) findViewById(R.id.listView_account_info_table);
+        final List<Account> accountList = accountManager.getAllAccounts(CurrentUser.getCurrentUser().getUserName());
+        List<String> listContent = new ArrayList<String>();
 
-        // TODO: format, alignment, scrollable
         // for each account, display name, balance and interest rate
-        for (int i = 0; i < acoountList.size(); i++) {
-            Account currAcc = acoountList.get(i);
-            TableRow row= new TableRow(this);
-
-            TextView diaplayName = new TextView(this);
-            diaplayName.setText(currAcc.getDisplayName());
-            row.addView(diaplayName);
-
-            TextView balance = new TextView(this);
-            balance.setText("" + currAcc.getBalance());
-            row.addView(balance);
-
-            TextView intRate = new TextView(this);
-            intRate.setText("" + currAcc.getInterestRate());
-            row.addView(intRate);
-
-            accountTable.addView(row);
+        for (int i = 0; i < accountList.size(); i++) {
+            Account account = accountList.get(i);
+            listContent.add(account.toString(10, 10, 10));
         }
+        
+        // populate the account info list
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.custom_simple_list_item, listContent);
+        accInfoList.setAdapter(adapter);
+        
+        // when list item is clicked, go to account details page
+        accInfoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                CurrentAccount.getCurrentAccount().setAccountName(accountList.get(position).getFullName());
+                Intent goViewAccountDetail = new Intent("android.intent.action.VIEWACCOUNTDETAIL");
+                startActivity(goViewAccountDetail);
+            }
+            
+        });
     }
     
     @Override
@@ -98,19 +84,37 @@ public class AccountInfo extends Activity {
     	    public void onClick(DialogInterface dialog, int which) {
     	        switch (which){
     	        case DialogInterface.BUTTON_POSITIVE:
-    	            //application quits
-    	        	finish();
+    	        	//no action
     	            break;
 
     	        case DialogInterface.BUTTON_NEGATIVE:
-    	            //no action
+    	        	//application quits
+    	        	finish();
     	            break;
     	        }
     	    }
     	};
 
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	builder.setMessage("Are you sure you want to exit?").setPositiveButton("Yes", dialogClickListener)
-    	    .setNegativeButton("No", dialogClickListener).show();
+    	builder.setMessage("Are you sure you want to exit?").setPositiveButton("No", dialogClickListener)
+    	    .setNegativeButton("Yes", dialogClickListener).show();
+    }
+
+    /**
+     * when a click is detected, determine the clicked entity and perform actions accordingly
+     */
+    @Override
+    public void onClick(View v) {
+        Log.i("click", "clicked");
+        switch(v.getId()) {
+            case R.id.bNewAccount:
+                Intent goCreateAccount = new Intent("android.intent.action.CREATEACCOUNT");
+                startActivity(goCreateAccount);
+                break;
+            case R.id.button_view_report:
+                Intent goViewReport = new Intent("android.intent.action.VIEWREPORT");
+                startActivity(goViewReport);
+                break;
+        }
     }
 }

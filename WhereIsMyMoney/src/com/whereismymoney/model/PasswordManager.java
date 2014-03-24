@@ -5,6 +5,8 @@ import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import com.whereismymoney.database.DatabaseConnect;
+
 import android.util.Log;
 
 /**
@@ -22,22 +24,13 @@ public class PasswordManager {
      * @return Returns true if the login is valid, false otherwise.
      */
     public boolean login(String username, String password){
-		Document doc = null;
-		try {
-			doc = Jsoup.connect("http://192.185.4.36/~zli342/login.php")
-					.data("username", username)
-					.data("password", password)
-					.timeout(15*1000).get();
+        	Document doc = DatabaseConnect.getDatabaseConnect().login(username, password);
 			String loginResult = (doc.text());
 			if (loginResult.equals("Found")) {
 			    CurrentUser.getCurrentUser().setUserName(username);
 				return true;
 			}
-		} 
-		catch (IOException e) {
-			Log.i("fail",e.toString());
-		}
-		return false;
+			return false;
 	}
     
     /**
@@ -49,23 +42,13 @@ public class PasswordManager {
      */
     
     public boolean register(String username, String first_name, String last_name, String password, String email){
-		Document doc = null;
-		try {
-			doc = Jsoup.connect("http://192.185.4.36/~zli342/register.php")
-					.data("username", username)
-					.data("first_name", first_name)
-					.data("last_name", last_name)
-					.data("password", password)
-					.data("email",email)
-					.timeout(15*1000).get();
+    		Document doc = DatabaseConnect.getDatabaseConnect().register( username,  first_name,  last_name,  password,  email);
 			String loginResult = (doc.text());
 			if (loginResult.equals("registered")) {
 				return true;
 			}
-		} 
-		catch(IOException e) {
-			Log.i("fail",e.toString());
-		}
+		
 		return false;
 	}
+    
 }

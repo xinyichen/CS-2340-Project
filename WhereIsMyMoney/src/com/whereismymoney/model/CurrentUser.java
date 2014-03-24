@@ -1,5 +1,10 @@
 package com.whereismymoney.model;
 
+/**
+ * singleton class that holds the current user's name
+ * @author cxy
+ *
+ */
 public class CurrentUser {
     private static CurrentUser currentUser;
     private String userName;
