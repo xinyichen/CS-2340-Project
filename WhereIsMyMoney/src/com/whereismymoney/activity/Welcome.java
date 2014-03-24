@@ -9,35 +9,36 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- *  The welcome page. The user can choose to login or register from here
+ * The welcome page. The user can choose to login or register from here
  */
 
 public class Welcome extends Activity {
-	Button login, register;	
+    Button login, register;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.activity_login);
-	    login = (Button) findViewById(R.id.button_login_login);
-	    register = (Button) findViewById(R.id.button_login_register);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        login = (Button) findViewById(R.id.button_login_login);
+        register = (Button) findViewById(R.id.button_login_register);
 
-	    // jump to login page on click
-	    login.setOnClickListener(new View.OnClickListener() {
-	        @Override
-	        public void onClick(View arg0) {
-	            Intent goToLogin = new Intent("android.intent.action.LOGIN");
-	            startActivity(goToLogin);
-	        }
-	    });
+        // jump to login page on click
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent goToLogin = new Intent("android.intent.action.LOGIN");
+                startActivity(goToLogin);
+            }
+        });
 
-	    // jump to register page on click
-	    register.setOnClickListener(new View.OnClickListener() {	
-	        @Override
-	        public void onClick(View v) {
-	            Intent goToRegister = new Intent("android.intent.action.REGISTER");
-	            startActivity(goToRegister);
-	        }
-	    });
-	}
+        // jump to register page on click
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToRegister = new Intent(
+                        "android.intent.action.REGISTER");
+                startActivity(goToRegister);
+            }
+        });
+    }
 }

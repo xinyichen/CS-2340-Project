@@ -21,31 +21,33 @@ import android.widget.TextView;
 
 /**
  * UI class to generate a report for a user-defined period of time
+ * 
  * @author cxy
- *
+ * 
  */
-public class ViewReport extends FragmentActivity implements DatePickerDialog.OnDateSetListener {
-    
+public class ViewReport extends FragmentActivity implements
+        DatePickerDialog.OnDateSetListener {
+
     private Date startDate, endDate;
     private TextView startDateTxt, endDateTxt, reportTxt;
     private Button generateReport;
     private View currentView;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_report);
-        
-        reportTxt = (TextView)findViewById(R.id.text_view_report_body);
-        startDateTxt = (TextView)findViewById(R.id.text_view_report_start_date);
-        endDateTxt = (TextView)findViewById(R.id.text_view_report_end_date);
+
+        reportTxt = (TextView) findViewById(R.id.text_view_report_body);
+        startDateTxt = (TextView) findViewById(R.id.text_view_report_start_date);
+        endDateTxt = (TextView) findViewById(R.id.text_view_report_end_date);
         startDate = new Date();
         endDate = new Date();
-        
+
         // set up today as the default date
         startDateTxt.setText("From: " + startDate.toString());
         endDateTxt.setText("To:  " + endDate.toString());
-        
+
         // enable date selection by making text clickable
         startDateTxt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,26 +55,29 @@ public class ViewReport extends FragmentActivity implements DatePickerDialog.OnD
                 showDatePickerDialog(arg0);
             }
         });
-        
+
         endDateTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 showDatePickerDialog(arg0);
             }
         });
-        
-        generateReport = (Button)findViewById(R.id.button_generate_report);
+
+        generateReport = (Button) findViewById(R.id.button_generate_report);
         generateReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 ReportGenerator generator = new ReportGenerator();
-                Report report = generator.generateSpendingCategoryReport(CurrentUser.getCurrentUser().getUserName(), startDate, endDate);
+                Report report = generator.generateSpendingCategoryReport(
+                        CurrentUser.getCurrentUser().getUserName(), startDate,
+                        endDate);
                 reportTxt.setText(report.toString());
             }
         });
     }
-  
-    // reference http://developer.android.com/guide/topics/ui/controls/pickers.html
+
+    // reference
+    // http://developer.android.com/guide/topics/ui/controls/pickers.html
     public static class DatePickerFragment extends DialogFragment {
 
         @Override
@@ -84,10 +89,11 @@ public class ViewReport extends FragmentActivity implements DatePickerDialog.OnD
             int day = c.get(Calendar.DAY_OF_MONTH);
 
             // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), (OnDateSetListener) getActivity(), year, month, day);
+            return new DatePickerDialog(getActivity(),
+                    (OnDateSetListener) getActivity(), year, month, day);
         }
     }
-    
+
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
@@ -95,14 +101,14 @@ public class ViewReport extends FragmentActivity implements DatePickerDialog.OnD
     }
 
     @Override
-    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+    public void onDateSet(DatePicker view, int year, int monthOfYear,
+            int dayOfMonth) {
         if (currentView.getId() == startDateTxt.getId()) {
             startDate.setYear(year);
             startDate.setMonth(monthOfYear);
             startDate.setDay(dayOfMonth);
             startDateTxt.setText("From: " + startDate.toString());
-        }
-        else if (currentView.getId() == endDateTxt.getId()) {
+        } else if (currentView.getId() == endDateTxt.getId()) {
             endDate.setYear(year);
             endDate.setMonth(monthOfYear);
             endDate.setDay(dayOfMonth);

@@ -19,16 +19,16 @@ import android.widget.EditText;
 public class CreateAccount extends Activity {
     private Button confirm, cancel;
     private AccountManager accountManager;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         accountManager = new AccountManager();
-        
+
         confirm = (Button) findViewById(R.id.button_create_account_confirm);
-        
-        //clicking confirm
+
+        // clicking confirm
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             // todo: check input integrity
@@ -40,34 +40,41 @@ public class CreateAccount extends Activity {
 
                 String fullNameStr = fullName.getText().toString();
                 String displayNameStr = displayName.getText().toString();
-                Double accBalance = Double.parseDouble(balance.getText().toString());
-                Double accIntRate = Double.parseDouble(interestRate.getText().toString());
-                
+                Double accBalance = Double.parseDouble(balance.getText()
+                        .toString());
+                Double accIntRate = Double.parseDouble(interestRate.getText()
+                        .toString());
+
                 String failAlert = "Account Creation Failed";
                 String failReason = null;
-                if(fullNameStr.matches("\\s*")) {
-                	failReason = "You didn't enter a full name for the account!";
-                } else if(displayNameStr.matches("\\s*")) {
-                	failReason = "You didn't enter a display name for the account!";
-                } else if(accountManager.createAccount(CurrentUser.getCurrentUser().getUserName(), displayNameStr, fullNameStr, accBalance, accIntRate)) {
-                	Intent goToAccountInfo = new Intent("android.intent.action.ACCOUNTINFO");
-                	startActivity(goToAccountInfo);
+                if (fullNameStr.matches("\\s*")) {
+                    failReason = "You didn't enter a full name for the account!";
+                } else if (displayNameStr.matches("\\s*")) {
+                    failReason = "You didn't enter a display name for the account!";
+                } else if (accountManager.createAccount(CurrentUser
+                        .getCurrentUser().getUserName(), displayNameStr,
+                        fullNameStr, accBalance, accIntRate)) {
+                    Intent goToAccountInfo = new Intent(
+                            "android.intent.action.ACCOUNTINFO");
+                    startActivity(goToAccountInfo);
                 } else {
-                	failReason = "You entered something incorrectly. Please check your entries and try again.";
+                    failReason = "You entered something incorrectly. Please check your entries and try again.";
                 }
-                AlertDialog accountFailAlert = new AlertDialog.Builder(CreateAccount.this).create();
-		        accountFailAlert.setTitle(failAlert);
-		        accountFailAlert.setMessage(failReason);
-		        accountFailAlert.show();
+                AlertDialog accountFailAlert = new AlertDialog.Builder(
+                        CreateAccount.this).create();
+                accountFailAlert.setTitle(failAlert);
+                accountFailAlert.setMessage(failReason);
+                accountFailAlert.show();
             }
         });
-        
-        //clicking cancel
+
+        // clicking cancel
         cancel = (Button) findViewById(R.id.button_create_account_reject);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent goToAccountInfo = new Intent("android.intent.action.ACCOUNTINFO");
+                Intent goToAccountInfo = new Intent(
+                        "android.intent.action.ACCOUNTINFO");
                 startActivity(goToAccountInfo);
             }
         });
