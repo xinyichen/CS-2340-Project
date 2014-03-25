@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 /**
- * This class handles the activity associated with creating a new account
+ * This class handles the activity associated with creating a new account.
  */
 
 public class CreateAccount extends Activity {

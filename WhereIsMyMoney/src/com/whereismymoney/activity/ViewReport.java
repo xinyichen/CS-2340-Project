@@ -20,7 +20,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 /**
- * UI class to generate a report for a user-defined period of time
+ * UI class to generate a report for a user-defined period of time.
  * 
  * @author cxy
  * 

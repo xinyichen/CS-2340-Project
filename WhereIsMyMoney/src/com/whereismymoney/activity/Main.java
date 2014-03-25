@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 /**
  * first activity of the program, which shows a starting picture and plays a
- * starting sound
+ * starting sound.
  */
 public class Main extends Activity {
     MediaPlayer startingSong;

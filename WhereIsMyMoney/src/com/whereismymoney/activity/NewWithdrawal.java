@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 /**
- * This class handles the creation of a new withdrawal for a given account
+ * This class handles the creation of a new withdrawal for a given account.
  */
 
 public class NewWithdrawal extends Activity {

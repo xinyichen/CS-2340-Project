@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 
 /**
- * UI class to display transaction details associated with the current account
+ * UI class to display transaction details associated with the current account.
  * @author cxy
  *
  */
