@@ -17,7 +17,7 @@ import android.widget.EditText;
  */
 
 public class CreateAccount extends Activity {
-    private Button confirm, cancel;
+    private Button confirm;
     private AccountManager accountManager;
 
     @Override
@@ -65,17 +65,6 @@ public class CreateAccount extends Activity {
                 accountFailAlert.setTitle(failAlert);
                 accountFailAlert.setMessage(failReason);
                 accountFailAlert.show();
-            }
-        });
-
-        // clicking cancel
-        cancel = (Button) findViewById(R.id.button_create_account_reject);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                Intent goToAccountInfo = new Intent(
-                        "android.intent.action.ACCOUNTINFO");
-                startActivity(goToAccountInfo);
             }
         });
     }

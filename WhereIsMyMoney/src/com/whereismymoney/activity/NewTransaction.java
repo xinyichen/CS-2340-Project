@@ -31,7 +31,6 @@ public class NewTransaction extends Activity {
 
         deposit = (Button) findViewById(R.id.button_new_deposit);
         withdrawal = (Button) findViewById(R.id.button_new_withdrawal);
-        cancel = (Button) findViewById(R.id.button_goBackToAccountInfoFromNewTransaction);
 
         // going to the new deposit screen
         deposit.setOnClickListener(new View.OnClickListener() {
@@ -50,16 +49,6 @@ public class NewTransaction extends Activity {
                 Intent goToNewWithdrawal = new Intent(
                         "android.intent.action.NEWWITHDRAWAL");
                 startActivity(goToNewWithdrawal);
-            }
-        });
-
-        // going back to the account info screen
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goBackToAccountInfo = new Intent(
-                        "android.intent.action.ACCOUNTINFO");
-                startActivity(goBackToAccountInfo);
             }
         });
     }
