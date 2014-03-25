@@ -6,7 +6,6 @@ import com.whereismymoney.service.IntegrityCheck;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +18,7 @@ import android.widget.EditText;
 public class NewWithdrawal extends Activity {
 
     private TransactionManager transactionManager;
-    Button confirm, cancel;
+    Button confirm;
     Bundle a;
 
     @Override
@@ -37,7 +36,6 @@ public class NewWithdrawal extends Activity {
         transactionManager = new TransactionManager();
 
         confirm = (Button) findViewById(R.id.button_withdrawal_confirm);
-        cancel = (Button) findViewById(R.id.button_withdrawal_cancel);
 
         // this method handles the confirm button being clicked
         confirm.setOnClickListener(new View.OnClickListener() {
@@ -81,17 +79,6 @@ public class NewWithdrawal extends Activity {
                 newWithdrawalAlert.setTitle(alertMessage);
                 newWithdrawalAlert.setMessage(alertReason);
                 newWithdrawalAlert.show();
-            }
-        });
-
-        // this method handles the cancel button being clicked
-        cancel.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                Intent goBackToNewTransaction = new Intent(
-                        "android.intent.action.NEWTRANSACTION");
-                startActivity(goBackToNewTransaction);
             }
         });
     }

@@ -37,7 +37,6 @@ public class NewDeposit extends Activity {
         transactionManager = new TransactionManager();
 
         confirm = (Button) findViewById(R.id.button_confirm_deposit);
-        cancel = (Button) findViewById(R.id.button_cancel_deposit);
 
         // this method handles the confirm button being clicked
         confirm.setOnClickListener(new View.OnClickListener() {

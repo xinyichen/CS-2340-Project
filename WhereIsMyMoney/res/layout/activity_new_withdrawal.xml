@@ -63,12 +63,4 @@
         android:layout_marginBottom="5dp"
         android:text="@string/button_withdrawal_confirm" />
 
-    <Button
-        android:id="@+id/button_withdrawal_cancel"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        style="@style/custom_button_sorbus"
-        android:layout_marginTop="5dp"
-        android:text="@string/button_withdrawal_cancel" />
-
 </LinearLayout>
