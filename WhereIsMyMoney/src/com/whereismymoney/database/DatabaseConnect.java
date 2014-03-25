@@ -4,12 +4,10 @@ import java.io.IOException;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 import android.os.StrictMode;
 import android.util.Log;
 
-import com.whereismymoney.model.Account;
 import com.whereismymoney.model.CurrentAccount;
 import com.whereismymoney.model.CurrentUser;
 import com.whereismymoney.service.Date;

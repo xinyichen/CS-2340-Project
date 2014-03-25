@@ -1,13 +1,8 @@
 package com.whereismymoney.model;
 
-import java.io.IOException;
-
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import com.whereismymoney.database.DatabaseConnect;
-
-import android.util.Log;
 
 /**
  * This class handles both types of transactions (withdrawals and deposits)
