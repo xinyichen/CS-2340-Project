@@ -1,7 +1,7 @@
 package com.whereismymoney.service;
 
 /**
- * utility class that holds a pair of unmodifiable objects
+ * utility class that holds a pair of unmodifiable objects.
  * @author cxy
  *
  * @param <E> item1
