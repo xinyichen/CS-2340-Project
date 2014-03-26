@@ -48,7 +48,7 @@ public class AccountInfo extends Activity implements View.OnClickListener {
     /**
      * display all account information under the current user in the form of a
      * list each list item is clickable and on click will lead to the account
-     * details page
+     * details page.
      * 
      */
     private void displayAccountInfo() {
@@ -90,14 +90,14 @@ public class AccountInfo extends Activity implements View.OnClickListener {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
-                case DialogInterface.BUTTON_POSITIVE:
+                    case DialogInterface.BUTTON_POSITIVE:
                     // no action
-                    break;
+                        break;
 
-                case DialogInterface.BUTTON_NEGATIVE:
+                    case DialogInterface.BUTTON_NEGATIVE:
                     // application quits
-                    finish();
-                    break;
+                        finish();
+                        break;
                 }
             }
         };
@@ -116,15 +116,15 @@ public class AccountInfo extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         Log.i("click", "clicked");
         switch (v.getId()) {
-        case R.id.bNewAccount:
-            Intent goCreateAccount = new Intent(
+            case R.id.bNewAccount:
+                Intent goCreateAccount = new Intent(
                     "android.intent.action.CREATEACCOUNT");
-            startActivity(goCreateAccount);
-            break;
-        case R.id.button_view_report:
-            Intent goViewReport = new Intent("android.intent.action.VIEWREPORT");
-            startActivity(goViewReport);
-            break;
+                startActivity(goCreateAccount);
+                break;
+            case R.id.button_view_report:
+                Intent goViewReport = new Intent("android.intent.action.VIEWREPORT");
+                startActivity(goViewReport);
+                break;
         }
     }
 }

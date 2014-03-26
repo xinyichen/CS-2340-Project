@@ -45,7 +45,7 @@ public class CreateAccount extends Activity {
                 Double accIntRate = Double.parseDouble(interestRate.getText()
                         .toString());
 
-                String failAlert = "Account Creation Failed";
+                String alert = "Account Creation Failed";
                 String failReason = null;
                 if (fullNameStr.matches("\\s*")) {
                     failReason = "You didn't enter a full name for the account!";
@@ -57,12 +57,13 @@ public class CreateAccount extends Activity {
                     Intent goToAccountInfo = new Intent(
                             "android.intent.action.ACCOUNTINFO");
                     startActivity(goToAccountInfo);
+                    alert = "Account Created";
                 } else {
                     failReason = "You entered something incorrectly. Please check your entries and try again.";
                 }
                 AlertDialog accountFailAlert = new AlertDialog.Builder(
                         CreateAccount.this).create();
-                accountFailAlert.setTitle(failAlert);
+                accountFailAlert.setTitle(alert);
                 accountFailAlert.setMessage(failReason);
                 accountFailAlert.show();
             }
