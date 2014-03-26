@@ -2,7 +2,7 @@ package com.whereismymoney.model;
 
 /**
  * if an object implement this interface, it should be able
- * to output a formatted text report
+ * to output a formatted text report.
  * @author cxy
  *
  */

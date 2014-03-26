@@ -1,7 +1,7 @@
 package com.whereismymoney.model;
 
 /**
- * holds information relevant to an account
+ * holds information relevant to an account.
  * 
  * @author Xinyi Chen
  * 

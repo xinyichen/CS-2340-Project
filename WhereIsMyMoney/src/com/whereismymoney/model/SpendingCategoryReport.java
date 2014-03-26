@@ -8,7 +8,7 @@ import com.whereismymoney.service.Pair;
 
 /**
  * holds information of one's spending category report over a certain period of time
- * and is able to output a formatted text report
+ * and is able to output a formatted text report.
  * @author cxy
  *
  */
@@ -23,12 +23,12 @@ public class SpendingCategoryReport implements Report {
     }
     
     /**
-     * output a formatted spending category report
+     * output a formatted spending category report.
      */
     @Override
     public String toString() {
-        String report = "Spending Category Report\n" + 
-                        start.toString() + " - " + end.toString() + "\n";
+        String report = "Spending Category Report\n"
+                        + start.toString() + " - " + end.toString() + "\n";
         
         if (mySpendings != null) {
             for (Pair<String, Double> spending : mySpendings) {

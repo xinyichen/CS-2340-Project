@@ -1,7 +1,7 @@
 package com.whereismymoney.model;
 
 /**
- * singleton class that holds the current user's name
+ * singleton class that holds the current user's name.
  * @author cxy
  *
  */
@@ -14,8 +14,9 @@ public class CurrentUser {
     
     public static synchronized CurrentUser getCurrentUser()
     {
-        if (currentUser == null)
+        if (currentUser == null){
             currentUser = new CurrentUser();
+        }
 
         return currentUser;
     }

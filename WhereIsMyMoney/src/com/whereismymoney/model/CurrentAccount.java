@@ -17,14 +17,15 @@ public class CurrentAccount {
     
     public static synchronized CurrentAccount getCurrentAccount()
     {
-        if (currentAccount == null)
+        if (currentAccount == null) {
             currentAccount = new CurrentAccount();
+        }
 
         return currentAccount;
     }
     
     /**
-     * Returns the current account's name
+     * Returns the current account's name.
      * @return The account name
      */
     public String getAccountName() {
@@ -32,7 +33,7 @@ public class CurrentAccount {
     }
 
     /**
-     * Sets the current account's name
+     * Sets the current account's name.
      * @param accountName
      */
     public void setAccountName(String accountName) {
