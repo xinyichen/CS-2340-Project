@@ -14,6 +14,8 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -35,6 +37,9 @@ public class ViewReport extends FragmentActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        
+    	getActionBar().setTitle("");
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_report);
 
@@ -114,5 +119,14 @@ public class ViewReport extends FragmentActivity implements
             endDate.setDay(dayOfMonth);
             endDateTxt.setText("To: " + endDate.toString());
         }
+    }
+    
+    //creates the action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

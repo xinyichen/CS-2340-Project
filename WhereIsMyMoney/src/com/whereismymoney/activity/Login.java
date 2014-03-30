@@ -8,7 +8,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -22,13 +26,17 @@ public class Login extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        
+		// Turn off the window's title bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         passwordManager = new PasswordManager();
         login = (Button) findViewById(R.id.button_login_login);
         register = (Button) findViewById(R.id.button_login_register);
         forgot_password = (Button) findViewById(R.id.button_forgot_password);
-        // back = (Button) findViewById(R.id.button_back_from_login);
 
         // all the stuff associated with clicking the login button
         login.setOnClickListener(new View.OnClickListener() {
@@ -93,14 +101,13 @@ public class Login extends Activity {
                 startActivity(goToForgotPassword);
             }
         });
-
-        // Sends them back to the welcome page
-        // back.setOnClickListener(new View.OnClickListener() {
-        // @Override
-        // public void onClick(View v) {
-        // Intent goToWelcome = new Intent("android.intent.action.WELCOME");
-        // startActivity(goToWelcome);
-        // }
-        // });
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

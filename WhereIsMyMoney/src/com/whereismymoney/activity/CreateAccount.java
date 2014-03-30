@@ -9,6 +9,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -22,6 +24,11 @@ public class CreateAccount extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        
+		// Turn off the window's title bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         accountManager = new AccountManager();

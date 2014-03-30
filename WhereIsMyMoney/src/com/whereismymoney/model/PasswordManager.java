@@ -13,8 +13,8 @@ public class PasswordManager {
     /**
      * Checks to see if the login is valid.
      * 
-     * @param userName
-     * @param password
+     * @param username username for login 
+     * @param password password for login
      * @return Returns true if the login is valid, false otherwise.
      */
     public boolean login(String username, String password) {
@@ -31,9 +31,11 @@ public class PasswordManager {
     /**
      * Creates a new user.
      * 
-     * @param username
-     * @param password
-     * @param email
+     * @param username new user username
+     * @param first_name new user first name
+     * @param last_name new user last name
+     * @param password new user password
+     * @param email new user email address
      * @return True if the user was created, false otherwise
      */
 

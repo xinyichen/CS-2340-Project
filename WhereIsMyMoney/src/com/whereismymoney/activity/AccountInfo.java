@@ -15,6 +15,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,9 +33,14 @@ import android.widget.ListView;
 public class AccountInfo extends Activity implements View.OnClickListener {
     private AccountManager accountManager;
     private Button createAccount, viewReport;
+    private Boolean ActionBarLogOut = false;
+    private Boolean ActionBarSearch = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        getActionBar().setTitle("");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_info);
 
@@ -83,6 +91,7 @@ public class AccountInfo extends Activity implements View.OnClickListener {
 
                 });
     }
+
     @Override
     public void onBackPressed() {
         // creates a dialog asking the user if they want to exit
@@ -125,6 +134,34 @@ public class AccountInfo extends Activity implements View.OnClickListener {
                 Intent goViewReport = new Intent("android.intent.action.VIEWREPORT");
                 startActivity(goViewReport);
                 break;
+        }
+    }
+    
+    //creates the action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    
+    //handles on action bar clicks
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_search:
+            	ActionBarSearch = true;
+                //search
+                return true;
+            case R.id.action_log_out:
+            	ActionBarLogOut = true;
+                //Intent goToLogOut = new Intent("android.intent.action.LOGOUT");
+                //startActivity(goToLogOut);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

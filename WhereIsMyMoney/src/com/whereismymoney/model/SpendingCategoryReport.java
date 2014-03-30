@@ -9,13 +9,28 @@ import com.whereismymoney.service.Pair;
 /**
  * holds information of one's spending category report over a certain period of time
  * and is able to output a formatted text report.
- * @author cxy
+ * @author Xinyi
  *
  */
 public class SpendingCategoryReport implements Report {
+	/**
+	 * a list of spendings in the form of category and amount pair.
+	 */
     private List<Pair<String, Double>> mySpendings = new ArrayList<Pair<String, Double>>();
+    
+    /**
+     * date bound of the report.
+     */
     private Date start, end;
     
+    /**
+     * initialize the spending category report with a list of spendings,
+     * starting date and end date.
+     * 
+     * @param spendings a list of spendings in the form of category and amount pair.
+     * @param startDate starting date of the record
+     * @param endDate endind date of the record
+     */
     public SpendingCategoryReport(List<Pair<String, Double>> spendings, Date startDate, Date endDate) {
         mySpendings = spendings;
         start = startDate;
@@ -24,6 +39,8 @@ public class SpendingCategoryReport implements Report {
     
     /**
      * output a formatted spending category report.
+     * 
+     * @return a formatted spending category report
      */
     @Override
     public String toString() {

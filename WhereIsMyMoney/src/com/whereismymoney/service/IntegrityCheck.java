@@ -17,6 +17,7 @@ public class IntegrityCheck {
     public static boolean checkPasswordLength(String password, int length) {
         return password.matches(".{" + length + ",}");
     }
+    
     /**
      * Checks string email to see if it matches the format.
      * @param email   String that is passed in.
@@ -27,6 +28,7 @@ public class IntegrityCheck {
         return email
                 .matches("[a-zA-Z][0-9A-Za-z\\_\\-\\.]*@[a-zA-Z][0-9A-Za-z\\_\\-]*.(com|org|net|edu)");
     }
+    
     /**
      * Checks two strings to see if they are identical.
      * @param firstWord     String passed in.
@@ -37,6 +39,7 @@ public class IntegrityCheck {
     public static boolean checkMatch(String firstWord, String secondWord) {
         return firstWord.equals(secondWord);
     }
+    
     /**
      * Checks string to see if it exists.
      * @param input String passed in.
@@ -46,6 +49,7 @@ public class IntegrityCheck {
     public static boolean isInputValid(String input) {
         return !input.matches("\\s*");
     }
+    
     /**
      * Checks string date to see if it is of a valid format.
      * @param date  String passed in.
@@ -56,6 +60,7 @@ public class IntegrityCheck {
         // return date.matches("[0-9]{2}\\\\/[0-9]{2}\\\\/[0-9]{4}");
         return date.matches("\\d{4}-\\d{2}-\\d{2}");
     }
+    
     /**
      * Checks string amount to see if it matches the needed format.
      * @param amount    String passed in.

@@ -4,7 +4,6 @@
     <string name="app_name">Where Is My Money</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_login_login">Login</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_display_message">DisplayMessageActivity</string>
     <string name="edit_userID">Enter userID</string>
@@ -16,7 +15,7 @@
     <string name="button_reject_registration">Wait, go back!</string>
     <string name="button_goToLoginFromConfirmRegistration">Click here to login</string>
     <string name="button_register_another">Want to create another account? Click here!</string>
-    <string name="button_new_account">Want to create a new account? Click here!</string>
+    <string name="button_new_account">Create a new account</string>
     <string name="text_view_account">Press menu to select from an existing account</string>
     <string name="text_new_account_instruction">Fill out all boxes and confirm your account creation</string>
     <string name="text_account_full_name">Account full name</string>
@@ -71,6 +70,11 @@
     <string name="text_view_report_end_date">To:</string>  
     <string name="text_account_table_head_accName">Name</string>  
     <string name="text_account_table_head_balance">Balance</string>  
-    <string name="text_account_table_head_intRate">Interest Rate</string>  
+    <string name="text_account_table_head_intRate">Interest Rate</string>
+    <string name="button_log_out_home">Return Home</string>
+    <string name="text_view_log_out_title">You have successfully logged out!</string>
+    <string name="action_search">search</string>
+    <string name="action_settings">settings</string>
+    <string name="action_log_out">log out</string>  
     
 </resources>
