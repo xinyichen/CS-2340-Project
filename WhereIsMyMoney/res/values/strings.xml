@@ -71,6 +71,8 @@
     <string name="text_view_report_end_date">To:</string>  
     <string name="text_account_table_head_accName">Name</string>  
     <string name="text_account_table_head_balance">Balance</string>  
-    <string name="text_account_table_head_intRate">Interest Rate</string>  
+    <string name="text_account_table_head_intRate">Interest Rate</string>
+    <string name="button_log_out_home">Return Home</string>
+    <string name="text_view_log_out_title">You have successfully logged out!</string>  
     
 </resources>

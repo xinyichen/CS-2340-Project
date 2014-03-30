@@ -16,6 +16,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -33,6 +35,11 @@ public class AccountInfo extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        
+		// Turn off the window's title bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_info);
 
@@ -83,6 +90,7 @@ public class AccountInfo extends Activity implements View.OnClickListener {
 
                 });
     }
+
     @Override
     public void onBackPressed() {
         // creates a dialog asking the user if they want to exit
