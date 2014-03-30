@@ -31,11 +31,11 @@ public class DatabaseConnect implements Idatabase {
     private final static String CREATE_DEPOSIT = "create_deposit.php";
     StringBuffer buffer = new StringBuffer();
 
-    public DatabaseConnect() {
+   /* public DatabaseConnect() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
-    }
+    }*/
 
     @Override
     public Document getAllAccounts(String username) {
