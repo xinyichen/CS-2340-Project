@@ -25,12 +25,4 @@
         style="@style/custom_button_breaker_bay"
         android:text="@string/button_goToLoginFromConfirmRegistration" />
 
-    <Button
-        android:id="@+id/button_goToRegisterFromConfirmRegistration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        style="@style/custom_button_sorbus"
-        android:text="@string/button_register_another" />
-
 </LinearLayout>

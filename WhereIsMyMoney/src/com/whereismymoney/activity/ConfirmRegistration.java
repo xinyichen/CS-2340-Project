@@ -31,7 +31,6 @@ public class ConfirmRegistration extends Activity {
         setContentView(R.layout.activity_confirm_registration);
 
         Button login = (Button) findViewById(R.id.button_goToLoginFromConfirmRegistration);
-        Button createAnotherNewAccount = (Button) findViewById(R.id.button_goToRegisterFromConfirmRegistration);
 
         // the button that sends the user to the login page
         login.setOnClickListener(new View.OnClickListener() {
@@ -39,17 +38,6 @@ public class ConfirmRegistration extends Activity {
             public void onClick(View arg0) {
                 Intent goToLogin = new Intent("android.intent.action.LOGIN");
                 startActivity(goToLogin);
-            }
-        });
-
-        // the button that sends the user back to the registration page to
-        // register another account
-        createAnotherNewAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goToRegister = new Intent(
-                        "android.intent.action.REGISTER");
-                startActivity(goToRegister);
             }
         });
     }

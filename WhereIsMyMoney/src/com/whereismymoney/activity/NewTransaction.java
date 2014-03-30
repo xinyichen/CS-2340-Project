@@ -4,9 +4,9 @@ import com.whereismymoney.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 
 /**
@@ -29,9 +29,7 @@ public class NewTransaction extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         
-		// Turn off the window's title bar
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    	getActionBar().setTitle("");
         
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_transaction);
@@ -58,5 +56,14 @@ public class NewTransaction extends Activity {
                 startActivity(goToNewWithdrawal);
             }
         });
+    }
+    
+    //creates the action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

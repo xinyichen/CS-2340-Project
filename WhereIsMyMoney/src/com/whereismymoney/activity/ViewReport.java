@@ -14,9 +14,9 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -38,9 +38,7 @@ public class ViewReport extends FragmentActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         
-		// Turn off the window's title bar
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    	getActionBar().setTitle("");
         
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_report);
@@ -121,5 +119,14 @@ public class ViewReport extends FragmentActivity implements
             endDate.setDay(dayOfMonth);
             endDateTxt.setText("To: " + endDate.toString());
         }
+    }
+    
+    //creates the action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

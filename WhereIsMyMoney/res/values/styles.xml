@@ -15,7 +15,8 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-           </style>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
     
 
     <style name="custom_edit_text_rounded" parent="android:Widget.Holo.Light.EditText">

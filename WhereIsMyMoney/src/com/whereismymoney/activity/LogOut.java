@@ -33,5 +33,11 @@ public class LogOut extends Activity {
 				}
 		});
 	}
+	
+	@Override
+    public void onBackPressed() {
+		Intent goToLogin = new Intent("android.intent.action.LOGIN");
+		startActivity(goToLogin);
+    }
 }
 

@@ -107,7 +107,7 @@ public class Login extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.activity_login, menu);
+        inflater.inflate(R.menu.action_bar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 }
