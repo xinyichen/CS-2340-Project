@@ -15,11 +15,11 @@ public class TransactionManager {
      * Creates a new withdrawal for the given user's account. current timeStamp
      * automatically added by mysql. Negative balance not allowed.
      * 
-     * @param reason
-     * @param expenseCategory
-     * @param amount
-     * @param effectiveDate
-     * @return
+     * @param reason reason for withdrawal
+     * @param expenseCategory category of withdrawal
+     * @param amount amount of withdrawal
+     * @param effectiveDate effective date of withdrawal
+     * @return if new withdrawal is added successfully
      */
     public boolean newWithdrawal(String reason, String expenseCategory,
             double amount, String effectiveDate) {
@@ -38,10 +38,10 @@ public class TransactionManager {
      * Creates a new deposit for the given user's account. current timeStamp
      * automatically added by mysql.
      * 
-     * @param source
-     * @param amount
-     * @param effectiveDate
-     * @return
+     * @param source source of deposit
+     * @param amount amount of deposit
+     * @param effectiveDate effective date of deposit
+     * @return if new deposit is added successfully
      */
     public boolean newDeposit(String source, double amount, String effectiveDate) {
         Document doc = DatabaseConnect.getDatabaseConnect().newDeposit(source,

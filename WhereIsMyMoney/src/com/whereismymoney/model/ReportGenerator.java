@@ -15,12 +15,20 @@ import com.whereismymoney.service.Pair;
 /**
  * fetch various report from database.
  * 
- * @author cxy
+ * @author Xinyi Chen
  * 
  */
 public class ReportGenerator {
 
-    public Report generateSpendingCategoryReport(String username, Date start,
+	/**
+	 * generate a spending category report.
+	 * 
+	 * @param username the user name that the report is generated for
+	 * @param start stating date of the report
+	 * @param end ending date of the report
+	 * @return a spending category report
+	 */
+    public SpendingCategoryReport generateSpendingCategoryReport(String username, Date start,
             Date end) {
         Document doc = DatabaseConnect.getDatabaseConnect()
                 .generateSpendingCategoryReport(username, start, end);
