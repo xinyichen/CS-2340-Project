@@ -1,9 +1,10 @@
+package com.whereismymoney.test;
 import junit.framework.TestCase;
 
 import com.whereismymoney.model.PasswordManager;
 
 
-public class ZhuomingTest extends TestCase {
+public class PasswordManagerTest extends TestCase {
 
 /**
  * This unit test tests the login feature with a test case of wrong password (request denied) and a case of right password (request confirmed)
@@ -11,16 +12,18 @@ public class ZhuomingTest extends TestCase {
  * @author Zhuoming Li (Ming)
  *
  */
-	PasswordManager manager;
+	private PasswordManager manager;
 	
+	@Override
+	protected void setUp() throws Exception {
+		manager = new PasswordManager();
+	}
 	
 	/**
 	 * login denied with wrong password
 	 */
 	public void testLoginWithWrongPassword(){
-		 manager = new PasswordManager();
-
-		System.out.println(manager.login("admin","wrongpassword"));
+		assertFalse(manager.login("admin","wrongpassword"));
 	}
 	
 	
@@ -28,9 +31,6 @@ public class ZhuomingTest extends TestCase {
 	 * login accepted with right password
 	 */
 	public void testLoginWithRightPassword(){
-		 manager = new PasswordManager();
-
 		assertTrue(manager.login("admin","pass123"));
 	}
-
 }
