@@ -68,7 +68,7 @@ public class NewDeposit extends Activity {
                 } else if (!IntegrityCheck.validDate(effectiveDate.getText()
                         .toString())) {
                     alertReason = "Date is not in the correct format. Correct format is yyyy-mm-dd";
-                } else if (transactionManager.newDeposit(source.getText()
+                } else if (transactionManager.newDeposit("username", "account", source.getText()
                         .toString(), Double.parseDouble(amount.getText()
                         .toString()), effectiveDate.getText().toString())) {
                     alertMessage = "Success";

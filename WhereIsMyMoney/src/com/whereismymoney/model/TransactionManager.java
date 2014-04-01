@@ -21,11 +21,11 @@ public class TransactionManager {
      * @param effectiveDate effective date of withdrawal
      * @return if new withdrawal is added successfully
      */
-    public boolean newWithdrawal(String reason, String expenseCategory,
+    public boolean newWithdrawal(String username, String account, String reason, String expenseCategory,
             double amount, String effectiveDate) {
 
         Document doc = DatabaseConnect.getDatabaseConnect().newWithdrawal(
-                reason, expenseCategory, amount, effectiveDate);
+                username, account, reason, expenseCategory, amount, effectiveDate);
         String result = doc.select("body").first().text();
         if (result.equals("success")) {
             return true;
@@ -43,9 +43,9 @@ public class TransactionManager {
      * @param effectiveDate effective date of deposit
      * @return if new deposit is added successfully
      */
-    public boolean newDeposit(String source, double amount, String effectiveDate) {
-        Document doc = DatabaseConnect.getDatabaseConnect().newDeposit(source,
-                amount, effectiveDate);
+    public boolean newDeposit(String username, String account, String source, double amount, String effectiveDate) {
+        Document doc = DatabaseConnect.getDatabaseConnect().newDeposit(username, account,
+        		source, amount, effectiveDate);
         String result = doc.select("body").first().text();
         if (result.equals("success")) {
             return true;

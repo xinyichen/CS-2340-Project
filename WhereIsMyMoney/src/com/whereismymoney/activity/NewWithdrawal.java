@@ -71,7 +71,7 @@ public class NewWithdrawal extends Activity {
                 } else if (!IntegrityCheck.validDate(effectiveDate.getText()
                         .toString())) {
                     alertReason = "Date is not in the correct format. Correct format is yyyy-mm-dd";
-                } else if (transactionManager.newWithdrawal(reason.getText()
+                } else if (transactionManager.newWithdrawal("username", "account", reason.getText()
                         .toString(), expenseCategory.getText().toString(),
                         Double.parseDouble(amount.getText().toString()),
                         effectiveDate.getText().toString())) {

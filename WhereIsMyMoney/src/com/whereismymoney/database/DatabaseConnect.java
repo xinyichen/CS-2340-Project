@@ -128,17 +128,15 @@ public class DatabaseConnect implements Idatabase {
     }
 
     @Override
-    public Document newDeposit(String source, double amount,
+    public Document newDeposit(String username, String account, String source, double amount,
             String effectiveDate) {
         try {
             String address = buffer.append(ROOT_ADDRESS).append(CREATE_DEPOSIT)
                     .toString();
             Document doc = Jsoup
                     .connect(address)
-                    .data("username",
-                            CurrentUser.getCurrentUser().getUserName())
-                    .data("account_name",
-                            CurrentAccount.getCurrentAccount().getAccountName())
+                    .data("username", username)
+                    .data("account_name", account)
                     .data("amount", Double.toString(amount))
                     .data("source", source)
                     .data("effective_date", effectiveDate).timeout(15 * 1000)
@@ -152,17 +150,15 @@ public class DatabaseConnect implements Idatabase {
     }
 
     @Override
-    public Document newWithdrawal(String reason, String expenseCategory,
+    public Document newWithdrawal(String username, String account, String reason, String expenseCategory,
             double amount, String effectiveDate) {
         try {
             String address = buffer.append(ROOT_ADDRESS)
                     .append(CREATE_WITHDRAWAL).toString();
             Document doc = Jsoup
                     .connect(address)
-                    .data("username",
-                            CurrentUser.getCurrentUser().getUserName())
-                    .data("account_name",
-                            CurrentAccount.getCurrentAccount().getAccountName())
+                    .data("username", username)
+                    .data("account_name", account)
                     .data("amount", Double.toString(amount))
                     .data("reason", reason).data("category", expenseCategory)
                     .data("effective_date", effectiveDate).timeout(15 * 1000)

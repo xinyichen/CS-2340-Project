@@ -23,10 +23,10 @@ public interface Idatabase {
     public Document generateSpendingCategoryReport(String username, Date start,
             Date end);
 
-    public Document newDeposit(String source, double amount,
+    public Document newDeposit(String username, String account, String source, double amount,
             String effectiveDate);
 
-    public Document newWithdrawal(String reason, String expenseCategory,
+    public Document newWithdrawal(String username, String account, String reason, String expenseCategory,
             double amount, String effectiveDate);
 
 }
