@@ -52,13 +52,13 @@ public class Account {
         // input integrity check
         String tooSmall = "";
         if (colWidth1 < myDisplayName.length()) {
-            tooSmall += "colum 1 ";
+            tooSmall += "column 1 ";
         }
         if (colWidth2 < Double.toString(myBalance).length()) {
-            tooSmall += "colum 2 ";
+            tooSmall += "column2 ";
         }
         if (colWidth3 < Double.toString(myInterestRate).length()) {
-            tooSmall += "colum 3";
+            tooSmall += "column 3";
         }
 
         if (tooSmall.length() > 0) {
