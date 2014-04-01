@@ -1,6 +1,6 @@
 package com.whereismymoney.test;
-import junit.framework.TestCase;
 
+import junit.framework.TestCase;
 import com.whereismymoney.model.PasswordManager;
 
 
