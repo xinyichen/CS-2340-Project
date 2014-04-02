@@ -18,6 +18,9 @@ import android.widget.DatePicker;
  *
  */
 public class AccountDetail extends FragmentActivity implements DatePickerDialog.OnDateSetListener {
+    /**
+     * A private button for create new transaction.
+     */
     private Button createNewTransaction;
     
     @Override

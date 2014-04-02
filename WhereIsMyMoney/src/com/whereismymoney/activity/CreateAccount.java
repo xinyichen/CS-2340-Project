@@ -19,7 +19,13 @@ import android.widget.EditText;
  */
 
 public class CreateAccount extends Activity {
+    /**
+     * This is a private button used when the user wishes to confirm.
+     */
     private Button confirm;
+    /**
+     * This is a private AccountManager later used to create and account. 
+     */
     private AccountManager accountManager;
 
     @Override

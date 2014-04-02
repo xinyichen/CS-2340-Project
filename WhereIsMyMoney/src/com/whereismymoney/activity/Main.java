@@ -14,6 +14,9 @@ import android.view.WindowManager;
  * starting sound.
  */
 public class Main extends Activity {
+    /**
+     * A type MediaPlayer used to hold the stating song.
+     */
     MediaPlayer startingSong;
 
     @Override

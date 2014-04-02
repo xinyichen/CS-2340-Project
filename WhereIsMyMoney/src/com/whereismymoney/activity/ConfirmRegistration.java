@@ -16,7 +16,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-
+/**
+ * This class handles the activity associated with confirming a registration.
+ * @author T38
+ *
+ */
 public class ConfirmRegistration extends Activity {
 
     @SuppressLint("NewApi")

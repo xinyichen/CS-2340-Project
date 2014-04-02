@@ -31,9 +31,25 @@ import android.widget.ListView;
  */
 
 public class AccountInfo extends Activity implements View.OnClickListener {
+    /**
+     * A private AccountManager named accountManager.
+     */
     private AccountManager accountManager;
-    private Button createAccount, viewReport;
+    /**
+     * A private button used to create an account.
+     */
+    private Button createAccount;
+    /**
+     * A private button used to view a report.
+     */
+    private Button viewReport;
+    /**
+     * A private boolean defaulted to false.
+     */
     private Boolean ActionBarLogOut = false;
+    /**
+     * A private boolean defaulted to false.
+     */
     private Boolean ActionBarSearch = false;
 
     @Override

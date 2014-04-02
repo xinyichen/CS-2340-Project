@@ -21,8 +21,22 @@ import android.widget.EditText;
  */
 
 public class Login extends Activity {
+    /**
+     * This is a private PasswordManager used for checking passwords.
+     */
     private PasswordManager passwordManager;
-    Button login, register, forgot_password;
+    /**
+     * A button the user uses to login.
+     */
+    Button login;
+    /**
+     * A button the user uses to register.
+     */
+    Button register;
+    /**
+     * A button the user presses when he has forgotten his password.
+     */
+    Button forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +50,7 @@ public class Login extends Activity {
         passwordManager = new PasswordManager();
         login = (Button) findViewById(R.id.button_login_login);
         register = (Button) findViewById(R.id.button_login_register);
-        forgot_password = (Button) findViewById(R.id.button_forgot_password);
+        forgotPassword = (Button) findViewById(R.id.button_forgot_password);
 
         // all the stuff associated with clicking the login button
         login.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +106,7 @@ public class Login extends Activity {
             }
         });
 
-        forgot_password.setOnClickListener(new View.OnClickListener() {
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
