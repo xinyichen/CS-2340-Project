@@ -32,17 +32,17 @@ public class PasswordManager {
      * Creates a new user.
      * 
      * @param username new user username
-     * @param first_name new user first name
-     * @param last_name new user last name
+     * @param firstName new user first name
+     * @param lastName new user last name
      * @param password new user password
      * @param email new user email address
      * @return True if the user was created, false otherwise
      */
 
-    public boolean register(String username, String first_name,
-            String last_name, String password, String email) {
+    public boolean register(String username, String firstName,
+            String lastName, String password, String email) {
         Document doc = DatabaseConnect.getDatabaseConnect().register(username,
-                first_name, last_name, password, email);
+                firstName, lastName, password, email);
         String loginResult = (doc.text());
         if (loginResult.equals("registered")) {
             return true;

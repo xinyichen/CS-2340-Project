@@ -6,9 +6,17 @@ import com.whereismymoney.database.DatabaseConnect;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-
+/**
+ * This is a manager that deals with all to do with the account.
+ * @author T38
+ *
+ */
 public class AccountManager {
-
+    /**
+     * This is a getter that takes in a username and returns a list of accounts.
+     * @param username      This is a String that contains the user's name.
+     * @return              returns a an account list.
+     */
     // return a list of all accounts of a given user
     public List<Account> getAllAccounts(String username) {
         List<Account> accountList = new ArrayList<Account>();
@@ -31,18 +39,26 @@ public class AccountManager {
         }
         return accountList;
     }
-
-    public boolean createAccount(String username, String account_display_name,
-            String account_full_name, double balance, double interest_rate) {
+    /**
+     * This method takes in everything to do with creating an account and creates it.
+     * @param username                  This is a String containing the user's name.
+     * @param accountDisplayName        This is a String containing the account's displayed name.
+     * @param accountFullName           This is a String containing the account's full name.
+     * @param balance                   This is a double containing a balance.
+     * @param interestRate             This is a double containing an interest rate.
+     * @return                          returns a boolean true for account created and false for failure.
+     */
+    public boolean createAccount(String username, String accountDisplayName,
+            String accountFullName, double balance, double interestRate) {
 
         Document doc = DatabaseConnect.getDatabaseConnect().createAccount(
-                username, account_display_name, account_full_name, balance,
-                interest_rate);
+                username, accountDisplayName, accountFullName, balance,
+                interestRate);
         String loginResult = (doc.text());
         if (loginResult.equals("account created")) {
             // setting the current account for transaction purposes
             CurrentAccount.getCurrentAccount().setAccountName(
-                    account_display_name);
+                    accountDisplayName);
             return true;
         }
 

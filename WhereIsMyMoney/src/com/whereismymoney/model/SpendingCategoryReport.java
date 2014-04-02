@@ -19,9 +19,13 @@ public class SpendingCategoryReport implements Report {
     private List<Pair<String, Double>> mySpendings = new ArrayList<Pair<String, Double>>();
     
     /**
-     * date bound of the report.
+     * date start of the report.
      */
-    private Date start, end;
+    private Date start;
+    /**
+     * date end of the report.
+     */
+    private Date end;
     
     /**
      * initialize the spending category report with a list of spendings,
