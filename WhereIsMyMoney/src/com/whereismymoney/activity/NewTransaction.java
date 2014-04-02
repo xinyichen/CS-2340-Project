@@ -17,7 +17,18 @@ import android.widget.Button;
 public class NewTransaction extends Activity {
 
     Bundle a;
-    Button deposit, withdrawal, cancel;
+    /**
+     * This is a button used to deposit.
+     */
+    Button deposit;
+    /**
+     * This is a button used to withdraw.
+     */
+    Button withdrawal;
+    /**
+     * This is a button used to cancel.
+     */
+    Button cancel;
 
     @Override
     protected void onResume() {

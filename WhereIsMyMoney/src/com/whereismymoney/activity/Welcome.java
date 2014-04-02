@@ -15,7 +15,14 @@ import android.widget.Button;
  */
 
 public class Welcome extends Activity {
-    Button login, register;
+    /**
+     * This is a button clicked to login.
+     */
+    Button login;
+    /**
+     * This is a button clicked to register.
+     */
+    Button register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -20,9 +20,18 @@ import android.widget.EditText;
 
 public class Register extends Activity {
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-
+    /**
+     * This is a private manager used to handle passwords.
+     */
     private PasswordManager passwordManager;
-    Button register, cancel;
+    /**
+     * This is a button used to regester.
+     */
+    Button register;
+    /**
+     * This is a button clicked to cancel.
+     */
+    Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

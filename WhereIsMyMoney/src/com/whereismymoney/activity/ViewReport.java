@@ -29,10 +29,33 @@ import android.widget.TextView;
  */
 public class ViewReport extends FragmentActivity implements
         DatePickerDialog.OnDateSetListener {
-
-    private Date startDate, endDate;
-    private TextView startDateTxt, endDateTxt, reportTxt;
+    /**
+     * This is of type date which will hold the starting date.
+     */
+    private Date startDate;
+    /**
+     * This is a type date wchich will hold the end date.
+     */
+    private Date endDate;
+    /**
+     * This is a type TextView used to hold the text of starting date.
+     */
+    private TextView startDateTxt;
+    /**
+     * This is a type TextView used to hold the text of ending date.
+     */
+    private TextView endDateTxt;
+    /**
+     * This is a type TextView used to hold the text of the report.
+     */
+    private TextView reportTxt;
+    /**
+     * This is a private button used to generate a report.
+     */
     private Button generateReport;
+    /**
+     * This is a private type 'View' that holds the current view.
+     */
     private View currentView;
 
     @Override
@@ -83,6 +106,11 @@ public class ViewReport extends FragmentActivity implements
 
     // reference
     // http://developer.android.com/guide/topics/ui/controls/pickers.html
+    /**
+     * This class handles the selection of a date.
+     * @author T38
+     *
+     */
     public static class DatePickerFragment extends DialogFragment {
 
         @Override
@@ -98,7 +126,10 @@ public class ViewReport extends FragmentActivity implements
                     (OnDateSetListener) getActivity(), year, month, day);
         }
     }
-
+    /**
+     * This method takes in a view and creates a new date picker fragment.
+     * @param v is a type 'View' that is passed in.
+     */
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");

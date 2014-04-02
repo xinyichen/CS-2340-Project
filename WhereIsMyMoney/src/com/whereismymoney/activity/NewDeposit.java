@@ -19,10 +19,19 @@ import android.widget.EditText;
  */
 
 public class NewDeposit extends Activity {
-
+    /**
+     * This is a private manager used for transactions.
+     */
     private TransactionManager transactionManager;
     Bundle a;
-    Button confirm, cancel;
+    /**
+     * This is a button used to confirm.
+     */
+    Button confirm;
+    /**
+     * This is a button used to canel.
+     */
+    Button cancel;
 
     @Override
     protected void onResume() {

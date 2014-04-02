@@ -18,8 +18,13 @@ import android.widget.EditText;
  */
 
 public class NewWithdrawal extends Activity {
-
+    /**
+     * This is a private manager used to handle transactions.
+     */
     private TransactionManager transactionManager;
+    /**
+     * This is a button used to confirm.
+     */
     Button confirm;
     Bundle a;
 
