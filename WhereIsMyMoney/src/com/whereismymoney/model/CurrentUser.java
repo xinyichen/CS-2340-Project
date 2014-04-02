@@ -6,25 +6,47 @@ package com.whereismymoney.model;
  *
  */
 public class CurrentUser {
+	
+	/**
+	 * Current user variable of type CurrentUser.
+	 */
     private static CurrentUser currentUser;
+    
+    /**
+     * String to hold the user name.
+     */
     private String userName;
     
-    // make constructor private to bar external classes from creating new CurrentUser
+    /**
+     * Private constructor for class to implement Singleton design pattern.
+     */
     private CurrentUser() { userName = null; };
     
-    public static synchronized CurrentUser getCurrentUser()
-    {
-        if (currentUser == null){
+    /**
+     * Synchronized method to get the current user.
+     *
+     * @return current user
+     */
+    public static synchronized CurrentUser getCurrentUser() {
+        if (currentUser == null) {
             currentUser = new CurrentUser();
         }
 
         return currentUser;
     }
-
+    
+    /**
+     * 
+     * @return userName;
+     */
     public String getUserName() {
         return userName;
     }
-
+    
+    /**
+     * Sets the userName to the input String.
+     * @param userName				This is a String
+     */
     public void setUserName(String userName) {
         this.userName = userName;
     }

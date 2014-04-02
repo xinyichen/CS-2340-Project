@@ -7,14 +7,28 @@ package com.whereismymoney.model;
  */
 
 public class CurrentAccount {
+	
+	/**
+	 * holds current account as type CurrentAccount.
+	 */
     private static CurrentAccount currentAccount;
+    
+    /**
+     * String to hold the account name.
+     */
     private String accountName;
     
-    // make constructor private to bar external classes from creating new CurrentAccount
+    /**
+     * Private constructor to implement the Singleton design pattern.
+     */
     private CurrentAccount() { 
     	accountName = null; 
     }
     
+    /**
+     * Synchoronized getter method to get the current account.
+     * @return currentAccount
+     */
     public static synchronized CurrentAccount getCurrentAccount()
     {
         if (currentAccount == null) {
@@ -34,7 +48,7 @@ public class CurrentAccount {
 
     /**
      * Sets the current account's name.
-     * @param accountName
+     * @param accountName		This is a String.
      */
     public void setAccountName(String accountName) {
         this.accountName = accountName;
