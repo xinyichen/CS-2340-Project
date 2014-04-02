@@ -20,17 +20,46 @@ import com.whereismymoney.service.Date;
  */
 public class DatabaseConnect implements Idatabase {
 
-    private static DatabaseConnect databaseConnect;
-    private final static String ROOT_ADDRESS = "http://192.185.4.36/~zli342/";
-    private final static String GET_ALL_ACCOUNTS = "get_account_info.php";
-    private final static String CREATE_ACCOUNT = "create_account.php";
-    private final static String LOGIN = "login.php";
-    private final static String REGISTER = "register.php";
-    private final static String GENERATE_SPENDING_CATEGORY_REPORT = "get_withdraw_summary.php";
-    private final static String CREATE_WITHDRAWAL = "create_withdrawal.php";
-    private final static String CREATE_DEPOSIT = "create_deposit.php";
+//    private static DatabaseConnect databaseConnect;
+    /**
+     * A private, static, and final String holding the root address.
+     */
+    private static final String ROOT_ADDRESS = "http://192.185.4.36/~zli342/";
+    /**
+     * A private, static, and final String holding a php string needed to get account information.
+     */
+    private static final String GET_ALL_ACCOUNTS = "get_account_info.php";
+    /**
+     * A private, static, and final String holding a php string to create an account.
+     */
+    private static final String CREATE_ACCOUNT = "create_account.php";
+    /**
+     * A private, static, and final String holding a php string to login.
+     */
+    private static final String LOGIN = "login.php";
+    /**
+     * A private, static, and final String holding a php string to register.
+     */
+    private static final String REGISTER = "register.php";
+    /**
+     * A private, static, and final String holding a php string to get withdraw summary.
+     */
+    private static final String GENERATE_SPENDING_CATEGORY_REPORT = "get_withdraw_summary.php";
+    /**
+     * A private, static, and final String holding a php string to create a withdrawal.
+     */
+    private static final String CREATE_WITHDRAWAL = "create_withdrawal.php";
+    /**
+     * A private, static, and final String holding a php string to create a deposit.
+     */
+    private static final String CREATE_DEPOSIT = "create_deposit.php";
+    /**
+     * A local string buffer.
+     */
     StringBuffer buffer = new StringBuffer();
-
+    /**
+     * This is the db connect constructor.
+     */
     public DatabaseConnect() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
@@ -53,16 +82,16 @@ public class DatabaseConnect implements Idatabase {
     }
 
     @Override
-    public Document createAccount(String username, String account_display_name,
-            String account_full_name, double balance, double interest_rate) {
+    public Document createAccount(String username, String accountDisplayName,
+            String accountFullName, double balance, double interestRate) {
         try {
             String address = buffer.append(ROOT_ADDRESS).append(CREATE_ACCOUNT)
                     .toString();
             Document doc = Jsoup.connect(address).data("username", username)
-                    .data("account_display_name", account_display_name)
-                    .data("account_full_name", account_full_name)
+                    .data("account_display_name", accountDisplayName)
+                    .data("account_full_name", accountFullName)
                     .data("balance", Double.toString(balance))
-                    .data("interest_rate", Double.toString(interest_rate))
+                    .data("interest_rate", Double.toString(interestRate))
                     .timeout(15 * 1000).get();
 
             return doc;
@@ -88,14 +117,14 @@ public class DatabaseConnect implements Idatabase {
     }
 
     @Override
-    public Document register(String username, String first_name,
-            String last_name, String password, String email) {
+    public Document register(String username, String firstName,
+            String lastName, String password, String email) {
         try {
             String address = buffer.append(ROOT_ADDRESS).append(REGISTER)
                     .toString();
             Document doc = Jsoup.connect(address).data("username", username)
-                    .data("password", password).data("first_name", first_name)
-                    .data("last_name", last_name).data("email", email)
+                    .data("password", password).data("first_name", firstName)
+                    .data("last_name", lastName).data("email", email)
                     .timeout(15 * 1000).get();
 
             return doc;
@@ -122,7 +151,10 @@ public class DatabaseConnect implements Idatabase {
         }
         return null;
     }
-
+    /**
+     * A method that connects to the database.
+     * @return  returns a new DatabaseConnect.
+     */
     public static DatabaseConnect getDatabaseConnect() {
         return new DatabaseConnect();
     }
