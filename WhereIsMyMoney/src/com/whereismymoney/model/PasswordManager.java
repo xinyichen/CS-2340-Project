@@ -31,11 +31,7 @@ public class PasswordManager {
     /**
      * Creates a new user.
      * 
-     * @param username new user username
-     * @param firstName new user first name
-     * @param lastName new user last name
-     * @param password new user password
-     * @param email new user email address
+     * @param user user to be registered
      * @return True if the user was created, false otherwise
      */
 
