@@ -79,14 +79,14 @@ public class Login extends Activity {
                         failReason = "Incorrect User Name or Password";
                     }
                 } else {
-                    // alerting the user that the password is <7 characters
-                    if (!IntegrityCheck.checkPasswordLength(password.getText()
-                            .toString(), 7)) {
-                        failReason = "Your password must be at least 7 characters";
-                    } else {
-                        // alerting the user that they didn't enter a username
-                        failReason = "You need to enter a username!";
-                    }
+//                    // alerting the user that the password is <7 characters
+//                    if (!IntegrityCheck.checkPasswordLength(password.getText()
+//                            .toString(), 7)) {
+//                        failReason = "Your password must be at least 7 characters";
+//                    } else {
+//                        // alerting the user that they didn't enter a username
+//                        failReason = "You need to enter a username!";
+//                    }
                     AlertDialog loginFailAlert = new AlertDialog.Builder(
                             Login.this).create();
                     loginFailAlert.setTitle(failAlert);

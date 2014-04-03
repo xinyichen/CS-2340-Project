@@ -143,7 +143,7 @@ public class ViewReport extends FragmentActivity implements
             startDate.setYear(year);
             startDate.setMonth(monthOfYear);
             startDate.setDay(dayOfMonth);
-            startDateTxt.setText("From: " + startDate.toString());
+//            startDateTxt.setText("From: " + startDate.toString());
         } else if (currentView.getId() == endDateTxt.getId()) {
             endDate.setYear(year);
             endDate.setMonth(monthOfYear);
