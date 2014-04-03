@@ -46,14 +46,16 @@ public class AccountInfo extends Activity implements View.OnClickListener {
     /**
      * A private boolean defaulted to false.
      */
-    private Boolean ActionBarLogOut = false;
+    private Boolean actionBarLogOut;
     /**
      * A private boolean defaulted to false.
      */
-    private Boolean ActionBarSearch = false;
+    private Boolean actionBarSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+    	actionBarLogOut = false;
+    	actionBarSearch = false;
 
         getActionBar().setTitle("");
 
@@ -136,6 +138,8 @@ public class AccountInfo extends Activity implements View.OnClickListener {
     /**
      * when a click is detected, determine the clicked entity and perform
      * actions accordingly.
+     * 
+     * @param v view
      */
     @Override
     public void onClick(View v) {
@@ -168,11 +172,11 @@ public class AccountInfo extends Activity implements View.OnClickListener {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.action_search:
-            	ActionBarSearch = true;
+            	actionBarSearch = true;
                 //search
                 return true;
             case R.id.action_log_out:
-            	ActionBarLogOut = true;
+            	actionBarLogOut = true;
                 //Intent goToLogOut = new Intent("android.intent.action.LOGOUT");
                 //startActivity(goToLogOut);
                 return true;

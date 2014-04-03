@@ -37,11 +37,7 @@ public interface Idatabase {
     Document login(String username, String password);
     /**
      * This method registers an account using username, first/last name, password, and email.
-     * @param username      String containing the name of the user.
-     * @param firstName     String containing the first name of the user.
-     * @param lastName      String containing the last name of the user.
-     * @param password      String containing the password of the user.
-     * @param email         String containing the email of the user.
+     * @param user      user to be registered
      * @return              returns a Document.
      */
     Document register(User user);
