@@ -39,10 +39,8 @@ public class PasswordManager {
      * @return True if the user was created, false otherwise
      */
 
-    public boolean register(String username, String firstName,
-            String lastName, String password, String email) {
-        Document doc = DatabaseConnect.getDatabaseConnect().register(username,
-                firstName, lastName, password, email);
+    public boolean register(User user) {
+        Document doc = DatabaseConnect.getDatabaseConnect().register(user);
         String loginResult = (doc.text());
         if (loginResult.equals("registered")) {
             return true;

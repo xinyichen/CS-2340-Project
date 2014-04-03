@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.whereismymoney.model.CurrentAccount;
 import com.whereismymoney.model.CurrentUser;
+import com.whereismymoney.model.User;
 import com.whereismymoney.service.Date;
 
 /**
@@ -117,14 +118,13 @@ public class DatabaseConnect implements Idatabase {
     }
 
     @Override
-    public Document register(String username, String firstName,
-            String lastName, String password, String email) {
+    public Document register(User user) {
         try {
             String address = buffer.append(ROOT_ADDRESS).append(REGISTER)
                     .toString();
-            Document doc = Jsoup.connect(address).data("username", username)
-                    .data("password", password).data("first_name", firstName)
-                    .data("last_name", lastName).data("email", email)
+            Document doc = Jsoup.connect(address).data("username", user.getUsername())
+                    .data("password", user.getPassword()).data("first_name", user.getFirstName())
+                    .data("last_name", user.getLastName()).data("email", user.getEmail())
                     .timeout(15 * 1000).get();
 
             return doc;

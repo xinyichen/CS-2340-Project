@@ -2,6 +2,7 @@ package com.whereismymoney.activity;
 
 import com.whereismymoney.R;
 import com.whereismymoney.model.PasswordManager;
+import com.whereismymoney.model.User;
 import com.whereismymoney.service.IntegrityCheck;
 
 import android.app.Activity;
@@ -78,10 +79,10 @@ public class Register extends Activity {
                 } else if (!IntegrityCheck.checkMatch(password.getText()
                         .toString(), confirmPassword.getText().toString())) {
                     failReason = "The password fields don't match";
-                } else if (passwordManager.register(username.getText()
+                } else if (passwordManager.register(new User(username.getText()
                         .toString(), firstName.getText().toString(), lastName
                         .getText().toString(), password.getText().toString(),
-                        email.getText().toString())) {
+                        email.getText().toString()))) {
                     Intent goToConfirmation = new Intent(
                             "android.intent.action.CONFIRMREGISTRATION");
                     startActivity(goToConfirmation);

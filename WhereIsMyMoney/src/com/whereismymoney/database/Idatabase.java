@@ -1,6 +1,8 @@
 package com.whereismymoney.database;
 
 import org.jsoup.nodes.Document;
+
+import com.whereismymoney.model.User;
 import com.whereismymoney.service.Date;
 
 /**
@@ -42,8 +44,7 @@ public interface Idatabase {
      * @param email         String containing the email of the user.
      * @return              returns a Document.
      */
-    Document register(String username, String firstName,
-            String lastName, String password, String email);
+    Document register(User user);
     /**
      * This method takes in a username and star/end date to generate a spending report.
      * @param username      String containing the name of the user.
