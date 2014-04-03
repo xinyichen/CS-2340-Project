@@ -11,12 +11,12 @@ public class Pair<E, T> {
 	/**
 	 * first item contained in the pair.
 	 */
-    private final E myItem1;
+    private final E item1;
     
     /**
      * second item contained in the pair.
      */
-    private final T myItem2;
+    private final T item2;
     
     /**
      * initialize the two items contained in the pair.
@@ -25,8 +25,8 @@ public class Pair<E, T> {
      * @param item2 second item
      */
     public Pair(E item1, T item2) {
-        myItem1 = item1;
-        myItem2 = item2;
+        this.item1 = item1;
+        this.item2 = item2;
     }
 
     /**
@@ -35,7 +35,7 @@ public class Pair<E, T> {
      * @return first item
      */
     public E getItem1() {
-        return myItem1;
+        return item1;
     }
     
     /**
@@ -44,6 +44,6 @@ public class Pair<E, T> {
      * @return second item
      */
     public T getItem2() {
-        return myItem2;
+        return item2;
     }
 }

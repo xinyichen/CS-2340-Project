@@ -26,21 +26,12 @@ public class NewWithdrawal extends Activity {
      * This is a button used to confirm.
      */
     Button confirm;
-    Bundle a;
-
-    @Override
-    protected void onResume() {
-        // TODO Auto-generated method stub
-        super.onResume();
-        this.onCreate(a);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         
     	getActionBar().setTitle("");
         
-        a = savedInstanceState;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_withdrawal);
         transactionManager = new TransactionManager();

@@ -20,7 +20,6 @@ import android.widget.EditText;
  */
 
 public class Register extends Activity {
-    public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     /**
      * This is a private manager used to handle passwords.
      */

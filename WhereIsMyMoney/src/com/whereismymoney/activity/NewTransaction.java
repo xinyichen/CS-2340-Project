@@ -16,7 +16,6 @@ import android.widget.Button;
 
 public class NewTransaction extends Activity {
 
-    Bundle a;
     /**
      * This is a button used to deposit.
      */
@@ -29,13 +28,6 @@ public class NewTransaction extends Activity {
      * This is a button used to cancel.
      */
     Button cancel;
-
-    @Override
-    protected void onResume() {
-        // TODO Auto-generated method stub
-        super.onResume();
-        this.onCreate(a);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

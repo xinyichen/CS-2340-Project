@@ -23,29 +23,21 @@ public class NewDeposit extends Activity {
      * This is a private manager used for transactions.
      */
     private TransactionManager transactionManager;
-    Bundle a;
+
     /**
      * This is a button used to confirm.
      */
     Button confirm;
     /**
-     * This is a button used to canel.
+     * This is a button used to cancel.
      */
     Button cancel;
-
-    @Override
-    protected void onResume() {
-        // TODO Auto-generated method stub
-        super.onResume();
-        this.onCreate(a);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         
     	getActionBar().setTitle("");
         
-        a = savedInstanceState;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_deposit);
         transactionManager = new TransactionManager();
@@ -91,63 +83,6 @@ public class NewDeposit extends Activity {
                 newDepositAlert.setTitle(alertMessage);
                 newDepositAlert.setMessage(alertReason);
                 newDepositAlert.show();
-                // if(source.getText().toString().matches("\\s*")) {
-                // AlertDialog newDepositFailAlert = new
-                // AlertDialog.Builder(NewDeposit.this).create();
-                // newDepositFailAlert.setTitle("Deposit Failed");
-                // newDepositFailAlert.setMessage("You didn't enter a source");
-                // newDepositFailAlert.show();
-                // } else if(amount.getText().toString().matches("\\s*")) {
-                // AlertDialog newDepositFailAlert = new
-                // AlertDialog.Builder(NewDeposit.this).create();
-                // newDepositFailAlert.setTitle("Deposit Failed");
-                // newDepositFailAlert.setMessage("You didn't enter an amount");
-                // newDepositFailAlert.show();
-                // } else if(effectiveDate.getText().toString().matches("\\s*"))
-                // {
-                // AlertDialog newDepositFailAlert = new
-                // AlertDialog.Builder(NewDeposit.this).create();
-                // newDepositFailAlert.setTitle("Deposit Failed");
-                // newDepositFailAlert.setMessage("You didn't enter an effective date");
-                // newDepositFailAlert.show();
-                // } else
-                // if(amount.getText().toString().matches("[0-9]{0,}.[0-9]{2}"))
-                // {
-                // //bug: entering 100 will fall into this block
-                // AlertDialog newDepositFailAlert = new
-                // AlertDialog.Builder(NewDeposit.this).create();
-                // newDepositFailAlert.setTitle("Deposit Failed");
-                // newDepositFailAlert.setMessage("Amount needs to be in the format #...#.##. Ex: 4.25");
-                // newDepositFailAlert.show();
-                // //this regex only checks for a valid format, doesn't make
-                // sure it is actually a valid date
-                // } else
-                // if(effectiveDate.getText().toString().matches("[0-9]{2}\\\\/[0-9]{2}\\\\/[0-9]{4}"))
-                // {
-                // AlertDialog newDepositFailAlert = new
-                // AlertDialog.Builder(NewDeposit.this).create();
-                // newDepositFailAlert.setTitle("Deposit Failed");
-                // newDepositFailAlert.setMessage("Date is not in the correct format. Correct format is yyyy-mm-dd");
-                // newDepositFailAlert.show();
-                // //success case
-                // } else
-                // if(transactionManager.newDeposit(source.getText().toString(),
-                // Double.parseDouble(amount.getText().toString()),
-                // effectiveDate.getText().toString())){
-                // AlertDialog newDepositAlert = new
-                // AlertDialog.Builder(NewDeposit.this).create();
-                // newDepositAlert.setTitle("Success");
-                // newDepositAlert.setMessage("Deposit added");
-                // newDepositAlert.show();
-                //
-                // } else {
-                // //failure. probably due to network error.
-                // AlertDialog newDepositFailAlert = new
-                // AlertDialog.Builder(NewDeposit.this).create();
-                // newDepositFailAlert.setTitle("Deposit Failed");
-                // newDepositFailAlert.setMessage("Something's wrong");
-                // newDepositFailAlert.show();
-                // }
             }
         });
 
