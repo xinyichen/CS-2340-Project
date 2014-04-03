@@ -3,6 +3,7 @@ package com.whereismymoney.activity;
 import com.whereismymoney.R;
 import com.whereismymoney.model.AccountManager;
 import com.whereismymoney.model.CurrentUser;
+import com.whereismymoney.service.IntegrityCheck;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -53,6 +54,8 @@ public class CreateAccount extends Activity {
 
                 String fullNameStr = fullName.getText().toString();
                 String displayNameStr = displayName.getText().toString();
+                String balanceString = balance.getText().toString();
+                String intRateString = interestRate.getText().toString();
                 Double accBalance = Double.parseDouble(balance.getText()
                         .toString());
                 Double accIntRate = Double.parseDouble(interestRate.getText()
@@ -60,10 +63,18 @@ public class CreateAccount extends Activity {
 
                 String alert = "Account Creation Failed";
                 String failReason = null;
-                if (fullNameStr.matches("\\s*")) {
+                if (!IntegrityCheck.isInputValid(fullNameStr)) {
                     failReason = "You didn't enter a full name for the account!";
-                } else if (displayNameStr.matches("\\s*")) {
+                } else if (!IntegrityCheck.isInputValid(displayNameStr)) {
                     failReason = "You didn't enter a display name for the account!";
+                } else if (!IntegrityCheck.isInputValid(balanceString)) {
+                    failReason = "You didn't enter a balance!";
+                } else if (!IntegrityCheck.amountFormat(balanceString)) {
+                    failReason = "Your balance is not in the correct format!";
+                } else if (!IntegrityCheck.isInputValid(intRateString)) {
+                    failReason = "You didn't enter an interest rate!";
+                } else if (!IntegrityCheck.amountFormat(intRateString)) {
+                    failReason = "Your interest rate is not in the correct format!";
                 } else if (accountManager.createAccount(CurrentUser
                         .getCurrentUser().getUserName(), displayNameStr,
                         fullNameStr, accBalance, accIntRate)) {
