@@ -96,26 +96,23 @@ public class Login extends Activity {
             }
         });
 
-        register.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
+        @Override
+    public void onClick(View v) {
+        Log.i("click", "clicked");
+        switch (v.getId()) {
+            case R.id. setOnClickListener:
                 Intent goToRegister = new Intent(
                         "android.intent.action.REGISTER");
                 startActivity(goToRegister);
-            }
-        });
-
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id. OnClickListener:
                 Intent goToForgotPassword = new Intent(
                         "android.intent.action.FORGOTPASSWORD");
                 startActivity(goToForgotPassword);
-            }
-        });
+                break;
+        }
     }
+
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
