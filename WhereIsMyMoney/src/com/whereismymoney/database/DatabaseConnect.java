@@ -25,7 +25,9 @@ public class DatabaseConnect implements Idatabase {
     private final static String GET_ALL_ACCOUNTS = "get_account_info.php";
     private final static String CREATE_ACCOUNT = "create_account.php";
     private final static String LOGIN = "login.php";
+    private final static String HASHEDLOGIN = "hashedLogin.php";
     private final static String REGISTER = "register.php";
+    private final static String HASHEDREGISTER = "hashedRegister.php";
     private final static String GENERATE_SPENDING_CATEGORY_REPORT = "get_withdraw_summary.php";
     private final static String CREATE_WITHDRAWAL = "create_withdrawal.php";
     private final static String CREATE_DEPOSIT = "create_deposit.php";
@@ -88,10 +90,42 @@ public class DatabaseConnect implements Idatabase {
     }
 
     @Override
+    public Document hashedLogin(String username) {
+        try {
+            String address = buffer.append(ROOT_ADDRESS).append(HASHEDLOGIN)
+                    .toString();
+            Document doc = Jsoup.connect(address).data("username", username).timeout(15 * 1000).get();
+
+            return doc;
+        } catch (IOException e) {
+            Log.i("fail", e.toString());
+        }
+        return null;
+    }
+
+    @Override
     public Document register(String username, String first_name,
             String last_name, String password, String email) {
         try {
             String address = buffer.append(ROOT_ADDRESS).append(REGISTER)
+                    .toString();
+            Document doc = Jsoup.connect(address).data("username", username)
+                    .data("password", password).data("first_name", first_name)
+                    .data("last_name", last_name).data("email", email)
+                    .timeout(15 * 1000).get();
+
+            return doc;
+        } catch (IOException e) {
+            Log.i("fail", e.toString());
+        }
+        return null;
+    }
+
+    @Override
+    public Document hashedRegister(String username, String first_name,
+            String last_name, String password, String email) {
+        try {
+            String address = buffer.append(ROOT_ADDRESS).append(HASHEDREGISTER)
                     .toString();
             Document doc = Jsoup.connect(address).data("username", username)
                     .data("password", password).data("first_name", first_name)

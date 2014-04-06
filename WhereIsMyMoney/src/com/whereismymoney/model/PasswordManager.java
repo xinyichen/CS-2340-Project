@@ -25,12 +25,7 @@ public class PasswordManager {
      * @return Returns true if the login is valid, false otherwise.
      */
     public boolean login(String username, String password) {
-        //TODO: get the hash from the server
-
-
-        Document doc = DatabaseConnect.getDatabaseConnect().login(username,
-                password);
-
+        Document doc = DatabaseConnect.getDatabaseConnect().hashedLogin(username);
 
         String loginResult = (doc.text());
         if(loginResult.equals("Not found")) {
