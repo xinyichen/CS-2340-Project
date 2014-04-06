@@ -65,23 +65,23 @@ public class Login extends Activity {
 			}
 		});
 		
-		register.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent goToRegister = new Intent("android.intent.action.REGISTER");
-				startActivity(goToRegister);
-				}
-		});
-		
-		forgot_password.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent goToForgotPassword = new Intent("android.intent.action.FORGOTPASSWORD");
-				startActivity(goToForgotPassword);
-			}
-		});
+	@Override
+    public void onClick(View v) {
+        Log.i("click", "clicked");
+        switch (v.getId()) {
+            case R.id. setOnClickListener:
+                Intent goToRegister = new Intent(
+                        "android.intent.action.REGISTER");
+                startActivity(goToRegister);
+                break;
+            case R.id. OnClickListener:
+                Intent goToForgotPassword = new Intent(
+                        "android.intent.action.FORGOTPASSWORD");
+                startActivity(goToForgotPassword);
+                break;
+        }
+    }
+
 		
 		//Sends them back to the welcome page
 //		back.setOnClickListener(new View.OnClickListener() {
