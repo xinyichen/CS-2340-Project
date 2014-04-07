@@ -1,6 +1,7 @@
 package com.whereismymoney.database;
 
 import org.jsoup.nodes.Document;
+
 import com.whereismymoney.service.Date;
 
 /**
@@ -10,23 +11,28 @@ import com.whereismymoney.service.Date;
  */
 public interface Idatabase {
 
-    public Document getAllAccounts(String username);
+    Document getAllAccounts(String username);
 
-    public Document createAccount(String username, String account_display_name,
+    Document createAccount(String username, String account_display_name,
             String account_full_name, double balance, double interest_rate);
 
-    public Document login(String username, String password);
+    Document login(String username, String password);
+    
+    Document hashedLogin(String username);
 
-    public Document register(String username, String first_name,
+    Document register(String username, String first_name,
             String last_name, String password, String email);
+    
+	Document hashedRegister(String username, String first_name,
+			String last_name, String password, String email);
 
-    public Document generateSpendingCategoryReport(String username, Date start,
+    Document generateSpendingCategoryReport(String username, Date start,
             Date end);
 
-    public Document newDeposit(String source, double amount,
+    Document newDeposit(String source, double amount,
             String effectiveDate);
 
-    public Document newWithdrawal(String reason, String expenseCategory,
+    Document newWithdrawal(String reason, String expenseCategory,
             double amount, String effectiveDate);
 
 }

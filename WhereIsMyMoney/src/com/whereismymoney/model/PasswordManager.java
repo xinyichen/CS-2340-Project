@@ -10,13 +10,8 @@ import com.whereismymoney.service.PasswordHash;
  */
 
 public class PasswordManager {
-    private PasswordHash hasher;
 
-    public PasswordManager() {
-        hasher = new PasswordHash();
-    }
-
-    /**
+	/**
      * Checks to see if the login is valid.
      * 
      * @param username username for login 
@@ -30,11 +25,11 @@ public class PasswordManager {
         String loginResult = (doc.text());
         if(loginResult.equals("Not found")) {
             return false;
-        } else if(hasher.validatePassword(password, loginResult)) {
+        } else if(PasswordHash.validatePassword(password, loginResult)) {
             CurrentUser.getCurrentUser().setUserName(username);
             return true;
         } else {
-            return false
+            return false;
         }
     }
 
@@ -53,7 +48,7 @@ public class PasswordManager {
     public boolean register(String username, String first_name,
             String last_name, String password, String email) {
         
-        String hashedPassword = hasher.createHash(password);
+        String hashedPassword = PasswordHash.createHash(password);
 
         Document doc = DatabaseConnect.getDatabaseConnect().hashedRegister(username,
                 first_name, last_name, hashedPassword, email);
