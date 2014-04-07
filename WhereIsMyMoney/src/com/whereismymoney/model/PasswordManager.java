@@ -4,6 +4,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 import com.whereismymoney.database.DatabaseConnect;
 import com.whereismymoney.service.PasswordHash;
@@ -25,13 +26,10 @@ public class PasswordManager {
     public boolean login(String username, String password) {
         Document doc = DatabaseConnect.getDatabaseConnect().hashedLogin(username);
 
-        String isFound = (doc.select("not_found").first().text());
-        String storedPw = (doc.select("hashed_password").first().text());
-        if(isFound.equals("Not found")) {
-            return false;
-        } else {
+        Elements storedPw = doc.select("hashed_password");
+        if(storedPw != null) {
         	try {
-				if (PasswordHash.validatePassword(password, storedPw)) {
+				if (PasswordHash.validatePassword(password, storedPw.text())) {
 					CurrentUser.getCurrentUser().setUserName(username);
 		            return true;
 				} else {
@@ -42,6 +40,8 @@ public class PasswordManager {
 			} catch (InvalidKeySpecException e) {
 				return false;
 			}
+        } else {
+        	return false;
         }
     }
 
