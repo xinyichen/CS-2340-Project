@@ -25,7 +25,7 @@ public class DatabaseConnect implements Idatabase {
     private final static String GET_ALL_ACCOUNTS = "get_account_info.php";
     private final static String CREATE_ACCOUNT = "create_account.php";
     private final static String LOGIN = "login.php";
-    private final static String HASHEDLOGIN = "hashedLogin.php";
+    private final static String HASHEDLOGIN = "hashed_login.php";
     private final static String REGISTER = "register.php";
     private final static String HASHEDREGISTER = "hashedRegister.php";
     private final static String GENERATE_SPENDING_CATEGORY_REPORT = "get_withdraw_summary.php";

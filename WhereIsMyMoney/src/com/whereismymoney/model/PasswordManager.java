@@ -1,5 +1,8 @@
 package com.whereismymoney.model;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 import org.jsoup.nodes.Document;
 
 import com.whereismymoney.database.DatabaseConnect;
@@ -22,14 +25,23 @@ public class PasswordManager {
     public boolean login(String username, String password) {
         Document doc = DatabaseConnect.getDatabaseConnect().hashedLogin(username);
 
-        String loginResult = (doc.text());
-        if(loginResult.equals("Not found")) {
+        String isFound = (doc.select("not_found").first().text());
+        String storedPw = (doc.select("hashed_password").first().text());
+        if(isFound.equals("Not found")) {
             return false;
-        } else if(PasswordHash.validatePassword(password, loginResult)) {
-            CurrentUser.getCurrentUser().setUserName(username);
-            return true;
         } else {
-            return false;
+        	try {
+				if (PasswordHash.validatePassword(password, storedPw)) {
+					CurrentUser.getCurrentUser().setUserName(username);
+		            return true;
+				} else {
+					return false;
+				}
+			} catch (NoSuchAlgorithmException e) {
+				return false;
+			} catch (InvalidKeySpecException e) {
+				return false;
+			}
         }
     }
 
@@ -48,15 +60,17 @@ public class PasswordManager {
     public boolean register(String username, String first_name,
             String last_name, String password, String email) {
         
-        String hashedPassword = PasswordHash.createHash(password);
-
-        Document doc = DatabaseConnect.getDatabaseConnect().hashedRegister(username,
-                first_name, last_name, hashedPassword, email);
-        String registerResult = (doc.text());
-        if (registerResult.equals("registered")) {
-            return true;
-        }
-
-        return false;
+        String hashedPassword;
+		try {
+			hashedPassword = PasswordHash.createHash(password);
+	        Document doc = DatabaseConnect.getDatabaseConnect().hashedRegister(username,
+	                first_name, last_name, hashedPassword, email);
+	        String registerResult = (doc.text());
+	        return registerResult.equals("registered");
+		} catch (NoSuchAlgorithmException e) {
+			return false;
+		} catch (InvalidKeySpecException e) {
+			return false;
+		}
     }
 }
