@@ -11,12 +11,14 @@ import com.whereismymoney.service.Date;
  * 
  */
 public interface Idatabase {
+
     /**
      * This method takes in a username as a string and gets all its accounts.
      * @param   username A string holding the name of the user.
      * @return  returns a Document.
      */
     Document getAllAccounts(String username);
+
     /**
      * This method creates an account and takes in all the inputs needed to do so.
      * @param username                  String containing the name of the user.
@@ -28,6 +30,7 @@ public interface Idatabase {
      */
     Document createAccount(String username, String accountDisplayName,
             String accountFullName, double balance, double interestRate);
+
     /**
      * This method takes in a username and password and uses them to login.
      * @param username      String containing the name of the user.
@@ -35,12 +38,12 @@ public interface Idatabase {
      * @return              returns a Document.
      */
     Document login(String username, String password);
-    /**
-     * This method registers an account using username, first/last name, password, and email.
-     * @param user      user to be registered
-     * @return              returns a Document.
-     */
-    Document register(User user);
+
+    Document hashedLogin(String username);
+
+    Document register(String username, String first_name,
+            String last_name, String password, String email);
+
     /**
      * This method takes in a username and star/end date to generate a spending report.
      * @param username      String containing the name of the user.
@@ -50,6 +53,7 @@ public interface Idatabase {
      */
     Document generateSpendingCategoryReport(String username, Date start,
             Date end);
+
     /**
      * This method takes in a source and an amount to create a deposit.
      * @param source        String containing the source of the deposit.
@@ -59,6 +63,7 @@ public interface Idatabase {
      */
     Document newDeposit(String source, double amount,
             String effectiveDate);
+
     /**
      * This method takes in a reason, category, amount, and date to make a new withdrawal.
      * @param reason            String containing the reason for this withdraw.

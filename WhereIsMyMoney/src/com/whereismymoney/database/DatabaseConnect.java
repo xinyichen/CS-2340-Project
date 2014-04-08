@@ -21,7 +21,6 @@ import com.whereismymoney.service.Date;
  */
 public class DatabaseConnect implements Idatabase {
 
-//    private static DatabaseConnect databaseConnect;
     /**
      * A private, static, and final String holding the root address.
      */
@@ -38,10 +37,14 @@ public class DatabaseConnect implements Idatabase {
      * A private, static, and final String holding a php string to login.
      */
     private static final String LOGIN = "login.php";
+
+    private final static String HASHEDLOGIN = "hashed_login.php";
+
     /**
      * A private, static, and final String holding a php string to register.
      */
     private static final String REGISTER = "register.php";
+
     /**
      * A private, static, and final String holding a php string to get withdraw summary.
      */
@@ -117,14 +120,28 @@ public class DatabaseConnect implements Idatabase {
         return null;
     }
 
+    public Document hashedLogin(String username) {
+        try {
+            String address = buffer.append(ROOT_ADDRESS).append(HASHEDLOGIN)
+                    .toString();
+            Document doc = Jsoup.connect(address).data("username", username).timeout(15 * 1000).get();
+
+            return doc;
+        } catch (IOException e) {
+            Log.i("fail", e.toString());
+        }
+        return null;
+    }
+
     @Override
-    public Document register(User user) {
+    public Document register(String username, String first_name,
+            String last_name, String password, String email) {
         try {
             String address = buffer.append(ROOT_ADDRESS).append(REGISTER)
                     .toString();
-            Document doc = Jsoup.connect(address).data("username", user.getUsername())
-                    .data("password", user.getPassword()).data("first_name", user.getFirstName())
-                    .data("last_name", user.getLastName()).data("email", user.getEmail())
+            Document doc = Jsoup.connect(address).data("username", username)
+                    .data("password", password).data("first_name", first_name)
+                    .data("last_name", last_name).data("email", email)
                     .timeout(15 * 1000).get();
 
             return doc;
@@ -205,5 +222,4 @@ public class DatabaseConnect implements Idatabase {
         }
         return null;
     }
-
 }
