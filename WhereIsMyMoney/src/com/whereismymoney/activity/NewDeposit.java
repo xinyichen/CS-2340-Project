@@ -27,11 +27,11 @@ public class NewDeposit extends Activity {
     /**
      * This is a button used to confirm.
      */
-    Button confirm;
+    private Button confirm;
     /**
      * This is a button used to cancel.
      */
-    Button cancel;
+    private Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

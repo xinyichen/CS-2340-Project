@@ -18,11 +18,11 @@ public class Welcome extends Activity {
     /**
      * This is a button clicked to login.
      */
-    Button login;
+    private Button login;
     /**
      * This is a button clicked to register.
      */
-    Button register;
+    private Button register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -20,7 +20,7 @@ public class LogOut extends Activity {
     /**
      * A button the user presses to go home.
      */
-    Button home;
+    private Button home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

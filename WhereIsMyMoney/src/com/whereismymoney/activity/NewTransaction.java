@@ -19,15 +19,15 @@ public class NewTransaction extends Activity {
     /**
      * This is a button used to deposit.
      */
-    Button deposit;
+    private Button deposit;
     /**
      * This is a button used to withdraw.
      */
-    Button withdrawal;
+    private Button withdrawal;
     /**
      * This is a button used to cancel.
      */
-    Button cancel;
+    private Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

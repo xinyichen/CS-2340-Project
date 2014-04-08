@@ -25,7 +25,7 @@ public class NewWithdrawal extends Activity {
     /**
      * This is a button used to confirm.
      */
-    Button confirm;
+    private Button confirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

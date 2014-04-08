@@ -28,15 +28,19 @@ public class Login extends Activity {
     /**
      * A button the user uses to login.
      */
-    Button login;
+    private Button login;
     /**
      * A button the user uses to register.
      */
-    Button register;
+    private Button register;
     /**
      * A button the user presses when he has forgotten his password.
      */
-    Button forgotPassword;
+    private Button forgotPassword;
+    
+    private EditText username;
+    
+    private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +55,14 @@ public class Login extends Activity {
         login = (Button) findViewById(R.id.button_login_login);
         register = (Button) findViewById(R.id.button_login_register);
         forgotPassword = (Button) findViewById(R.id.button_forgot_password);
+        username = (EditText) findViewById(R.id.edit_text_login_username);
+        password = (EditText) findViewById(R.id.edit_text_login_password);
 
         // all the stuff associated with clicking the login button
         login.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                EditText username = (EditText) findViewById(R.id.edit_text_login_username);
-                EditText password = (EditText) findViewById(R.id.edit_text_login_password);
                 String failAlert = "Registration Failed";
                 String failReason = null;
                 // checking to see if the password is at least 7 characters and

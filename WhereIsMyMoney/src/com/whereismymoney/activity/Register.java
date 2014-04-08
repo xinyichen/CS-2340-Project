@@ -27,11 +27,11 @@ public class Register extends Activity {
     /**
      * This is a button used to regester.
      */
-    Button register;
+    private Button register;
     /**
      * This is a button clicked to cancel.
      */
-    Button cancel;
+    private Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

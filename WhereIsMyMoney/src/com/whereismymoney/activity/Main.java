@@ -17,7 +17,7 @@ public class Main extends Activity {
     /**
      * A type MediaPlayer used to hold the stating song.
      */
-    MediaPlayer startingSong;
+    private MediaPlayer startingSong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

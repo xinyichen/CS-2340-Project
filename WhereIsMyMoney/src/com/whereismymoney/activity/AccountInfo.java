@@ -143,7 +143,6 @@ public class AccountInfo extends Activity implements View.OnClickListener {
      */
     @Override
     public void onClick(View v) {
-        Log.i("click", "clicked");
         switch (v.getId()) {
             case R.id.bNewAccount:
                 Intent goCreateAccount = new Intent(
