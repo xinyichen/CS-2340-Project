@@ -28,10 +28,6 @@ public class NewDeposit extends Activity {
      * This is a button used to confirm.
      */
     private Button confirm;
-    /**
-     * This is a button used to cancel.
-     */
-    private Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,17 +79,6 @@ public class NewDeposit extends Activity {
                 newDepositAlert.setTitle(alertMessage);
                 newDepositAlert.setMessage(alertReason);
                 newDepositAlert.show();
-            }
-        });
-
-        // this method handles the cancel button being clicked
-        cancel.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                Intent goBackToNewTransaction = new Intent(
-                        "android.intent.action.NEWTRANSACTION");
-                startActivity(goBackToNewTransaction);
             }
         });
     }
