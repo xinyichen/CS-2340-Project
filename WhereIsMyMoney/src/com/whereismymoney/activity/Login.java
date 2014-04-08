@@ -20,7 +20,7 @@ import android.widget.EditText;
  * This class handles the login page.
  */
 
-public class Login extends Activity {
+public class Login extends Activity implements View.OnClickListener {
     /**
      * This is a private PasswordManager used for checking passwords.
      */
@@ -52,73 +52,17 @@ public class Login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         passwordManager = new PasswordManager();
+        
         login = (Button) findViewById(R.id.button_login_login);
         register = (Button) findViewById(R.id.button_login_register);
         forgotPassword = (Button) findViewById(R.id.button_forgot_password);
+        
+        login.setOnClickListener(this);
+        register.setOnClickListener(this);
+        forgotPassword.setOnClickListener(this);
+        
         username = (EditText) findViewById(R.id.edit_text_login_username);
         password = (EditText) findViewById(R.id.edit_text_login_password);
-
-        // all the stuff associated with clicking the login button
-        login.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String failAlert = "Registration Failed";
-                String failReason = null;
-                // checking to see if the password is at least 7 characters and
-                // the username is at least one character
-                if (IntegrityCheck.checkPasswordLength(password.getText()
-                        .toString(), 7)
-                        && IntegrityCheck.isInputValid(username.getText()
-                                .toString())) {
-                    // checks with the server to see if the login info is valid
-                    if (passwordManager.login(username.getText().toString(),
-                            password.getText().toString())) {
-                        Intent goToAccountList = new Intent(
-                                "android.intent.action.ACCOUNTINFO");
-                        startActivity(goToAccountList);
-                    } else {
-                        // the server returned false for the login method with
-                        // those parameters
-                        failReason = "Incorrect User Name or Password";
-                    }
-                } else {
-                    // alerting the user that the password is <7 characters
-                    if (!IntegrityCheck.checkPasswordLength(password.getText()
-                            .toString(), 7)) {
-                        failReason = "Your password must be at least 7 characters";
-                    } else {
-                        // alerting the user that they didn't enter a username
-                        failReason = "You need to enter a username!";
-                    }
-                    AlertDialog loginFailAlert = new AlertDialog.Builder(
-                            Login.this).create();
-                    loginFailAlert.setTitle(failAlert);
-                    loginFailAlert.setMessage(failReason);
-                    loginFailAlert.show();
-                }
-            }
-        });
-
-        register.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent goToRegister = new Intent(
-                        "android.intent.action.REGISTER");
-                startActivity(goToRegister);
-            }
-        });
-
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent goToForgotPassword = new Intent(
-                        "android.intent.action.FORGOTPASSWORD");
-                startActivity(goToForgotPassword);
-            }
-        });
     }
     
     @Override
@@ -128,4 +72,60 @@ public class Login extends Activity {
         inflater.inflate(R.menu.action_bar, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+        case R.id.button_login_login:
+        	onLoginClicked();
+            break;
+        case R.id.button_login_register:
+        	Intent goToRegister = new Intent(
+                    "android.intent.action.REGISTER");
+            startActivity(goToRegister);
+            break;
+        case R.id.button_forgot_password:
+        	  Intent goToForgotPassword = new Intent(
+                      "android.intent.action.FORGOTPASSWORD");
+              startActivity(goToForgotPassword);
+              break;
+		}
+	}
+	
+	private void onLoginClicked() {
+		String failAlert = "Registration Failed";
+        String failReason = null;
+        // checking to see if the password is at least 7 characters and
+        // the username is at least one character
+        if (IntegrityCheck.checkPasswordLength(password.getText()
+                .toString(), 7)
+                && IntegrityCheck.isInputValid(username.getText()
+                        .toString())) {
+            // checks with the server to see if the login info is valid
+            if (passwordManager.login(username.getText().toString(),
+                    password.getText().toString())) {
+                Intent goToAccountList = new Intent(
+                        "android.intent.action.ACCOUNTINFO");
+                startActivity(goToAccountList);
+            } else {
+                // the server returned false for the login method with
+                // those parameters
+                failReason = "Incorrect User Name or Password";
+            }
+        } else {
+            // alerting the user that the password is <7 characters
+            if (!IntegrityCheck.checkPasswordLength(password.getText()
+                    .toString(), 7)) {
+                failReason = "Your password must be at least 7 characters";
+            } else {
+                // alerting the user that they didn't enter a username
+                failReason = "You need to enter a username!";
+            }
+            AlertDialog loginFailAlert = new AlertDialog.Builder(
+                    Login.this).create();
+            loginFailAlert.setTitle(failAlert);
+            loginFailAlert.setMessage(failReason);
+            loginFailAlert.show();
+        }
+	}
 }

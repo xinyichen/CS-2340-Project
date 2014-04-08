@@ -74,12 +74,12 @@ public class NewWithdrawal extends Activity {
                     alertMessage = "Success";
                     alertReason = "Withdrawal succeeded";
                 } else {
+                	AlertDialog newWithdrawalAlert = new AlertDialog.Builder(
+                            NewWithdrawal.this).create();
+                    newWithdrawalAlert.setTitle(alertMessage);
+                    newWithdrawalAlert.setMessage(alertReason);
+                    newWithdrawalAlert.show();
                 }
-                AlertDialog newWithdrawalAlert = new AlertDialog.Builder(
-                        NewWithdrawal.this).create();
-                newWithdrawalAlert.setTitle(alertMessage);
-                newWithdrawalAlert.setMessage(alertReason);
-                newWithdrawalAlert.show();
             }
         });
     }
