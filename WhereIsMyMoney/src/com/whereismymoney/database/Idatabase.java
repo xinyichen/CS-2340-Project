@@ -2,7 +2,6 @@ package com.whereismymoney.database;
 
 import org.jsoup.nodes.Document;
 
-import com.whereismymoney.model.User;
 import com.whereismymoney.service.Date;
 
 /**

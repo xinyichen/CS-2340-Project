@@ -10,7 +10,6 @@ import android.util.Log;
 
 import com.whereismymoney.model.CurrentAccount;
 import com.whereismymoney.model.CurrentUser;
-import com.whereismymoney.model.User;
 import com.whereismymoney.service.Date;
 
 /**

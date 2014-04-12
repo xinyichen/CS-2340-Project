@@ -24,10 +24,6 @@ public class NewTransaction extends Activity {
      * This is a button used to withdraw.
      */
     private Button withdrawal;
-    /**
-     * This is a button used to cancel.
-     */
-    private Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

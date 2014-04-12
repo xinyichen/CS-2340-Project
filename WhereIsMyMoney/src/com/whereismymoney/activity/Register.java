@@ -2,7 +2,6 @@ package com.whereismymoney.activity;
 
 import com.whereismymoney.R;
 import com.whereismymoney.model.PasswordManager;
-import com.whereismymoney.model.User;
 import com.whereismymoney.service.IntegrityCheck;
 
 import android.app.Activity;
@@ -25,13 +24,9 @@ public class Register extends Activity {
      */
     private PasswordManager passwordManager;
     /**
-     * This is a button used to regester.
+     * This is a button used to register.
      */
     private Button register;
-    /**
-     * This is a button clicked to cancel.
-     */
-    private Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

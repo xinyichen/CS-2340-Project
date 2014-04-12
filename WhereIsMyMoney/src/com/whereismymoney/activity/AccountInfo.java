@@ -14,7 +14,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,19 +42,9 @@ public class AccountInfo extends Activity implements View.OnClickListener {
      * A private button used to view a report.
      */
     private Button viewReport;
-    /**
-     * A private boolean defaulted to false.
-     */
-    private Boolean actionBarLogOut;
-    /**
-     * A private boolean defaulted to false.
-     */
-    private Boolean actionBarSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-    	actionBarLogOut = false;
-    	actionBarSearch = false;
 
         getActionBar().setTitle("");
 
@@ -98,7 +87,7 @@ public class AccountInfo extends Activity implements View.OnClickListener {
         accInfoList
                 .setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                    public void onItemClick(AdapterView parent, View v,
+                    public void onItemClick(@SuppressWarnings("rawtypes") AdapterView parent, View v,
                             int position, long id) {
                         CurrentAccount.getCurrentAccount().setAccountName(
                                 accountList.get(position).getFullName());
@@ -171,11 +160,9 @@ public class AccountInfo extends Activity implements View.OnClickListener {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.action_search:
-            	actionBarSearch = true;
                 //search
                 return true;
             case R.id.action_log_out:
-            	actionBarLogOut = true;
                 //Intent goToLogOut = new Intent("android.intent.action.LOGOUT");
                 //startActivity(goToLogOut);
                 return true;
