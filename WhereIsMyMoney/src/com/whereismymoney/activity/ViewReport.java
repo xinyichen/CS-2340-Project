@@ -6,7 +6,7 @@ import com.whereismymoney.R;
 import com.whereismymoney.model.CurrentUser;
 import com.whereismymoney.model.Report;
 import com.whereismymoney.service.Date;
-import com.whereismymoney.model.ReportGenerator;
+import com.whereismymoney.model.ReportFactory;
 
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
@@ -95,8 +95,7 @@ public class ViewReport extends FragmentActivity implements
         generateReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                ReportGenerator generator = new ReportGenerator();
-                Report report = generator.generateSpendingCategoryReport(
+                Report report = ReportFactory.INSTANCE.generateSpendingCategoryReport(
                         CurrentUser.getCurrentUser().getUserName(), startDate,
                         endDate);
                 reportTxt.setText(report.toString());

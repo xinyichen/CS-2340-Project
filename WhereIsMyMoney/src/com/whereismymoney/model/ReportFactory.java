@@ -18,7 +18,16 @@ import com.whereismymoney.service.Pair;
  * @author Xinyi Chen
  * 
  */
-public class ReportGenerator {
+public class ReportFactory {
+	
+	public static final ReportFactory INSTANCE = new ReportFactory();
+	
+	/**
+     * Do not allow anyone to make an instance of this class
+     */
+	private ReportFactory() {
+		
+	}
 
 	/**
 	 * generate a spending category report.
@@ -28,7 +37,7 @@ public class ReportGenerator {
 	 * @param end ending date of the report
 	 * @return a spending category report
 	 */
-    public SpendingCategoryReport generateSpendingCategoryReport(String username, Date start,
+    public Report generateSpendingCategoryReport(String username, Date start,
             Date end) {
         Document doc = DatabaseConnect.getDatabaseConnect()
                 .generateSpendingCategoryReport(username, start, end);
