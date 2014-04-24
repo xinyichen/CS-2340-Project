@@ -1,7 +1,7 @@
 package com.whereismymoney.activity;
 
 import com.whereismymoney.R;
-import com.whereismymoney.model.PasswordManager;
+import com.whereismymoney.model.CredentialManager;
 import com.whereismymoney.model.User;
 import com.whereismymoney.service.IntegrityCheck;
 
@@ -23,7 +23,7 @@ public class Register extends Activity {
     /**
      * This is a private manager used to handle passwords.
      */
-    private PasswordManager passwordManager;
+    private CredentialManager passwordManager;
     /**
      * This is a button used to regester.
      */
@@ -42,7 +42,7 @@ public class Register extends Activity {
         
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        passwordManager = new PasswordManager();
+        passwordManager = new CredentialManager();
         register = (Button) findViewById(R.id.button_register_confirm);
 
         // this method handles everything associated with the confirm

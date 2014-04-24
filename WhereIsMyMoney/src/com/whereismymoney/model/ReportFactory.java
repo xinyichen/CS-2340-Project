@@ -41,8 +41,6 @@ public class ReportFactory {
             Date end) {
         Document doc = DatabaseConnect.getDatabaseConnect()
                 .generateSpendingCategoryReport(username, start, end);
-        Log.i("start", start.toString());
-        Log.i("end", end.toString());
         Elements categoryList = doc.select("category");
         Elements amountList = doc.select("subtotal");
         List<Pair<String, Double>> spendings = new ArrayList<Pair<String, Double>>();

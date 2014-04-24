@@ -1,7 +1,7 @@
 package com.whereismymoney.activity;
 
 import com.whereismymoney.R;
-import com.whereismymoney.model.PasswordManager;
+import com.whereismymoney.model.CredentialManager;
 import com.whereismymoney.service.IntegrityCheck;
 
 import android.app.Activity;
@@ -24,7 +24,7 @@ public class Login extends Activity implements View.OnClickListener {
     /**
      * This is a private PasswordManager used for checking passwords.
      */
-    private PasswordManager passwordManager;
+    private CredentialManager passwordManager;
     /**
      * A button the user uses to login.
      */
@@ -51,7 +51,7 @@ public class Login extends Activity implements View.OnClickListener {
         
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        passwordManager = new PasswordManager();
+        passwordManager = new CredentialManager();
         
         login = (Button) findViewById(R.id.button_login_login);
         register = (Button) findViewById(R.id.button_login_register);

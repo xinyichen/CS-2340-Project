@@ -13,7 +13,7 @@ import com.whereismymoney.service.PasswordHash;
  * This class handles everything associated with logins and user registration.
  */
 
-public class PasswordManager {
+public class CredentialManager {
 
 	/**
      * Checks to see if the login is valid.
