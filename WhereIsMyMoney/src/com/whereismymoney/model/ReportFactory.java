@@ -54,4 +54,17 @@ public class ReportFactory {
         return new SpendingCategoryReport(spendings, start, end);
 
     }
+    
+    /**
+     * Create a general method that can create the right class based on a 
+     * parameter
+     */
+    public Report generateReport(String type, String username, Date start, Date end) {
+    	switch(type) {
+    		case "spending category report":
+    			return generateSpendingCategoryReport(username, start, end);
+    		default:
+    			return null;  		
+    	}
+    }
 }
